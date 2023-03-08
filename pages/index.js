@@ -3,7 +3,6 @@ import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/courses';
 import Link from 'next/link';
-import Date from '../components/date';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();

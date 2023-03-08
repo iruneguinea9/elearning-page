@@ -32,6 +32,7 @@ export default function Course({ postData }) {
           <div className={utilStyles.lightText}>
             <Date dateString={postData.date} />
           </div>
+          <h2 className={utilStyles.headingMd}>{postData.description}</h2>
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
       </Layout>

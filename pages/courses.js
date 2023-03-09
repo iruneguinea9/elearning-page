@@ -1,37 +1,37 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react';
 
-export default function Notes() {
-  const [note, setNote] = useState('');
-  const [notes, setNotes] = useState([]);
+export default function Courses() {
+  const [course, setCourse] = useState('');
+  const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    async function fetchNotes() {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/courses/`);
+    async function fetchCourses() {
+      const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/courses/');
       const json = await res.json();
       console.log(json)
-      setNotes(json);
+      setCourses(json);
     }
-    fetchNotes();
+    fetchCourses();
   }, [])
 
   function handleChange(e) {
-    setNote(e.target.value);
+    setCourse(e.target.value);
   }
 
   async function handleSubmit() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/courses/`, {
-      method: 'POST',
+    const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/courses/', {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        text: note,
+        text: course,
         completed: false
       })
     })
     const json = await res.json();
-    setNotes([...notes, json])
+    setCourses([...courses, json])
   }
 
   return (
@@ -42,14 +42,10 @@ export default function Notes() {
       <div className="container mx-auto p-10 m-10">
         <div className="flex flex-col">
           <h1 className="font-bold mb-3">Courses</h1>
-          <textarea value={note} onChange={handleChange} className="border-2" ></textarea>
-          <div className="mx-auto p-3 m-5">
-            <button onClick={handleSubmit} className="bg-green-500 p-3 text-white">Submit</button>
-          </div>
           <div>
             <ul>
-              {notes && notes.map((note) =>
-                  <li key={note.id} className="bg-yellow-100 m-3 p-3 border-yellow-200 border-2">{note.text}</li>
+              {courses && courses.map((course) =>
+                  <li key={course.id} className="bg-yellow-100 m-3 p-3 border-yellow-200 border-2">{course.title}</li>
               )}
             </ul>
           </div>

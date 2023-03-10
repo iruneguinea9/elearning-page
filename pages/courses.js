@@ -20,7 +20,7 @@ export default function Courses() {
   }
 
   async function handleSubmit() {
-    const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/courses/', {
+    const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/courses', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'

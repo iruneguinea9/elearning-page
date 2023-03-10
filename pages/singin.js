@@ -39,7 +39,7 @@ export default function SignIn() {
        
       const json = await res.json()
       localStorage.setItem("token", json.token)
-      router.push("/courses")
+      router.push("/courses/course1")
     } else {
       alert("Bad credentials")
     }

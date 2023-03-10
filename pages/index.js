@@ -16,6 +16,7 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }) {
   return (
         <Format>
+          <h1> In the future this will be a cool page to access the login</h1>
            <Link href={`singin`}>click here to log in</Link>
         </Format>
       );

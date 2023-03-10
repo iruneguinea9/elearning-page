@@ -1,0 +1,29 @@
+.container {
+    height: 400px;
+    padding: 20px 300px 20px 300px;
+  }
+  
+  .title {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .input {
+    height: 30px;
+    border: 1px solid black;
+    margin: 10px 0;
+    padding: 10px;
+  }
+  
+  .btn {
+    padding: 20px;
+    margin: 20px 0;
+    width: 100px;
+    align-self: center;
+  }

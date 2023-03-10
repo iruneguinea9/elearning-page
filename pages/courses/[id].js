@@ -27,9 +27,11 @@ export default function Course({ postData }) {
           <title>{postData.title}</title>
         </Head>
         <article>
-          <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-          <h2 className={utilStyles.headingMd}>{postData.description}</h2>
-          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          <div className="container md:px-20 ">
+            <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+            <h2 className={utilStyles.headingMd}>{postData.description}</h2>
+            <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          </div>
         </article>
       </Format>
     );

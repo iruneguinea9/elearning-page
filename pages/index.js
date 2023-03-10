@@ -15,21 +15,8 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData }) {
   return (
-    <Format>
-        <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-          <h2 className={utilStyles.headingLg}>Courses</h2>
-          <ul className={utilStyles.list}>
-            {allPostsData.map(({ id, description, title }) => (
-              <li className={utilStyles.listItem} key={id}>
-              <Link href={`/courses/${id}`}>{title}
-              <br />
-              <small className={utilStyles.lightText}>
-              <h4 className={utilStyles.listItem}>{description}</h4>
-              </small></Link>
-            </li>
-            ))}
-          </ul>
-        </section>
+        <Format>
+           <Link href={`singin`}>click here to log in</Link>
         </Format>
       );
 

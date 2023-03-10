@@ -41,7 +41,7 @@ export default function SignIn() {
       localStorage.setItem("token", json.token)
       router.push("/authenticatedindex")
     } else {
-      alert("Bad credentials")
+      alert("Could not login, please check the username and the password")
     }
   }
 

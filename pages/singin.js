@@ -39,7 +39,7 @@ export default function SignIn() {
     if (res.ok) {
        
       const json = await res.json()
-      localStorage.setItem("token", json.token)
+      localStorage.setItem("token", json.access_token)
       router.push("/authenticatedindex")
     } else {
       alert("Could not login, please check the username and the password")

@@ -1,19 +1,10 @@
 import Head from 'next/head';
 import utilStyles from '../styles/utils.module.css';
-import { getSortedPostsData } from '../lib/courses';
 import Link from 'next/link';
 import Footer from "../components/footer"
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
-}
 
-export default function Home({ allPostsData }) {
+export default function Home({  }) {
   return (
     <>
       <header className="bg-gray-400">

@@ -1,6 +1,9 @@
 .container {
     height: 400px;
-    padding: 20px 300px 20px 300px;
+    width: fit-content;
+    padding: 20px;
+    align-self: center;
+    margin: auto;
   }
   
   .title {

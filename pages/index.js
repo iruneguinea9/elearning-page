@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/courses';
 import Link from 'next/link';
+import Format from '../layout/format';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -15,11 +15,7 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData }) {
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Format>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <h2 className={utilStyles.headingLg}>Courses</h2>
           <ul className={utilStyles.list}>
@@ -34,7 +30,7 @@ export default function Home({ allPostsData }) {
             ))}
           </ul>
         </section>
-        </Layout>
+        </Format>
       );
 
     

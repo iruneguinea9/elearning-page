@@ -1,7 +1,7 @@
-import Layout from '../../components/layout';
 import { getAllPostIds, getPostData } from '../../lib/courses';
 import Head from 'next/head';
 import utilStyles from '../../styles/utils.module.css';
+import Format from '../../layout/format';
 
 export async function getStaticProps({ params }) {
     const postData = await getPostData(params.id);
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 }
 export default function Course({ postData }) {
     return (
-      <Layout>
+      <Format>
         <Head>
           <title>{postData.title}</title>
         </Head>
@@ -31,6 +31,6 @@ export default function Course({ postData }) {
           <h2 className={utilStyles.headingMd}>{postData.description}</h2>
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
-      </Layout>
+      </Format>
     );
   }

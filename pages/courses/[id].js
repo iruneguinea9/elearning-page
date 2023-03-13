@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import fetcher from '../lib/fetcher';
+import fetcher from '../../lib/fetcher';
 import Head from 'next/head';
-import utilStyles from '../styles/utils.module.css';
-import Format from '../layout/format';
+import utilStyles from '../../styles/utils.module.css';
+import Format from '../../layout/format';
 
 export default function Course({ postData }) {
   return (

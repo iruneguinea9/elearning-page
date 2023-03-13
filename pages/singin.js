@@ -23,7 +23,7 @@ export default function SignIn() {
         grant_type: "",
         username: "johndoe",
         password: "secret",
-        scope: "",
+        scope: "read:courses",
         client_id: "",
         client_secret: ""
       };

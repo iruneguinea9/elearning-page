@@ -9,7 +9,7 @@ const CoursesPage = () => {
       try {
         const accessToken = localStorage.getItem("token");
         const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
-        const coursesData = await fetcher(url, accessToken);
+        const coursesData = await fetcher(url, accessToken).then(data => console.log(data)).catch(error => console.error(error));
         setCourses(coursesData);
       } catch (error) {
         console.error(error);

@@ -9,7 +9,7 @@ const CoursesPage = () => {
       try {
         const accessToken = localStorage.getItem("token");
         const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
-        const coursesData = await fetcher(url, accessToken).then(data => console.log(data)).catch(error => console.error(error));
+        const coursesData = await fetcher(url, accessToken);
         setCourses(coursesData);
       } catch (error) {
         console.error(error);
@@ -23,8 +23,8 @@ const CoursesPage = () => {
     <div>
       <h1>All Courses</h1>
       <ul>
-        {courses.map(course => (
-          <li key={course.id}>{course.title}</li>
+        {courses?.map(course => (
+            <li key={course.id}>{course.title}</li>
         ))}
       </ul>
     </div>

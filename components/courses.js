@@ -28,7 +28,7 @@ const CoursesPage = () => {
       <ul>
         {courses?.map((course, index) => (
           <li key={index}>
-            <Link href="/courses/[courseId]" as={`/courses/${course._id}`}>
+            <Link href="/courses/[id]" as={`/courses/${course._id}`}>
               {course.title}
             </Link>
           </li>

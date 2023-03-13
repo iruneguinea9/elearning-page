@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import fetcher from '../lib/fetcher';
 import Link from 'next/link';
+import { parseCookies } from 'nookies';
 
 const CoursesPage = () => {
   const [courses, setCourses] = useState([]);
@@ -8,7 +9,8 @@ const CoursesPage = () => {
   useEffect(() => {
     const getCourses = async () => {
       try {
-        const accessToken = localStorage.getItem("token");
+        const cookies = parseCookies();
+        const accessToken = cookies.token;
         const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
         const coursesData = await fetcher(url, accessToken);
         setCourses(coursesData);

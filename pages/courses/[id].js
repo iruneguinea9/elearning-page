@@ -1,10 +1,17 @@
-import { useState, useEffect } from 'react';
-import fetcher from '../../lib/fetcher';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import utilStyles from '../../styles/utils.module.css';
 import Format from '../../layout/format';
+import fetcher from '../../lib/fetcher';
+import { parseCookies } from 'nookies';
 
 export default function Course({ postData }) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Format>
       <Head>
@@ -21,29 +28,26 @@ export default function Course({ postData }) {
   );
 }
 
-export async function getStaticPaths() {
-  // Call an API or fetch data from an external data source
-  const accessToken = localStorage.getItem('token');
-  const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
-  const coursesData = await fetcher(url, accessToken);
+export async function getServerSideProps(context) {
+  const { params, req } = context;
+  const { id } = params;
 
-  // Generate paths based on the fetched data
-  const paths = coursesData.map((course) => ({
-    params: { id: course.id.toString() },
-  }));
+  const cookies = parseCookies({ req });
+  const accessToken = cookies.token;
 
-  return { paths, fallback: false };
-}
+  try {
+    const postData = await fetcher(`${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`, accessToken);
 
-export async function getStaticProps({ params }) {
-  // Fetch data for a single course
-  const accessToken = localStorage.getItem('token');
-  const url = `${process.env.NEXT_PUBLIC_API_URL}/courses/${params.id}`;
-  const postData = await fetcher(url, accessToken);
+    return {
+      props: {
+        postData,
+      },
+    };
+  } catch (error) {
+    console.error(error);
 
-  return {
-    props: {
-      postData,
-    },
-  };
+    return {
+      notFound: true,
+    };
+  }
 }

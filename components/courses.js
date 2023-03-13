@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import fetcher from '../lib/fetcher';
+import Link from 'next/link';
 
 const CoursesPage = () => {
   const [courses, setCourses] = useState([]);
@@ -23,9 +24,13 @@ const CoursesPage = () => {
     <div>
       <h1>All Courses</h1>
       <ul>
-      {courses?.map((course, index) => (
-        <li key={index}>{course.title}</li>
-      ))}
+        {courses?.map((course, index) => (
+          <li key={index}>
+            <Link href={`/courses/${course._id}`}>
+              {course.title}
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

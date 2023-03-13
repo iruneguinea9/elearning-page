@@ -3,6 +3,7 @@ import { useState } from "react"
 import Footer from "../components/footer"
 import styles from "../styles/styles.module.css"
 import Link from 'next/link'
+import { setCookie } from "nookies"
 
 export default function SignIn() {
   const router = useRouter()
@@ -37,9 +38,11 @@ export default function SignIn() {
       }
     })
     if (res.ok) {
-       
       const json = await res.json()
-      localStorage.setItem("token", json.access_token)
+      setCookie(null, "token", json.access_token, {
+        maxAge: json.expires_in,
+        path: "/"
+      })
       router.push("/authenticatedindex")
     } else {
       alert("Could not login, please check the username and the password")

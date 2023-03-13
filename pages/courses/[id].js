@@ -20,9 +20,8 @@ export async function getServerSideProps({ params }) {
   const { id } = params
   const cookies = parseCookies();
   const accessToken = cookies.token;
-  // Retrieve the course data from the API using the courseId parameter
   console.log('id:', id)
-  console.log('accessToken:', accessToken)
+  console.log('accessToken:', accessToken) // this is empty ??????
   console.log('cookies:', cookies)
   const data = await fetcher(`${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`, accessToken)
 

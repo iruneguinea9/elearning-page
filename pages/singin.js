@@ -21,7 +21,7 @@ export default function SignIn() {
 
   async function handleSubmit() {
     const credentials = {
-        grant_type: "",
+       grant_type: "password",
         username: "johndoe",
         password: "secret",
         scope: "read:courses me items items",
@@ -41,7 +41,8 @@ export default function SignIn() {
       const json = await res.json()
       setCookie(null, "token", json.access_token, {
         maxAge: json.expires_in,
-        path: "/"
+        path: "/",
+        domain: "localhost"
       })
       router.push("/authenticatedindex")
     } else {

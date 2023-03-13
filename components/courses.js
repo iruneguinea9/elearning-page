@@ -23,9 +23,9 @@ const CoursesPage = () => {
     <div>
       <h1>All Courses</h1>
       <ul>
-        {courses?.map(course => (
-            <li key={course.id}>{course.title}</li>
-        ))}
+      {courses?.map((course, index) => (
+        <li key={index}>{course.title}</li>
+      ))}
       </ul>
     </div>
   );

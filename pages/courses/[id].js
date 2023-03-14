@@ -15,9 +15,27 @@ export default function CoursePage() {
 
   return (
     <div>
-      <h1>{course.title}</h1>
-      <p>{course.description}</p>
-      <div>Number of lessons: {course.lessons.length}</div>
+      <div style={{ display: 'flex' }}>
+        <div style={{ flex: '0 0 200px' }}>
+          <ul style={{ listStyleType: 'none', padding: 0 }}>
+            {course.lessons.map((lesson) => (
+              <li key={lesson.title}>
+                <a href={`#${lesson.title}`}>{lesson.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div style={{ flex: '1' }}>
+          <h1>{course.title}</h1>
+          <p>{course.description}</p>
+          {course.lessons.map((lesson) => (
+            <div key={lesson.title} style={{ marginBottom: '40px' }}>
+              <h2 id={lesson.title}>{lesson.title}</h2>
+              <p>{lesson.content}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

@@ -17,6 +17,7 @@ export default function CoursePage() {
     <div>
       <h1>{course.title}</h1>
       <p>{course.description}</p>
+      <div>Number of lessons: {course.lessons.length}</div>
     </div>
   );
 }

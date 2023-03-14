@@ -14,7 +14,6 @@ const CoursesPage = () => {
         const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
         const coursesData = await fetcher(url, accessToken);
         setCourses(coursesData);
-
       } catch (error) {
         console.error(error);
       }
@@ -24,17 +23,18 @@ const CoursesPage = () => {
   }, []);
 
   return (
-    <div>
-      <h1>All Courses</h1>
-      <ul>
-        {courses?.map((course, index) => (
-          <li key={index}>
-            <Link href="/courses/[id]" as={`/courses/${course._id}`}>
-              {course.title}
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      {courses?.map((course, index) => (
+        <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
+           <Link href="/courses/[id]" as={`/courses/${course._id}`} style={{ fontSize: '1.2rem' }}>
+          <img src="/images/sample_pic.png" alt="Pic goes here" width="400" height="400" style={{ marginRight: '1rem' }} />
+          
+           
+             {course.title}
             </Link>
-          </li>
-        ))}
-      </ul>
+          
+        </div>
+      ))}
     </div>
   );
 };

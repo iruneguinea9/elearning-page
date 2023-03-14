@@ -9,8 +9,12 @@ export default function SignIn() {
   const router = useRouter()
 
   const [state, setState] = useState({
-    username: "johndoe",
-    password: "secret"
+    grant_type: "password",
+        username:"",
+        password: "",
+        scope: "read:courses me items items",
+        client_id: "",
+        client_secret: ""
   })
 
   function handleChange(e) {
@@ -22,8 +26,8 @@ export default function SignIn() {
   async function handleSubmit() {
     const credentials = {
        grant_type: "password",
-        username: "johndoe",
-        password: "secret",
+        username: state.username,
+        password: state.password,
         scope: "read:courses me items items",
         client_id: "",
         client_secret: ""
@@ -51,7 +55,7 @@ export default function SignIn() {
 
   return (
     <>
-    <header className="bg-gray-400">
+    <header className="bg-blue-300">
       <div className="xl:container xl:mx-auto flex flex-col items-center  sm:justify-between text-center py-3">
               <Link href={"/"}>
                   <h1 className="font-bold text-4xl">eLearning platform</h1>

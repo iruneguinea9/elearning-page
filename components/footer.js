@@ -8,10 +8,10 @@ export default function footer() {
   }
 
   return (
-    <footer className="bg-gray-400" style={bg}>
+    <footer className="bg-blue-400" style={bg}>
       <div className="container mx-auto flex justify-center py-12">
           <div className="py-5">
-              <p className="py-5 text-gray-500">Copyright ©2023 All rights reserved | This is a test for the component</p>
+              <p className="py-5 text-white">Copyright ©2023 All rights reserved | This is a test for the component</p>
           </div>
       </div>
 

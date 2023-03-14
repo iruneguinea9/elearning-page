@@ -5,6 +5,7 @@ import useSWR from 'swr';
 import { parseCookies } from 'nookies';
 import Head from 'next/head';
 import Format from '../../layout/format';
+import styles from '../../styles/course.module.css';
 
 export default function CoursePage() {
   const router = useRouter();
@@ -33,7 +34,10 @@ export default function CoursePage() {
               <ul style={{ listStyleType: 'none', padding: 0 }}>
                 {course.lessons.map((lesson) => (
                   <li key={lesson.title}>
-                    <a onClick={() => setSelectedLesson(lesson)}>
+                    <a
+                      className={styles.lessonButton}
+                      onClick={() => setSelectedLesson(lesson)}
+                    >
                       {lesson.title}
                     </a>
                   </li>

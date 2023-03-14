@@ -1,0 +1,18 @@
+.lessonButton {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-right: 10px;
+    background-color: lightgray;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .lessonButton:hover {
+    background-color: grey;
+  }

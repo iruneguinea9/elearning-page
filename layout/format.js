@@ -10,7 +10,7 @@ export default function format( { children },{title}){
             </Head>
 
             <Header></Header>
-            <main>{children}</main>
+            <main style={{ minHeight: "450px" }}>{children}</main>
             <Footer></Footer>
         </>
     )

@@ -58,9 +58,9 @@ export default function SignIn() {
               </Link>          
       </div>  
       </header>
-      <div className={styles.container}>
+      <div className={styles.container} style={{ minHeight: "450px" }}>
         <h1 className={styles.title}>Sign In</h1>
-        <div className={styles.form}>
+        <div className={styles.form} >
           <input className={styles.input} type="text" name="username" placeholder="username" value={state.username} onChange={handleChange} autoComplete="off" />
           <input className={styles.input} type="password" name="password" placeholder="password" value={state.password} onChange={handleChange} />
           <button className={styles.btn} onClick={handleSubmit}>Submit</button>

@@ -15,7 +15,8 @@ export default function Home({  }) {
       </div>  
       </header>
           <h1> In the future this will be a cool page to access the login</h1>
-           <Link href={`singin`}>click here to log in</Link>
+          <div style={{ minHeight: "450px" }}> <Link href={`singin`}>click here to log in</Link></div>
+          
       <Footer></Footer>
      </>    
       );

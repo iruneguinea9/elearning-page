@@ -1,28 +1,22 @@
 import { useRouter } from 'next/router'
 import fetcher from '../../lib/fetcher';
+import useSWR from 'swr';
+import { parseCookies } from 'nookies';
 
-export default function Course({ course }) {
-  const router = useRouter()
-  if (router.isFallback) {
-    return <div>Loading...</div>
-  }
+export default function CoursePage() {
+  const router = useRouter();
+  const { id } = router.query;
+  const cookies = parseCookies();
+
+  const { data: course, error } = useSWR(`/courses/${id}`, (url) => fetcher(url, cookies.token));
+
+  if (error) return <div>Error loading course data.</div>;
+  if (!course) return <div>Loading course data...</div>;
 
   return (
     <div>
       <h1>{course.title}</h1>
       <p>{course.description}</p>
     </div>
-  )
-}
-
-export async function getServerSideProps({ params }) {
-  const { id } = params
-  const url = `${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`;
-  const data = await fetcher(url);
-
-  return {
-    props: {
-      course: data
-    }
-  }
+  );
 }

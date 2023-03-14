@@ -2,6 +2,8 @@ import { useRouter } from 'next/router'
 import fetcher from '../../lib/fetcher';
 import useSWR from 'swr';
 import { parseCookies } from 'nookies';
+import Head from "next/head"
+import Format from '../../layout/format';
 
 export default function CoursePage() {
   const router = useRouter();
@@ -14,6 +16,10 @@ export default function CoursePage() {
   if (!course) return <div>Loading course data...</div>;
 
   return (
+    <> <Format>
+    <Head>
+        <title>eLearning</title>
+    </Head>
     <div>
       <div style={{ display: 'flex' }}>
         <div style={{ flex: '0 0 200px' }}>
@@ -37,5 +43,7 @@ export default function CoursePage() {
         </div>
       </div>
     </div>
+    </Format>
+    </>
   );
 }

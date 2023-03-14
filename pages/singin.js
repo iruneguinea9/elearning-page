@@ -42,7 +42,6 @@ export default function SignIn() {
       setCookie(null, "token", json.access_token, {
         maxAge: json.expires_in,
         path: "/",
-        domain: "localhost"
       })
       router.push("/authenticatedindex")
     } else {

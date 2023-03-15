@@ -1,7 +1,16 @@
 import Link from 'next/link';
 import Footer from '../components/footer';
+import { useRouter } from 'next/router';
+import { parseCookies } from 'nookies';
 
 export default function Home({}) {
+  const cookies = parseCookies();
+  const accessToken = cookies.token;
+  const router = useRouter();
+  if(accessToken!==undefined){
+    router.push('/authenticatedindex')
+
+  }
   return (
     <>
       <header className="bg-blue-300">

@@ -4,6 +4,7 @@ import Head from "next/head"
 import Format from '../layout/format';
 import Courses from '../components/courses';
 import { useRouter } from 'next/router';
+import styles from '../styles/course.module.css';
 
 export default function AuthenticatedFormat(props) {
   const cookies = parseCookies();
@@ -21,8 +22,8 @@ export default function AuthenticatedFormat(props) {
             <div>
               <h2 className={utilStyles.headingLg} style={{ fontSize: "28px" }}>Courses</h2>
             </div>
-            <p>You need to log in to have access to the courses</p>
-            <button onClick={() => router.push('/singin')}>Sign in</button>
+            <p style={{ marginBottom: "28px" }}>You need to log in to have access to the courses</p>
+            <button className={styles.lessonButton} onClick={() => router.push('/singin')}>Sign in</button>
           </section></div>
         </Format>
       

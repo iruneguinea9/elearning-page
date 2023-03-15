@@ -18,6 +18,11 @@ export default function CoursePage() {
   );
 
   const [selectedLesson, setSelectedLesson] = useState(null);
+  const [showNav, setShowNav] = useState(false);
+
+  const toggleNav = () => {
+    setShowNav(!showNav);
+  };
 
   if (error) return <div>Error loading course data.</div>;
   if (!course) return <div>Loading course data...</div>;
@@ -25,36 +30,43 @@ export default function CoursePage() {
   return (
     <>
       <Format>
-  <Head>
-    <title>eLearning</title>
-  </Head>
-  <div style={{ display: 'flex', alignItems: 'stretch' }}>
-    <div style={{ flex: '0 0 200px' }}>
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
-        {course.lessons.map((lesson) => (
-          <li key={lesson.title}>
-            <a
-              className={styles.lessonButton}
-              onClick={() => setSelectedLesson(lesson)}
-            >
-              {lesson.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-    <div style={{ flex: '1', marginLeft: '20px' }}>
-      <h1 style={{ fontSize: '3em'}}>{course.title}</h1>
-      <p>{course.description}</p>
-      {selectedLesson && (
-        <div key={selectedLesson.title} style={{ marginBottom: '40px', marginTop: '10px' }}>
-          <h2 id={selectedLesson.title}>{selectedLesson.title}</h2>
-          <p>{selectedLesson.content}</p>
+        <Head>
+          <title>eLearning</title>
+        </Head>
+        <div style={{ display: 'flex', alignItems: 'stretch' }}>
+          <div style={{ flex: '0 0 200px', display: showNav ? 'block' : 'none' }}>
+            <ul style={{ listStyleType: 'none', padding: 0 }}>
+              {course.lessons.map((lesson) => (
+                <li key={lesson.title}>
+                  <a
+                    className={styles.lessonButton}
+                    onClick={() => {
+                      setSelectedLesson(lesson);
+                      setShowNav(false);
+                    }}
+                  >
+                    {lesson.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div style={{ flex: '1', marginLeft: '20px', position: 'relative' }}>
+            <div style={{ position: 'absolute', top: 5, left: 0, cursor: 'pointer' }} onClick={toggleNav}>
+              <img src="/images/moreinfo.png" alt="Toggle navigation" />
+            </div>
+            <div style={{ position: 'absolute', top: 0, left: 100, cursor: 'pointer' }}>
+            <h1 style={{ fontSize: '3em'}}>{course.title}</h1>
+            <p>{course.description}</p>
+            {selectedLesson && (
+              <div key={selectedLesson.title} style={{ marginBottom: '40px', marginTop: '10px' }}>
+                <h2 id={selectedLesson.title}>{selectedLesson.title}</h2>
+                <p>{selectedLesson.content}</p>
+              </div>
+            )}</div>
+          </div>
         </div>
-      )}
-    </div>
-  </div>
-</Format>
+      </Format>
     </>
   );
 }

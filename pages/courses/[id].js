@@ -25,38 +25,36 @@ export default function CoursePage() {
   return (
     <>
       <Format>
-        <Head>
-          <title>eLearning</title>
-        </Head>
-        <div>
-          <div style={{ display: 'flex' }}>
-            <div style={{ flex: '0 0 200px' }}>
-              <ul style={{ listStyleType: 'none', padding: 0 }}>
-                {course.lessons.map((lesson) => (
-                  <li key={lesson.title}>
-                    <a
-                      className={styles.lessonButton}
-                      onClick={() => setSelectedLesson(lesson)}
-                    >
-                      {lesson.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div style={{ flex: '1' }}>
-              <h1>{course.title}</h1>
-              <p>{course.description}</p>
-              {selectedLesson && (
-                <div key={selectedLesson.title} style={{ marginBottom: '40px' }}>
-                  <h2 id={selectedLesson.title}>{selectedLesson.title}</h2>
-                  <p>{selectedLesson.content}</p>
-                </div>
-              )}
-            </div>
-          </div>
+  <Head>
+    <title>eLearning</title>
+  </Head>
+  <div style={{ display: 'flex', alignItems: 'stretch' }}>
+    <div style={{ flex: '0 0 200px' }}>
+      <ul style={{ listStyleType: 'none', padding: 0 }}>
+        {course.lessons.map((lesson) => (
+          <li key={lesson.title}>
+            <a
+              className={styles.lessonButton}
+              onClick={() => setSelectedLesson(lesson)}
+            >
+              {lesson.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div style={{ flex: '1', marginLeft: '20px' }}>
+      <h1 style={{ fontSize: '3em'}}>{course.title}</h1>
+      <p>{course.description}</p>
+      {selectedLesson && (
+        <div key={selectedLesson.title} style={{ marginBottom: '40px', marginTop: '10px' }}>
+          <h2 id={selectedLesson.title}>{selectedLesson.title}</h2>
+          <p>{selectedLesson.content}</p>
         </div>
-      </Format>
+      )}
+    </div>
+  </div>
+</Format>
     </>
   );
 }

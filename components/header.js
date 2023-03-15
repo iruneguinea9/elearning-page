@@ -7,10 +7,7 @@ export default function header() {
                 <Link href={"/authenticatedindex"}>
                     <h1 className="font-bold text-4xl">eLearning platform</h1>
                 </Link>
-            
-        </div>
-
-        
+        </div>        
     </header>
   )
 }

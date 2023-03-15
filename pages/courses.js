@@ -41,7 +41,7 @@ export default function Courses() {
       </Head>
       <div className="container mx-auto p-10 m-10">
         <div className="flex flex-col">
-          <h1 className="font-bold mb-3">Courses</h1>
+         <h1 className="font-bold mb-3" style="font-size: 36px; margin-left: 20px;">Courses</h1>
           <div>
             <ul>
               {courses && courses.map((course) =>

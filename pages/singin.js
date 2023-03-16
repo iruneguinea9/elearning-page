@@ -1,3 +1,10 @@
+// Name : Sign in
+// Author : Irune Guinea
+// This is where the credentials are set, it redirects to the authenticated index
+// Last update 16/03/2023 - V1
+
+
+// ########################################## IMPORTS ##########################################
 import { useRouter } from "next/router"
 import { useState } from "react"
 import Footer from "../components/footer"
@@ -12,7 +19,7 @@ export default function SignIn() {
     grant_type: "password",
         username:"",
         password: "",
-        scope: "read:courses me items items",
+        scope: "read:courses me items items",  //the scope for the api
         client_id: "",
         client_secret: ""
   })
@@ -33,11 +40,12 @@ export default function SignIn() {
         client_secret: ""
       };
       const formData = new URLSearchParams(credentials);
+      // ########################################## FETCHING ##########################################
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/token`, {
       method: "POST",
       body: formData,
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/x-www-form-urlencoded",  //API established
         "Accept": "application/json"
       }
     })
@@ -52,7 +60,7 @@ export default function SignIn() {
       alert("Could not login, please check the username and the password")
     }
   }
-
+  // ########################################## RETURN ##########################################
   return (
     <>
     <header className="bg-blue-300">

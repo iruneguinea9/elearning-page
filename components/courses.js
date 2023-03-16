@@ -1,3 +1,10 @@
+// Name : Courses
+// Author : Irune Guinea
+// This component is to display each of the courses
+// Last update 16/03/2023 - V1
+
+
+// ########################################## IMPORTS ##########################################
 import { useState, useEffect } from 'react';
 import fetcher from '../lib/fetcher';
 import Link from 'next/link';
@@ -22,6 +29,8 @@ const CoursesPage = () => {
     getCourses();
   }, []);
 
+
+  // ########################################## RETURN ##########################################
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       {courses?.map((course, index) => (

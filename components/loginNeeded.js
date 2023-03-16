@@ -1,3 +1,10 @@
+// Name : Login Needed
+// Author : Irune Guinea
+// With this component I redirect to the sign in page to a user that is not logged in and 
+// is trying to access a protected area
+// Last update 16/03/2023 - V1
+
+// ########################################## IMPORTS ##########################################
 import Format from '../layout/format';
 import Head from "next/head"
 import utilStyles from '../styles/utils.module.css'
@@ -6,7 +13,8 @@ import { useRouter } from 'next/router';
 
 export default function loginNeeded() {
     
-    const router = useRouter();
+    const router = useRouter(); //this is for redirection
+  // ########################################## RETURN ##########################################
 return (
     <Format>
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center"}}>   

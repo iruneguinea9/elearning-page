@@ -1,3 +1,11 @@
+// Name : ID
+// Author : Irune Guinea
+// With this page, each course has it's own page, it has the content of the course and
+// A side navigation bar that allows the user to access the lesson they want to 
+// Last update 16/03/2023 - V1
+
+
+// ########################################## IMPORTS ##########################################
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import fetcher from '../../lib/fetcher';
@@ -11,7 +19,7 @@ export default function CoursePage() {
   const router = useRouter();
   const { id } = router.query;
   const cookies = parseCookies();
-
+  // ########################################## FETCHING ##########################################
   const { data: course, error } = useSWR(
     `${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`,
     (url) => fetcher(url, cookies.token)
@@ -23,15 +31,17 @@ export default function CoursePage() {
   const toggleNav = () => {
     setShowNav(!showNav);
   };  
+  // #################################### OTHER POSSIBLE RETURNS ################################
   if(cookies.token===undefined){
     return (
       <Login></Login>
      
     );
   }
+  
   if (error) return <div>Error loading course data.</div>;
   if (!course) return <div>Loading course data...</div>;
-
+  // ########################################## RETURN ##########################################
   return (
     <>
       <Format>

@@ -1,3 +1,10 @@
+// Name : Courses
+// Author : Irune Guinea
+// This is an index page but for the already authenticated users
+// Last update 16/03/2023 - V1
+
+
+// ########################################## IMPORTS ##########################################
 import { parseCookies } from 'nookies';
 import utilStyles from '../styles/utils.module.css'
 import Head from "next/head"
@@ -14,6 +21,7 @@ export default function AuthenticatedFormat(props) {
      
     );
   }
+    // ########################################## RETURN ##########################################
   return (
     <> <Format>
             <Head>

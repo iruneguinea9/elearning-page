@@ -1,3 +1,11 @@
+// Name : Add Course
+// Author : Irune Guinea
+// This is the page to add a new course, here the admin can add a course with the parameters needed
+// and also add as many lessons as they need to
+// Last update 16/03/2023 - V1
+
+
+// ########################################## IMPORTS ##########################################
 import { useState } from 'react';
 import { parseCookies } from 'nookies';
 import Head from "next/head"
@@ -14,7 +22,7 @@ function AddCourse() {
   });
 
   const handleChange = (e) => {
-    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;  //is it enabled or disabled?
     if (e.target.name === 'lessons') {
       // update lessons array
       const lessons = formData.lessons.map((lesson, index) => {
@@ -30,7 +38,8 @@ function AddCourse() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();  //without this it reloads all the time 
+    // ########################################## FETCHING ##########################################
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/courses`, {
       method: 'POST',
       headers: {
@@ -56,6 +65,7 @@ function AddCourse() {
      
     );
   }
+    // ########################################## RETURN ##########################################
   return (
     <>
         <Format>

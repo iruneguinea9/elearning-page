@@ -22,8 +22,13 @@ export default function CoursePage() {
 
   const toggleNav = () => {
     setShowNav(!showNav);
-  };
-
+  };  
+  if(cookies.token===undefined){
+    return (
+      <Login></Login>
+     
+    );
+  }
   if (error) return <div>Error loading course data.</div>;
   if (!course) return <div>Loading course data...</div>;
 

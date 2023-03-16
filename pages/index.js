@@ -20,6 +20,9 @@ export default function Home({}) {
     router.push('/authenticatedindex')
 
   }
+  const handleLogin = () => {
+    router.push('/singin');
+  };
     // ########################################## RETURN ##########################################
   return (
     <>
@@ -29,13 +32,17 @@ export default function Home({}) {
             <h1 className="font-bold text-4xl">eLearning platform</h1>
           </Link>
         </div>
+        <div className="absolute top-0 right-0 py-3 pr-4">
+        <button className="text-white font-medium" onClick={handleLogin}>
+          Log in
+        </button>
+      </div>
       </header>
       <div className="flex justify-center items-center" style={{ minHeight: '450px' }}>
         <div>
-          <Link href={`singin`}>
-          <h1> In the future this will be a cool page to access the login</h1>
-  
-            click here to log in</Link>
+
+          <h1> This will be a cool welcoming page with information about the platform!</h1>
+
    
         </div>
       </div>

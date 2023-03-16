@@ -1,7 +1,7 @@
 // Name : Header
 // Author : Irune Guinea
 // This component is to mantain a uniform format in all the pages
-// Last update 16/03/2023 - V1
+// Last update 16/03/2023 - V2
 
 // ########################################## IMPORTS ##########################################
 import Link from 'next/link'

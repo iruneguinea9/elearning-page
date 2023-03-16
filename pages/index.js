@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // This is the index page of the app, here in the future could be like an introduction of what the page is and then
 // the access to the login page
-// Last update 16/03/2023 - V1
+// Last update 16/03/2023 - V2
 
 
 // ########################################## IMPORTS ##########################################

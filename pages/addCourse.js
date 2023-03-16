@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // This is the page to add a new course, here the admin can add a course with the parameters needed
 // and also add as many lessons as they need to
-// Last update 16/03/2023 - V1
+// Last update 16/03/2023 - V3
 
 
 // ########################################## IMPORTS ##########################################

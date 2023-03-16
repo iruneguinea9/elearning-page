@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // This is the page to add a new course, here the admin can add a course with the parameters needed
 // and also add as many lessons as they need to
-// Last update 16/03/2023 - V3
+// Last update 16/03/2023 - V4
 
 
 // ########################################## IMPORTS ##########################################
@@ -17,14 +17,13 @@ function AddCourse() {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    lessons: [], // initialize lessons to an empty array
+    lessons: [],
     disabled: false,
   });
 
   const handleChange = (e) => {
-    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;  //is it enabled or disabled?
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
     if (e.target.name === 'lessons') {
-      // update lessons array
       const lessons = formData.lessons.map((lesson, index) => {
         if (index === parseInt(e.target.dataset.index)) {
           return { ...lesson, [e.target.dataset.field]: value };
@@ -38,7 +37,7 @@ function AddCourse() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();  //without this it reloads all the time 
+    e.preventDefault();
     // ########################################## FETCHING ##########################################
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/courses`, {
       method: 'POST',
@@ -57,51 +56,51 @@ function AddCourse() {
       disabled: false
     });
   };
+
   const cookies = parseCookies();
   const accessToken = cookies.token;
-  if(accessToken===undefined){
+  if (accessToken === undefined) {
     return (
-      <Login></Login>
-     
+      <Login />
     );
   }
-    // ########################################## RETURN ##########################################
+
+  // ########################################## RETURN ##########################################
   return (
     <>
-        <Format>
-            <Head>
-            <title>eLearning</title>
-            </Head>
-            <h1 className={styles.title}>Create a new course</h1>
-            <form onSubmit={handleSubmit}>
-                <div className={styles.form} >
-                    <label>
-                        Course Name: 
-                        <input type="text" name="title" value={formData.title} onChange={handleChange} />
-                    </label>
-                    <label>
-                        Description:
-                        <input type="text" name="description" value={formData.description} onChange={handleChange} />
-                    </label>
-                    <label>
-                        Disabled:
-                        <input type="checkbox" name="disabled" checked={formData.disabled} onChange={handleChange} />
-                    </label>
-                    <h2>Lessons:</h2>
-                    {formData.lessons.map((lesson, index) => (
-                      <div key={index}>
-                        <label>
-                          Title:
-                          <input type="text" name="title" value={lesson.title} data-index={index} data-field="title" onChange={handleChange} />
-                        </label>
-                        <label>
-                          Content:
-                          <input type="text" name="content" value={lesson.content} data-index={index} data-field="content" onChange={handleChange} />
-                        </label>
-                      </div>
-                    ))}
-                    <button className={styles.lessonButton} onClick={() => setFormData({ ...formData, lessons: [...formData.lessons, { title: '', content: '' }] })}>Add Lesson</button>
-                    <button className={styles.lessonButton} type="submit">Add Course</button>
+      <Format>
+        <Head>
+          <title>eLearning</title>
+        </Head>
+        <h1 className={styles.title}>Create a new course</h1>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.form}>
+            <label>
+              Course Name:
+              <input type="text" name="title" value={formData.title} onChange={handleChange} />
+            </label>
+            <label>
+              Description:
+              <input type="text" name="description" value={formData.description} onChange={handleChange} />
+            </label>
+            <label>
+              Disabled:
+              <input type="checkbox" name="disabled" checked={formData.disabled} onChange={handleChange} />
+            </label>
+            <h2>Lessons:</h2>
+            {formData.lessons.map((lesson, index) => (
+              <div key={index}>
+                <label>
+                  Title:
+                  <input type="text" name="title" value={lesson.title} data-index={index} data-field="title" onChange={handleChange} />
+                </label>
+                <label>
+                  Content:
+                  <input type="text" name="content" value={lesson.content} data-index={index} data-field="content" onChange={handleChange} />
+                </label>
+              </div>
+            ))}
+            <button className={styles.lessonButton} onClick={() => setFormData({ ...formData, lessons: [...formData.lessons, { title: '', content: '' }] })}>Add Lesson</button><button className={styles.lessonButton} type="submit">Add Course</button>
                 </div>  
             </form> 
         </Format>

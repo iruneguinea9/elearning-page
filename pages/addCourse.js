@@ -41,7 +41,12 @@ function AddCourse() {
     const data = await response.json();
     console.log(data);
     // Reset form data
-    setFormData({ title: '', description: '', lessons: [], disabled: false });
+    setFormData({
+      title: '',
+      description: '',
+      lessons: formData.lessons,
+      disabled: false
+    });
   };
   const cookies = parseCookies();
   const accessToken = cookies.token;

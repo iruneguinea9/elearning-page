@@ -7,13 +7,14 @@ import styles from "../styles/styles.module.css"
 
 function AddCourse() {
   const [formData, setFormData] = useState({
-    name: '',
+    title: '',
     description: '',
-    price: '',
+    disabled: false, // initialize disabled to false
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value; // update value of disabled field based on checkbox value
+    setFormData({ ...formData, [e.target.name]: value });
   };
 
   const handleSubmit = async (e) => {
@@ -28,7 +29,7 @@ function AddCourse() {
     const data = await response.json();
     console.log(data);
     // Reset form data
-    setFormData({ name: '', description: '', price: '' });
+    setFormData({ title: '', description: '', disabled: false }); // reset disabled to false
   };
   const cookies = parseCookies();
   const accessToken = cookies.token;
@@ -44,23 +45,24 @@ function AddCourse() {
             <Head>
             <title>eLearning</title>
             </Head>
+            <h1 className={styles.title}>Create a new course</h1>
             <form onSubmit={handleSubmit}>
                 <div className={styles.form} >
                     <label>
-                        Course Name:
-                        <input type="text" name="name" value={formData.name} onChange={handleChange} />
+                        Course Name: 
+                        <input type="text" name="title" value={formData.title} onChange={handleChange} />
                     </label>
                     <label>
                         Description:
                         <input type="text" name="description" value={formData.description} onChange={handleChange} />
                     </label>
                     <label>
-                        Price:
-                        <input type="text" name="price" value={formData.price} onChange={handleChange} />
+                        Enabled:
+                        <input type="checkbox" name="disabled" checked={formData.disabled} onChange={handleChange} />
                     </label>
-                    <button type="submit">Add Course</button>
-                </div>
-            </form>
+                    <button  className={styles.lessonButton} type="submit">Add Course</button>
+                </div>  
+            </form> 
         </Format>
     </>
   );

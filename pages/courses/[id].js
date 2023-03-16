@@ -14,6 +14,7 @@ import { parseCookies } from 'nookies';
 import Head from 'next/head';
 import Format from '../../layout/format';
 import styles from '../../styles/course.module.css';
+import Login from '../../components/loginNeeded';
 
 export default function CoursePage() {
   const router = useRouter();

@@ -57,7 +57,7 @@ function AddCourse() {
                         <input type="text" name="description" value={formData.description} onChange={handleChange} />
                     </label>
                     <label>
-                        Enabled:
+                        Disabled:
                         <input type="checkbox" name="disabled" checked={formData.disabled} onChange={handleChange} />
                     </label>
                     <button  className={styles.lessonButton} type="submit">Add Course</button>

@@ -25,10 +25,15 @@
   }
   
   .btn {
-    padding: 20px;
     margin: 20px 0;
-    width: 100px;
+    width: 150px;
     align-self: center;
+    background-color: #0070f3;
+    color: #fff;
+    border-radius: 5px;
+  }
+  .btn:hover{
+    background-color: #0060df;
   }
   .inputGroup {
     display: flex;

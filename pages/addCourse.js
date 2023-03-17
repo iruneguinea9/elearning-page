@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // This is the page to add a new course, here the admin can add a course with the parameters needed
 // and also add as many lessons as they need to
-// Last update 17/03/2023 - V7
+// Last update 17/03/2023 - V8
 
 import { useState } from 'react';
 import { parseCookies } from 'nookies';
@@ -98,7 +98,7 @@ function AddCourse() {
         </div>
       ))}
       <button className={styles.lessonButton} onClick={() => setFormData({ ...formData, lessons: [...formData.lessons, { title: '', content: '' }] })}>Add Lesson</button>
-      <button className={styles.lessonButton} type="submit">Add Course</button>
+      <button className={styles.btn} type="submit">Add Course</button>
     </div>
   </form>
 </div>

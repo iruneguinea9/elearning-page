@@ -11,6 +11,8 @@ import Head from "next/head"
 import Format from '../layout/format';
 import Login from '../components/loginNeeded';
 import Courses from '../components/courses';
+import styles from "../styles/styles.module.css"
+import Link from 'next/link';
 
 export default function AuthenticatedFormat(props) {
   const cookies = parseCookies();
@@ -22,17 +24,23 @@ export default function AuthenticatedFormat(props) {
     );
   }
     // ########################################## RETURN ##########################################
-  return (
-    <> <Format>
-            <Head>
-                <title>eLearning</title>
-            </Head>
-
-         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-          <h2 className={utilStyles.headingLg}>All the Courses</h2>
-          <Courses/>
-        </section>
+    return (
+      <>
+        <Format>
+          <Head>
+            <title>eLearning</title>
+          </Head>
+          
+          <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+            <div className={styles.header}>
+            <Link href="/addCourse" className={styles.addButton}>
+             +
+            </Link>
+          </div>
+            <h2 className={utilStyles.headingLg}>All the Courses</h2>
+            <Courses/>
+          </section>
         </Format>
-        </>
-  )
-}
+      </>
+    );
+  }

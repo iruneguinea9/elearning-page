@@ -39,3 +39,17 @@
   .inputGroup label {
     margin-bottom: 0.5rem;
   }
+  .addButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0070f3;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .addButton:hover {
+    background-color: #0060df;
+  }

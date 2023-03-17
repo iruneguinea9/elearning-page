@@ -26,7 +26,7 @@
   
   .btn {
     margin: 20px 0;
-    width: 150px;
+    width: 180px;
     align-self: center;
     background-color: #0070f3;
     color: #fff;
@@ -34,6 +34,18 @@
   }
   .btn:hover{
     background-color: #0060df;
+  }
+
+  .btn2 {
+    margin: 20px 0;
+    width: 180px;
+    align-self: center;
+    background-color: #78b7ff;
+    color: #fff;
+    border-radius: 5px;
+  }
+  .btn2:hover{
+    background-color: #1d74e6;
   }
   .inputGroup {
     display: flex;
@@ -61,8 +73,35 @@
 
   .formInput {
     border-radius: 10px;
+    border-color: black;
+    background-color: #d2e6fd;
   }
   .form input[type="checkbox"] {
     margin-left: 20px;
   }
   
+  .label {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .addLessonButton {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.addLessonButton button {
+  background-color: #4c86eb;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addLessonButton button:hover {
+  background-color: #65b1f7;
+}

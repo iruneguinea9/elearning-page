@@ -76,7 +76,7 @@ function AddCourse() {
           <form onSubmit={handleSubmit}>
             <div className={styles.form}>
               <div className={styles.inputGroup}>
-                <label>Course Name:</label>
+              <label className="label">Course Name:</label>
                 <input
                   className={styles.formInput}
                   type="text"
@@ -86,7 +86,7 @@ function AddCourse() {
                 />
               </div>
               <div className={styles.inputGroup}>
-                <label>Description:</label>
+                <label className="label">Description:</label>
                 <input
                   className={styles.formInput}
                   type="text"
@@ -96,7 +96,7 @@ function AddCourse() {
                 />
               </div>
               <div className={styles.inputGroup}>
-                <label>Disabled:</label>
+                <label className="label">Disabled:</label>
                 <div>
                   <input
                     type="checkbox"
@@ -106,11 +106,11 @@ function AddCourse() {
                   />
                 </div>
               </div>
-              <h2>Lessons:</h2>
+              <h2 className="font-bold padding1px">Lessons:</h2>
               {formData.lessons.map((lesson, index) => (
                 <div key={index}>
                   <div className={styles.inputGroup}>
-                    <label>Title:</label>
+                    <label className="label">Title:</label>
                     <input
                       className={styles.formInput}
                       type="text"
@@ -120,7 +120,7 @@ function AddCourse() {
                     />
                   </div>
                   <div className={styles.inputGroup}>
-                    <label>Content:</label>
+                    <label className="label">Content:</label>
                     <input
                       className={styles.formInput}
                       type="text"
@@ -130,12 +130,12 @@ function AddCourse() {
                     />
                   </div>
                   <div className={styles.inputGroup}>
-                    <button type="button" onClick={() => handleLessonRemove(index)}>Remove Lesson</button>
+                    <button  className={styles.btn2} type="button" onClick={() => handleLessonRemove(index)}>Remove Lesson</button>
                   </div>
                 </div>
               ))}
               <div className={styles.addLessonButton}>
-                <button type="button" onClick={handleAddLesson}>Add Lesson</button>
+                <button  className={styles.btn} type="button" onClick={handleAddLesson}>Add Lesson</button>
               </div>
               <button className={styles.btn} type="submit">Add Course</button>
             </div>

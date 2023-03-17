@@ -2,16 +2,14 @@
 // Author : Irune Guinea
 // This is the page to add a new course, here the admin can add a course with the parameters needed
 // and also add as many lessons as they need to
-// Last update 16/03/2023 - V4
+// Last update 16/03/2023 - V6
 
-
-// ########################################## IMPORTS ##########################################
 import { useState } from 'react';
 import { parseCookies } from 'nookies';
-import Head from "next/head"
+import Head from "next/head";
 import Format from '../layout/format';
 import Login from '../components/loginNeeded';
-import styles from "../styles/styles.module.css"
+import styles from "../styles/styles.module.css";
 
 function AddCourse() {
   const [formData, setFormData] = useState({
@@ -38,7 +36,7 @@ function AddCourse() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // ########################################## FETCHING ##########################################
+    // FETCHING
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/courses`, {
       method: 'POST',
       headers: {
@@ -61,51 +59,53 @@ function AddCourse() {
   const accessToken = cookies.token;
   if (accessToken === undefined) {
     return (
-      <Login />
+      <>
+        <Login />
+      </>
     );
   }
 
-  // ########################################## RETURN ##########################################
+  // RETURN
   return (
     <>
       <Format>
-        <Head>
-          <title>eLearning</title>
-        </Head>
         <h1 className={styles.title}>Create a new course</h1>
+        
         <form onSubmit={handleSubmit}>
           <div className={styles.form}>
-            <label>
-              Course Name:
+            <div className={styles.inputGroup}>
+              <label>Course Name:</label>
               <input type="text" name="title" value={formData.title} onChange={handleChange} />
-            </label>
-            <label>
-              Description:
+            </div>
+            <div className={styles.inputGroup}>
+              <label>Description:</label>
               <input type="text" name="description" value={formData.description} onChange={handleChange} />
-            </label>
-            <label>
-              Disabled:
+            </div>
+            <div className={styles.inputGroup}>
+              <label>Disabled:</label>
               <input type="checkbox" name="disabled" checked={formData.disabled} onChange={handleChange} />
-            </label>
+            </div>
             <h2>Lessons:</h2>
             {formData.lessons.map((lesson, index) => (
               <div key={index}>
-                <label>
-                  Title:
+                <div className={styles.inputGroup}>
+                  <label>Title:</label>
                   <input type="text" name="title" value={lesson.title} data-index={index} data-field="title" onChange={handleChange} />
-                </label>
-                <label>
-                  Content:
+                </div>
+                <div className={styles.inputGroup}>
+                  <label>Content:</label>
                   <input type="text" name="content" value={lesson.content} data-index={index} data-field="content" onChange={handleChange} />
-                </label>
+                </div>
               </div>
             ))}
-            <button className={styles.lessonButton} onClick={() => setFormData({ ...formData, lessons: [...formData.lessons, { title: '', content: '' }] })}>Add Lesson</button><button className={styles.lessonButton} type="submit">Add Course</button>
-                </div>  
-            </form> 
-        </Format>
+            <button className={styles.lessonButton} onClick={() => setFormData({ ...formData, lessons: [...formData.lessons, { title: '', content: '' }] })}>Add Lesson</button>
+            <button className={styles.lessonButton} type="submit">Add Course</button>
+          </div>  
+        </form>
+      </Format>
     </>
   );
 }
+
 
 export default AddCourse;

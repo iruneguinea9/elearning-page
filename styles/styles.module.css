@@ -30,3 +30,12 @@
     width: 100px;
     align-self: center;
   }
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .inputGroup label {
+    margin-bottom: 0.5rem;
+  }

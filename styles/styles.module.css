@@ -61,8 +61,8 @@
 
   .formInput {
     border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    padding: 8px;
+
+    border-radius: 10px;
   }
   .form input[type="checkbox"] {
     margin-left: 20px;

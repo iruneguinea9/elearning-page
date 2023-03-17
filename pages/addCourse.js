@@ -21,9 +21,9 @@ function AddCourse() {
 
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-    if (e.target.name === 'lessons') {
+    if (e.target.name === 'lessons') { // handling of the lessons added
       const lessons = formData.lessons.map((lesson, index) => {
-        if (index === parseInt(e.target.dataset.index)) {
+        if (index === parseInt(e.target.dataset.index)) { 
           return { ...lesson, [e.target.dataset.field]: value };
         }
         return lesson;
@@ -81,18 +81,18 @@ function AddCourse() {
       <div className={styles.inputGroup}>
         <label>Disabled:</label>
         <div>
-          <input type="checkbox" name="disabled" checked={formData.disabled} onChange={handleChange} />
+          <input type="checkbox" name="disabled" checked={formData.disabled} onChange={handleChange} /> 
         </div>
       </div>
       <h2>Lessons:</h2>
       {formData.lessons.map((lesson, index) => (
-        <div key={index}>
+        <div key={index} className="bg-blue-300" style={{ padding: '10px',margin:'10px',borderRadius:'10px' }}>
           <div className={styles.inputGroup}>
             <label>Title:</label>
-            <input className={styles.formInput} type="text" name="title" value={lesson.title} data-index={index} data-field="title" onChange={handleChange} />
+            <input className={styles.formInput} type="text" name="title2" value={lesson.title} data-index={index} onChange={handleChange} />
           </div>
           <div className={styles.inputGroup}>
-            <label>Content:</label>
+            <label>Content:</label> 
             <input className={styles.formInput} type="text" name="content" value={lesson.content} data-index={index} data-field="content" onChange={handleChange} />
           </div>
         </div>

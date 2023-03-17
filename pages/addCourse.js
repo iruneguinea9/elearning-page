@@ -2,14 +2,14 @@
 // Author : Irune Guinea
 // This is the page to add a new course, here the admin can add a course with the parameters needed
 // and also add as many lessons as they need to
-// Last update 16/03/2023 - V6
+// Last update 17/03/2023 - V6
 
 import { useState } from 'react';
 import { parseCookies } from 'nookies';
-import Head from "next/head";
 import Format from '../layout/format';
 import Login from '../components/loginNeeded';
 import styles from "../styles/styles.module.css";
+import fetcherPost from '../lib/fetcherPost';
 
 function AddCourse() {
   const [formData, setFormData] = useState({
@@ -37,14 +37,11 @@ function AddCourse() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // FETCHING
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/courses`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-    const data = await response.json();
+    const cookies = parseCookies();
+    const accessToken = cookies.token;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
+    const datasend = JSON.stringify(formData)
+    const data = await fetcherPost(url, accessToken,datasend);
     console.log(data);
     // Reset form data
     setFormData({
@@ -69,17 +66,18 @@ function AddCourse() {
   return (
     <>
       <Format>
+      <div style={{ margin: '0 auto', maxWidth: '800px' }}>
         <h1 className={styles.title}>Create a new course</h1>
         
               <form onSubmit={handleSubmit}>
         <div className={styles.form}>
           <div className={styles.inputGroup}>
             <label>Course Name:</label>
-            <input type="text" name="title" value={formData.title} onChange={handleChange} />
+            <input className={styles.formInput} type="text" name="title" value={formData.title} onChange={handleChange} />
           </div>
           <div className={styles.inputGroup}>
             <label>Description:</label>
-            <input type="text" name="description" value={formData.description} onChange={handleChange} />
+            <input className={styles.formInput} type="text" name="description" value={formData.description} onChange={handleChange} />
           </div>
           <div className={styles.inputGroup}>
             <label>Disabled:</label>
@@ -90,11 +88,11 @@ function AddCourse() {
             <div key={index}>
               <div className={styles.inputGroup}>
                 <label>Title:</label>
-                <input type="text" name="title" value={lesson.title} data-index={index} data-field="title" onChange={handleChange} />
+                <input className={styles.formInput} type="text" name="title" value={lesson.title} data-index={index} data-field="title" onChange={handleChange} />
               </div>
               <div className={styles.inputGroup}>
                 <label>Content:</label>
-                <input type="text" name="content" value={lesson.content} data-index={index} data-field="content" onChange={handleChange} />
+                <input className={styles.formInput} type="text" name="content" value={lesson.content} data-index={index} data-field="content" onChange={handleChange} />
               </div>
             </div>
           ))}
@@ -102,6 +100,7 @@ function AddCourse() {
           <button className={styles.lessonButton} type="submit">Add Course</button>
         </div>  
       </form>
+      </div>
       </Format>
     </>
   );

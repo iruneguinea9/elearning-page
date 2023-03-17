@@ -53,3 +53,9 @@
   .addButton:hover {
     background-color: #0060df;
   }
+
+  .formInput {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    padding: 8px;
+  }

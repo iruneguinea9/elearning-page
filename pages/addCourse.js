@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // This is the page to add a new course, here the admin can add a course with the parameters needed
 // and also add as many lessons as they need to
-// Last update 17/03/2023 - V6
+// Last update 17/03/2023 - V7
 
 import { useState } from 'react';
 import { parseCookies } from 'nookies';
@@ -67,40 +67,41 @@ function AddCourse() {
     <>
       <Format>
       <div style={{ margin: '0 auto', maxWidth: '800px' }}>
-        <h1 className={styles.title}>Create a new course</h1>
-        
-              <form onSubmit={handleSubmit}>
-        <div className={styles.form}>
-          <div className={styles.inputGroup}>
-            <label>Course Name:</label>
-            <input className={styles.formInput} type="text" name="title" value={formData.title} onChange={handleChange} />
-          </div>
-          <div className={styles.inputGroup}>
-            <label>Description:</label>
-            <input className={styles.formInput} type="text" name="description" value={formData.description} onChange={handleChange} />
-          </div>
-          <div className={styles.inputGroup}>
-            <label>Disabled:</label>
-            <input type="checkbox" name="disabled" checked={formData.disabled} onChange={handleChange} />
-          </div>
-          <h2>Lessons:</h2>
-          {formData.lessons.map((lesson, index) => (
-            <div key={index}>
-              <div className={styles.inputGroup}>
-                <label>Title:</label>
-                <input className={styles.formInput} type="text" name="title" value={lesson.title} data-index={index} data-field="title" onChange={handleChange} />
-              </div>
-              <div className={styles.inputGroup}>
-                <label>Content:</label>
-                <input className={styles.formInput} type="text" name="content" value={lesson.content} data-index={index} data-field="content" onChange={handleChange} />
-              </div>
-            </div>
-          ))}
-          <button className={styles.lessonButton} onClick={() => setFormData({ ...formData, lessons: [...formData.lessons, { title: '', content: '' }] })}>Add Lesson</button>
-          <button className={styles.lessonButton} type="submit">Add Course</button>
-        </div>  
-      </form>
+  <h1 className={styles.title}>Create a new course</h1>
+  <form onSubmit={handleSubmit}>
+    <div className={styles.form}>
+      <div className={styles.inputGroup}>
+        <label>Course Name:</label>
+        <input className={styles.formInput} type="text" name="title" value={formData.title} onChange={handleChange} />
       </div>
+      <div className={styles.inputGroup}>
+        <label>Description:</label>
+        <input className={styles.formInput} type="text" name="description" value={formData.description} onChange={handleChange} />
+      </div>
+      <div className={styles.inputGroup}>
+        <label>Disabled:</label>
+        <div>
+          <input type="checkbox" name="disabled" checked={formData.disabled} onChange={handleChange} />
+        </div>
+      </div>
+      <h2>Lessons:</h2>
+      {formData.lessons.map((lesson, index) => (
+        <div key={index}>
+          <div className={styles.inputGroup}>
+            <label>Title:</label>
+            <input className={styles.formInput} type="text" name="title" value={lesson.title} data-index={index} data-field="title" onChange={handleChange} />
+          </div>
+          <div className={styles.inputGroup}>
+            <label>Content:</label>
+            <input className={styles.formInput} type="text" name="content" value={lesson.content} data-index={index} data-field="content" onChange={handleChange} />
+          </div>
+        </div>
+      ))}
+      <button className={styles.lessonButton} onClick={() => setFormData({ ...formData, lessons: [...formData.lessons, { title: '', content: '' }] })}>Add Lesson</button>
+      <button className={styles.lessonButton} type="submit">Add Course</button>
+    </div>
+  </form>
+</div>
       </Format>
     </>
   );

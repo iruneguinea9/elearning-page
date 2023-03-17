@@ -60,8 +60,6 @@
   }
 
   .formInput {
-    border: 1px solid #ccc;
-
     border-radius: 10px;
   }
   .form input[type="checkbox"] {

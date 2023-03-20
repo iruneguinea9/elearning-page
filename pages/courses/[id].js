@@ -35,7 +35,7 @@ export default function CoursePage() {
   const callEdit = () => {
       router.push({
     pathname: '/editCourse',
-    query: { courseData: course }
+    query: { courseData: JSON.stringify(id) }
   });
   };
 

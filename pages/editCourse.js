@@ -10,22 +10,29 @@ import Login from '../components/loginNeeded';
 import styles from "../styles/styles.module.css";
 import fetcherPut from '../lib/fetcherPut';
 import { useRouter } from "next/router"
-
-function EditCourse({ course }) {
+import useSWR from 'swr';
+function EditCourse() {
+    const router = useRouter()
+    const id = router.query.courseData.replace(/"/g, '');
+    const { data: course, error } = useSWR(
+        `${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`,
+        (url) => fetcher(url, cookies.token)
+      );
+      console.log(id)
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     lessons: [],
     disabled: false,
   });
-
+  console.log("Log edit : ",course)
   useEffect(() => {
     if (course) {
       setFormData(course);
     }
   }, [course]);
 
-  const router = useRouter()
+ 
 
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;

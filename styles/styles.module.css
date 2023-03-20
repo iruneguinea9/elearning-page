@@ -62,9 +62,10 @@
     right: 20px;
     background-color: #0070f3;
     color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 10px 15px;
+    border-radius: 30px;
     cursor: pointer;
+    text-align: center;
   }
 
   .addButton:hover {
@@ -104,4 +105,48 @@
 
 .addLessonButton button:hover {
   background-color: #65b1f7;
+}
+
+.hiddenButton {
+  display: none;
+}
+
+.buttonContainer {
+  position: absolute;
+  top: 10px;
+  right: -170px;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+
+.innerButton1 {
+  position: fixed;
+  bottom: 20px;
+  right: 80px;
+  background-color: #0070f3;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+}
+.innerButton2 {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background-color: #0070f3;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+
+}
+.showButtons {
+  opacity: 1;
 }

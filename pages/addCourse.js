@@ -2,7 +2,7 @@
 // Author: Irune Guinea
 // This is the page to add a new course, here the admin can add a course with the parameters needed
 // and also add as many lessons as they need to
-// Last update 17/03/2023 - V8
+// Last update 17/03/2023 - V9
 
 import { useState } from 'react';
 import { parseCookies } from 'nookies';
@@ -10,6 +10,7 @@ import Format from '../layout/format';
 import Login from '../components/loginNeeded';
 import styles from "../styles/styles.module.css";
 import fetcherPost from '../lib/fetcherPost';
+import { useRouter } from "next/router"
 
 function AddCourse() {
   const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ function AddCourse() {
     lessons: [],
     disabled: false,
   });
-
+  const router = useRouter()
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
     setFormData({ ...formData, [e.target.name]: value });
@@ -26,10 +27,12 @@ function AddCourse() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     const cookies = parseCookies();
     const accessToken = cookies.token;
     const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
     const datasend = JSON.stringify(formData)
+    
     const data = await fetcherPost(url, accessToken, datasend);
     setFormData({
       title: '',
@@ -37,6 +40,11 @@ function AddCourse() {
       lessons: [],
       disabled: false,
     });
+    console.log(data)
+    if(data!==null){
+      alert("The course ",datasend.title," has been added!")
+      router.push("/authenticatedindex")
+    }
   };
 
   const handleLessonChange = (e, index) => {

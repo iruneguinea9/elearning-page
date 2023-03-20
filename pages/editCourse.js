@@ -25,7 +25,6 @@ function EditCourse() {
     lessons: [],
     disabled: false,
   });
-  console.log("Log edit : ",course)
   useEffect(() => {
     if (course) {
       setFormData(course);

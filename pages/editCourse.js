@@ -1,25 +1,32 @@
-// Name: Add Course
+// Name: Edit Course
 // Author: Irune Guinea
-// This is the page to add a new course, here the admin can add a course with the parameters needed
-// and also add as many lessons as they need to
-// Last update 20/03/2023 - V9
+// This is the page to edit a course
+// Last update 20/03/2023 - V1
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { parseCookies } from 'nookies';
 import Format from '../layout/format';
 import Login from '../components/loginNeeded';
 import styles from "../styles/styles.module.css";
-import fetcherPost from '../lib/fetcherPost';
+import fetcherPut from '../lib/fetcherPut';
 import { useRouter } from "next/router"
 
-function AddCourse() {
+function EditCourse({ course }) {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     lessons: [],
     disabled: false,
   });
+
+  useEffect(() => {
+    if (course) {
+      setFormData(course);
+    }
+  }, [course]);
+
   const router = useRouter()
+
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
     setFormData({ ...formData, [e.target.name]: value });
@@ -30,19 +37,13 @@ function AddCourse() {
     
     const cookies = parseCookies();
     const accessToken = cookies.token;
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/courses/${course.id}`;
     const datasend = JSON.stringify(formData)
     
-    const data = await fetcherPost(url, accessToken, datasend);
-    setFormData({
-      title: '',
-      description: '',
-      lessons: [],
-      disabled: false,
-    });
+    const data = await fetcherPut(url, accessToken, datasend);
     console.log(data)
     if(data!==null){
-      alert("The course ",datasend.title," has been added!")
+      alert(`The course ${formData.title} has been updated!`)
       router.push("/authenticatedindex")
     }
   };
@@ -76,11 +77,12 @@ function AddCourse() {
     );
   }
 
+  
   return (
     <>
       <Format>
         <div style={{ margin: '0 auto', maxWidth: '800px' }}>
-          <h1 className={styles.title}>Create a new course</h1>
+          <h1 className={styles.title}>Edit the course</h1>
           <form onSubmit={handleSubmit}>
             <div className={styles.form}>
               <div className={styles.inputGroup}>
@@ -145,7 +147,7 @@ function AddCourse() {
               <div className={styles.addLessonButton}>
                 <button  className={styles.btn} type="button" onClick={handleAddLesson}>Add Lesson</button>
               </div>
-              <button className={styles.btn} type="submit">Add Course</button>
+              <button className={styles.btn} type="submit">Update Course</button>
             </div>
           </form>
         </div>
@@ -155,4 +157,4 @@ function AddCourse() {
 }
 
 
-export default AddCourse;
+export default EditCourse;

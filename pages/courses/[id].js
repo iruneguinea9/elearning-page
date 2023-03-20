@@ -14,7 +14,10 @@ import { parseCookies } from 'nookies';
 import Head from 'next/head';
 import Format from '../../layout/format';
 import styles from '../../styles/course.module.css';
+import styles2 from '../../styles/styles.module.css';
 import Login from '../../components/loginNeeded';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
 
 export default function CoursePage() {
   const router = useRouter();
@@ -45,33 +48,33 @@ export default function CoursePage() {
   // ########################################## RETURN ##########################################
   return (
     <>
-      <Format>
-        <Head>
-          <title>eLearning</title>
-        </Head>
-        <div style={{ display: 'flex', alignItems: 'stretch' }}>
-          <div style={{ flex: '0 0 200px', display: showNav ? 'block' : 'none' }}>
-            <ul style={{ listStyleType: 'none', padding: 0 }}>
-              {course.lessons.map((lesson) => (
-                <li key={lesson.title}>
-                  <a
-                    className={styles.lessonButton}
-                    onClick={() => {
-                      setSelectedLesson(lesson);
-                      setShowNav(false);
-                    }}
-                  >
-                    {lesson.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
+    <Format>
+      <Head>
+        <title>eLearning</title>
+      </Head>
+      <div style={{ display: 'flex', alignItems: 'stretch' }}>
+        <div style={{ flex: '0 0 200px', display: showNav ? 'block' : 'none' }}>
+          <ul style={{ listStyleType: 'none', padding: 0 }}>
+            {course.lessons.map((lesson) => (
+              <li key={lesson.title}>
+                <a
+                  className={styles.lessonButton}
+                  onClick={() => {
+                    setSelectedLesson(lesson);
+                    setShowNav(false);
+                  }}
+                >
+                  {lesson.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div style={{ flex: '1', marginLeft: '20px', position: 'relative' }}>
+          <div style={{ position: 'absolute', top: 5, left: 0, cursor: 'pointer' }} onClick={toggleNav}>
+            <img src="/images/moreinfo.png" alt="Toggle navigation" />
           </div>
-          <div style={{ flex: '1', marginLeft: '20px', position: 'relative' }}>
-            <div style={{ position: 'absolute', top: 5, left: 0, cursor: 'pointer' }} onClick={toggleNav}>
-              <img src="/images/moreinfo.png" alt="Toggle navigation" />
-            </div>
-            <div style={{ position: 'absolute', top: 0, left: 100, cursor: 'pointer' }}>
+          <div style={{ position: 'absolute', top: 0, left: 100, cursor: 'pointer' }}>
             <h1 style={{ fontSize: '3em'}}>{course.title}</h1>
             <p>{course.description}</p>
             {selectedLesson && (
@@ -79,10 +82,14 @@ export default function CoursePage() {
                 <h2 id={selectedLesson.title}>{selectedLesson.title}</h2>
                 <p>{selectedLesson.content}</p>
               </div>
-            )}</div>
+            )}
           </div>
+          <button className={styles2.addButton}>
+            <FontAwesomeIcon icon={faCog} />
+          </button>
         </div>
-      </Format>
-    </>
+      </div>
+    </Format>
+  </>
   );
 }

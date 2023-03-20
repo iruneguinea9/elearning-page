@@ -1,7 +1,7 @@
 // Name: Edit Course
 // Author: Irune Guinea
 // This is the page to edit a course
-// Last update 20/03/2023 - V1
+// Last update 20/03/2023 - V4
 
 import { useState, useEffect } from 'react';
 import { parseCookies } from 'nookies';
@@ -44,7 +44,7 @@ function EditCourse() {
     
     const cookies = parseCookies();
     const accessToken = cookies.token;
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/courses/${course.id}`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`;
     const datasend = JSON.stringify(formData)
     
     const data = await fetcherPut(url, accessToken, datasend);

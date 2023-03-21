@@ -27,26 +27,26 @@ function AddCourse() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    const cookies = parseCookies();
-    const accessToken = cookies.token;
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
-    const datasend = JSON.stringify(formData)
-    
-    const data = await fetcherPost(url, accessToken, datasend);
     setFormData({
       title: '',
       description: '',
       lessons: [],
       disabled: false,
     });
+    const cookies = parseCookies();
+    const accessToken = cookies.token;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
+    const datasend = JSON.stringify(formData)
+    console.log("DATASEND ####",datasend)
+    const data = await fetcherPost(url, accessToken, datasend);
+    
     console.log(data)
     if(data!==null){
-      alert("The course ",datasend.title," has been added!")
+      alert(`The course ${formData.title} has been added!`);
       router.push("/authenticatedindex")
     }
   };
-
+ 
   const handleLessonChange = (e, index) => {
     const { name, value } = e.target;
     const lessons = [...formData.lessons];

@@ -3,6 +3,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
     topLevelAwait: true,
+    hydrate: false
   },
   reactStrictMode: true,
   serverRuntimeConfig: {

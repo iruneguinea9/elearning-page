@@ -2,7 +2,7 @@
 // Author: Irune Guinea
 // This is the page to add a new course, here the admin can add a course with the parameters needed
 // and also add as many lessons as they need to
-// Last update 20/03/2023 - V9
+// Last update 21/03/2023 - V10
 
 import { useState } from 'react';
 import { parseCookies } from 'nookies';

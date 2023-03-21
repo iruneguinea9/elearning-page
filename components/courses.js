@@ -36,12 +36,9 @@ const CoursesPage = () => {
       {courses?.map((course, index) => (
         <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
            <Link href="/courses/[id]" as={`/courses/${course._id}`} style={{ fontSize: '1.2rem' }}>
-          <img src="/images/sample_pic.png" alt="Pic goes here" width="400" height="400" style={{ marginRight: '1rem' }} />
-          
-           
+              <img src="/images/sample_pic.png" alt="Pic goes here" width="400" height="400" style={{ marginRight: '1rem' }} />
              {course.title}
-            </Link>
-          
+            </Link>          
         </div>
       ))}
     </div>

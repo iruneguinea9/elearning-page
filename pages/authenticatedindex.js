@@ -26,11 +26,7 @@ export default function AuthenticatedFormat(props) {
     // ########################################## RETURN ##########################################
     return (
       <>
-        <Format>
-          <Head>
-            <title>eLearning</title>
-          </Head>
-          
+        <Format>          
           <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
             <div className={styles.header}>
               <Link href="/addCourse" className={styles.addButton}>

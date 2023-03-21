@@ -1,7 +1,7 @@
 // Name: Edit Course
 // Author: Irune Guinea
 // This is the page to edit a course
-// Last update 21/03/2023 - V5
+// Last update 21/03/2023 - V6
 
 import { useState, useEffect } from 'react';
 import { parseCookies } from 'nookies';
@@ -86,7 +86,7 @@ function EditCourse() {
   
   return (
     <>
-      <Format>
+      <Format  accessToken={accessToken} >
         <div style={{ margin: '0 auto', maxWidth: '800px' }}>
           <h1 className={styles.title}>Edit the course</h1>
           <form onSubmit={handleSubmit}>

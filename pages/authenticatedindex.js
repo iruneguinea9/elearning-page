@@ -33,10 +33,10 @@ export default function AuthenticatedFormat(props) {
           
           <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
             <div className={styles.header}>
-            <Link href="/addCourse" className={styles.addButton}>
-             +
-            </Link>
-          </div>
+              <Link href="/addCourse" className={styles.addButton}>
+              +
+              </Link>
+            </div>
             <h2 className={utilStyles.headingLg}>All the Courses</h2>
             <Courses/>
           </section>

@@ -1,24 +1,28 @@
 // Name : Header
 // Author : Irune Guinea
 // This component is to mantain a uniform format in all the pages
-// Last update 16/03/2023 - V2
+// Last update 21/03/2023 - V3
 
 // ########################################## IMPORTS ##########################################
-import Link from 'next/link'
-import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
+import Link from 'next/link';
 import { parseCookies, destroyCookie } from 'nookies';
+import { useRouter } from 'next/router';
 
 export default function Header() {
   const cookies = parseCookies();
   const accessToken = cookies.token;
   const router = useRouter();
 
+  useEffect(() => {
+    // Client-side code that uses the router object
+  }, []);
+
   const handleLogout = () => {
     destroyCookie(null, 'token');
     router.push('/');
   };
 
-  // ########################################## RETURN ##########################################
   return (
     <header className="bg-blue-300 relative">
       <div className="absolute top-0 right-0 py-3 pr-4">
@@ -32,5 +36,5 @@ export default function Header() {
         </Link>
       </div>
     </header>
-  )
+  );
 }

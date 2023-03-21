@@ -1,7 +1,7 @@
 // Name: Edit Course
 // Author: Irune Guinea
 // This is the page to edit a course
-// Last update 20/03/2023 - V4
+// Last update 21/03/2023 - V5
 
 import { useState, useEffect } from 'react';
 import { parseCookies } from 'nookies';
@@ -13,7 +13,8 @@ import { useRouter } from "next/router"
 import useSWR from 'swr';
 function EditCourse() {
     const router = useRouter()
-    const id = router.query.courseData ? router.query.courseData.replace(/"/g, '') : null;    const { data: course, error } = useSWR(
+    const id = router.query.courseData ? router.query.courseData.replace(/"/g, '') : null;
+    const { data: course, error } = useSWR(
         `${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`,
         (url) => fetcher(url, cookies.token)
       );

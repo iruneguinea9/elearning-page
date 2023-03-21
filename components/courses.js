@@ -1,17 +1,17 @@
 // Name : Courses
 // Author : Irune Guinea
 // This component is to display each of the courses
-// Last update 16/03/2023 - V1
+// Last update 21/03/2023 - V3
 
 
 // ########################################## IMPORTS ##########################################
 import { useState, useEffect } from 'react';
 import fetcher from '../lib/fetcher';
-import Link from 'next/link';
 import { parseCookies } from 'nookies';
 
 const CoursesPage = () => {
   const [courses, setCourses] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getCourses = async () => {
@@ -21,24 +21,30 @@ const CoursesPage = () => {
         const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
         const coursesData = await fetcher(url, accessToken);
         setCourses(coursesData);
+        setIsLoading(false);
       } catch (error) {
         console.error(error);
+        setIsLoading(false);
       }
     };
 
-    getCourses();
+    if (typeof window !== 'undefined') {
+      getCourses();
+    }
   }, []);
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-  // ########################################## RETURN ##########################################
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       {courses?.map((course, index) => (
         <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-           <Link href="/courses/[id]" as={`/courses/${course._id}`} style={{ fontSize: '1.2rem' }}>
-              <img src="/images/sample_pic.png" alt="Pic goes here" width="400" height="400" style={{ marginRight: '1rem' }} />
-             {course.title}
-            </Link>          
+           <a href={`/courses/${course._id}`} style={{ fontSize: '1.2rem' }}>
+            <img src="/images/sample_pic.png" alt="Pic goes here" width="400" height="400" style={{ marginRight: '1rem' }} />
+            {course.title}
+          </a>       
         </div>
       ))}
     </div>

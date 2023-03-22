@@ -5,12 +5,12 @@
 
 
 // ########################################## IMPORTS ##########################################
-import { useState, useEffect } from 'react';
+import { useRef, useEffect,useState } from 'react';
 import fetcher from '../lib/fetcher';
 import { parseCookies } from 'nookies';
 
 const CoursesPage = () => {
-  const [courses, setCourses] = useState([]);
+  const coursesRef = useRef([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const CoursesPage = () => {
         const accessToken = cookies.token;
         const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
         const coursesData = await fetcher(url, accessToken);
-        setCourses(coursesData);
+        coursesRef.current = coursesData;
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -38,13 +38,13 @@ const CoursesPage = () => {
   }
 
   return (
-    <div key={courses.map(course => course._id).join(',')} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      {courses?.map((course, index) => (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      {coursesRef.current?.map((course, index) => (
         <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-           <a href={`/courses/${course._id}`} style={{ fontSize: '1.2rem' }}>
+          <a href={`/courses/${course._id}`} style={{ fontSize: '1.2rem' }}>
             <img src="/images/sample_pic.png" alt="Pic goes here" width="400" height="400" style={{ marginRight: '1rem' }} />
             {course.title}
-          </a>       
+          </a>
         </div>
       ))}
     </div>

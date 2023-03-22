@@ -26,14 +26,16 @@ export default function AuthenticatedIndex(props) {
     return (
       <>
         <Format  accessToken={accessToken} >          
-          <div className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-            <div className={styles.header}>
-            <a href="/addCourse" className={styles.addButton}>
-              +
-            </a>
+          <div>
+            <div>
+              <a href="/addCourse" className={styles.addButton}>
+                +
+              </a>
             </div>
-            <h2 className={utilStyles.headingLg}>All the Courses</h2>
-            <Courses/>
+            <div>
+              <h2 className={utilStyles.headingLg}>All the Courses</h2>
+              <Courses/>
+            </div>
           </div>
         </Format>
       </>

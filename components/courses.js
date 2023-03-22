@@ -1,7 +1,7 @@
 // Name : Courses
 // Author : Irune Guinea
 // This component is to display each of the courses
-// Last update 21/03/2023 - V3
+// Last update 22/03/2023 - V4
 
 
 // ########################################## IMPORTS ##########################################
@@ -38,7 +38,7 @@ const CoursesPage = () => {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div key={courses.map(course => course._id).join(',')} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       {courses?.map((course, index) => (
         <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
            <a href={`/courses/${course._id}`} style={{ fontSize: '1.2rem' }}>

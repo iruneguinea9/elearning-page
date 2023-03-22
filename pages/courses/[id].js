@@ -11,7 +11,6 @@ import { useRouter } from 'next/router';
 import fetcher from '../../lib/fetcher';
 import useSWR from 'swr';
 import { parseCookies } from 'nookies';
-import Head from 'next/head';
 import Format from '../../layout/format';
 import styles from '../../styles/course.module.css';
 import styles2 from '../../styles/styles.module.css';
@@ -93,7 +92,7 @@ export default function CoursePage() {
             </div>
             {showButtons && (
               <div className={`${styles2.buttonContainer} ${showButtons ? styles2.showButtons : ''}`}>
-                <button className={styles2.innerButton1}  onClick={() => callEdit()}>
+                <button className={styles2.innerButton1} onClick={() => callEdit()}>
                   <FontAwesomeIcon icon={faEdit} />
                 </button>
                 <button className={styles2.innerButton2}>
@@ -101,14 +100,13 @@ export default function CoursePage() {
                 </button>
               </div>
             )}
-
-          <button className={styles2.addButton} onClick={() => setShowButtons(!showButtons)}>
-            <FontAwesomeIcon icon={faCog} />
-          </button>
-          
+  
+            <button className={styles2.addButton} onClick={() => setShowButtons(!showButtons)}>
+              <FontAwesomeIcon icon={faCog} />
+            </button>
+          </div>
         </div>
-      </div>
-    </Format>
-  </>
+      </Format>
+    </>
   );
 }

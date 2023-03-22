@@ -52,6 +52,7 @@ export default function CoursePage() {
 
   if (error) return <div>Error loading course data.</div>;
   if (!course) return <div>Loading course data...</div>;
+  if (!course.lessons) return <div>No lessons found for this course.</div>;
 
   // ########################################## RETURN ##########################################
   return (

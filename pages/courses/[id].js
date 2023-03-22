@@ -49,7 +49,6 @@ export default function CoursePage() {
   if (cookies.token === undefined) {
     return <Login />;
   }
-
   if (error) return <div>Error loading course data.</div>;
   if (!course) return <div>Loading course data...</div>;
   if (!course.lessons) return <div>No lessons found for this course.</div>;
@@ -101,7 +100,6 @@ export default function CoursePage() {
                 </button>
               </div>
             )}
-  
             <button className={styles2.addButton} onClick={() => setShowButtons(!showButtons)}>
               <FontAwesomeIcon icon={faCog} />
             </button>

@@ -5,41 +5,21 @@
 
 
 // ########################################## IMPORTS ##########################################
-import { useRef, useEffect,useState } from 'react';
-import fetcher from '../lib/fetcher';
+import useSWR from 'swr';
 import { parseCookies } from 'nookies';
+import fetcher from '../lib/fetcher';
 
 const CoursesPage = () => {
-  const coursesRef = useRef([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { data: coursesData, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/courses`, (url) =>
+    fetcher(url, parseCookies().token)
+  );
 
-  useEffect(() => {
-    const getCourses = async () => {
-      try {
-        const cookies = parseCookies();
-        const accessToken = cookies.token;
-        const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
-        const coursesData = await fetcher(url, accessToken);
-        coursesRef.current = coursesData;
-        setIsLoading(false);
-      } catch (error) {
-        console.error(error);
-        setIsLoading(false);
-      }
-    };
-
-    if (typeof window !== 'undefined') {
-      getCourses();
-    }
-  }, []);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  if (error) return <div>Error loading data.</div>;
+  if (!coursesData) return <div>Loading data...</div>;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      {coursesRef.current?.map((course, index) => (
+      {coursesData.map((course, index) => (
         <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
           <a href={`/courses/${course._id}`} style={{ fontSize: '1.2rem' }}>
             <img src="/images/sample_pic.png" alt="Pic goes here" width="400" height="400" style={{ marginRight: '1rem' }} />

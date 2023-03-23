@@ -15,6 +15,7 @@
     "date-fns": "^2.29.3",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
+    "js-cookie": "^3.0.1",
     "jsonwebtoken": "^9.0.0",
     "next": "latest",
     "nookies": "^2.5.2",

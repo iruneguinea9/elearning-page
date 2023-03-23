@@ -21,7 +21,12 @@ import { faCog ,faTrashAlt,faEdit } from '@fortawesome/free-solid-svg-icons';
 export default function CoursePage() {
   const router = useRouter();
   const { id } = router.query;
-  const cookies = parseCookies();
+  let cookies = {};
+  if (typeof window !== 'undefined') {
+    cookies = parseCookies();
+  }
+
+  
   // ########################################## FETCHING ##########################################
   const { data: course, error } = useSWR(
     `${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`,

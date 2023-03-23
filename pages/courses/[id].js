@@ -56,7 +56,7 @@ export default function CoursePage() {
   // ########################################## RETURN ##########################################
   return (
     <>
-      <Format accessToken={cookies.token}>
+      <Format>
         <div style={{ display: 'flex', alignItems: 'stretch' }}>
           <div style={{ flex: '0 0 200px', display: showNav ? 'block' : 'none' }}>
             <ul style={{ listStyleType: 'none', padding: 0 }}>

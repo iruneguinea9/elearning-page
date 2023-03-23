@@ -78,7 +78,7 @@ function AddCourse() {
 
   return (
     <>
-      <Format  accessToken={accessToken} >
+      <Format >
         <div style={{ margin: '0 auto', maxWidth: '800px' }}>
           <h1 className={styles.title}>Create a new course</h1>
           <form onSubmit={handleSubmit}>

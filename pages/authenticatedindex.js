@@ -11,9 +11,8 @@ import Format from '../layout/format';
 import Login from '../components/loginNeeded';
 import Courses from '../components/courses';
 import styles from "../styles/styles.module.css"
-import Link from 'next/link';
 
-export default function AuthenticatedIndex(props) {
+export default function AuthenticatedIndex() {
   const cookies = parseCookies();
   const accessToken = cookies.token;
   if(accessToken===undefined){
@@ -25,7 +24,7 @@ export default function AuthenticatedIndex(props) {
     // ########################################## RETURN ##########################################
     return (
       <>
-        <Format  accessToken={accessToken} >          
+        <Format>          
           <div>
             <div>
               <a href="/addCourse" className={styles.addButton}>

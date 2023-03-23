@@ -2,15 +2,15 @@
 // Author: Irune Guinea
 // This is the page to add a new course, here the admin can add a course with the parameters needed
 // and also add as many lessons as they need to
-// Last update 23/03/2023 - V12
+// Last update 23/03/2023 - V13
 
 import { useState } from 'react';
-import { parseCookies } from 'nookies';
 import Format from '../layout/format';
 import Login from '../components/loginNeeded';
 import styles from "../styles/styles.module.css";
 import fetcherPost from '../lib/fetcherPost';
 import { useRouter } from "next/router"
+import { parseCookies } from 'nookies';
 
 function AddCourse() {
   const [formData, setFormData] = useState({
@@ -22,7 +22,7 @@ function AddCourse() {
   const router = useRouter()
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-    setFormData({ ...formData, [e.target.name]: value });
+    setFormData({ ...formData, [e.target.name]: value } || {});
   };
 
   const handleSubmit = async (e) => {
@@ -75,6 +75,7 @@ function AddCourse() {
       </>
     );
   }
+
 
   return (
     <>

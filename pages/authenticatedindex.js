@@ -1,7 +1,7 @@
 // Name : Authenticated index
 // Author : Irune Guinea
 // This is an index page but for the already authenticated users
-// Last update 21/03/2023 - V6
+// Last update 23/03/2023 - V7
 
 
 // ########################################## IMPORTS ##########################################
@@ -13,6 +13,12 @@ import Courses from '../components/courses';
 import styles from "../styles/styles.module.css"
 
 export default function AuthenticatedIndex() {
+  
+  
+  /*
+
+  // Here is the hydration problem, it tries to get the data from parseCookies and it fails
+
   const cookies = parseCookies();
   const accessToken = cookies.token;
   if(accessToken===undefined){
@@ -20,7 +26,7 @@ export default function AuthenticatedIndex() {
       <Login></Login>
      
     );
-  }
+  }*/
     // ########################################## RETURN ##########################################
     return (
       <>

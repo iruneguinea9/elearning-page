@@ -1,7 +1,7 @@
 // Name: Edit Course
 // Author: Irune Guinea
 // This is the page to edit a course
-// Last update 21/03/2023 - V6
+// Last update 23/03/2023 - V7
 
 import { useState, useEffect } from 'react';
 import { parseCookies } from 'nookies';

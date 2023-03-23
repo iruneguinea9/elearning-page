@@ -1,19 +1,16 @@
 // Name : Header
 // Author : Irune Guinea
 // This component is to mantain a uniform format in all the pages
-// Last update 21/03/2023 - V4
+// Last update 23/03/2023 - V5
 
 // ########################################## IMPORTS ##########################################
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { parseCookies, destroyCookie } from 'nookies';
+import {destroyCookie } from 'nookies';
 import { useRouter } from 'next/router';
 
 export default function Header() {
   const router = useRouter();
-  const cookies = parseCookies();
-  const accessToken = cookies.token;
-
 
   const handleLogout = () => {
     destroyCookie(null, 'token');

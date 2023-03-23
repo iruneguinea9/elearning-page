@@ -6,7 +6,7 @@
 
 
 // ########################################## IMPORTS ##########################################
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import fetcher from '../../lib/fetcher';
 import useSWR from 'swr';
@@ -16,17 +16,17 @@ import styles from '../../styles/course.module.css';
 import styles2 from '../../styles/styles.module.css';
 import Login from '../../components/loginNeeded';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog ,faTrashAlt,faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
 
 export default function CoursePage() {
   const router = useRouter();
   const { id } = router.query;
-  let cookies = {};
-  if (typeof window !== 'undefined') {
-    cookies = parseCookies();
-  }
+  const [cookies, setCookies] = useState({});
 
-  
+  useEffect(() => {
+    setCookies(parseCookies());
+  }, []);
+
   // ########################################## FETCHING ##########################################
   const { data: course, error } = useSWR(
     `${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`,
@@ -36,11 +36,12 @@ export default function CoursePage() {
   const [selectedLesson, setSelectedLesson] = useState(null);
   const [showNav, setShowNav] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
+
   const callEdit = () => {
-      router.push({
-    pathname: '/editCourse',
-    query: { courseData: JSON.stringify(id) }
-  });
+    router.push({
+      pathname: '/editCourse',
+      query: { courseData: JSON.stringify(id) }
+    });
   };
 
   // this is for managing the buttons in the bottom-right corner
@@ -57,6 +58,7 @@ export default function CoursePage() {
   if (error) return <div>Error loading course data.</div>;
   if (!course) return <div>Loading course data...</div>;
   if (!course.lessons) return <div>No lessons found for this course.</div>;
+
 
   // ########################################## RETURN ##########################################
   return (

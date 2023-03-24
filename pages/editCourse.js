@@ -1,7 +1,8 @@
 // Name: Edit Course
 // Author: Irune Guinea
-// This is the page to edit a course
-// Last update 23/03/2023 - V8
+// This is the page to edit a course it fills the form with the current information of the course, so
+// that the admin can edit whatever they want and update the course
+// Last update 23/03/2023 - V9
 
 
 

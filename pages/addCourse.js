@@ -3,8 +3,7 @@
 // This is the page to add a new course, here the admin can add a course with the parameters needed
 // and also add as many lessons as they need to
 // Last update 23/03/2023 - V13
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Format from '../layout/format';
 import Login from '../components/loginNeeded';
 import styles from "../styles/styles.module.css";
@@ -20,6 +19,17 @@ function AddCourse() {
     disabled: false,
   });
   const router = useRouter()
+
+  useEffect(() => {
+    const cookies = parseCookies();
+    const accessToken = cookies.token;
+
+    if (accessToken === undefined) {
+      router.push("/");
+      return;
+    }
+  }, [router]);
+
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
     setFormData({ ...formData, [e.target.name]: value } || {});
@@ -64,18 +74,6 @@ function AddCourse() {
     const lessons = [...formData.lessons, { title: '', content: '' }];
     setFormData({ ...formData, lessons });
   };
-
-  const cookies = parseCookies();
-  const accessToken = cookies.token;
-
-  if (accessToken === undefined) {
-    return (
-      <>
-        <Login />
-      </>
-    );
-  }
-
 
   return (
     <>

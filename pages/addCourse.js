@@ -2,7 +2,10 @@
 // Author: Irune Guinea
 // This is the page to add a new course, here the admin can add a course with the parameters needed
 // and also add as many lessons as they need to
-// Last update 24/03/2023 - V14
+// Last update 24/03/2023 - V15
+
+// ########################################## IMPORTS ##########################################
+
 import { useState, useEffect } from 'react';
 import Format from '../layout/format';
 import Login from '../components/loginNeeded';
@@ -10,6 +13,9 @@ import styles from "../styles/styles.module.css";
 import fetcherPost from '../lib/fetcherPost';
 import { useRouter } from "next/router"
 import { parseCookies } from 'nookies';
+
+// ########################################## FUNCTION ##########################################
+
 
 function AddCourse() {
   const [formData, setFormData] = useState({
@@ -29,12 +35,14 @@ function AddCourse() {
       return;
     }
   }, [router]);
+  /*################################ CHANGES #####################################*/
 
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
     setFormData({ ...formData, [e.target.name]: value } || {});
   };
 
+/*################################## SUBMIT ######################################*/
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormData({
@@ -48,7 +56,7 @@ function AddCourse() {
     const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
     const datasend = JSON.stringify(formData)
     console.log("DATASEND ####",datasend)
-    const data = await fetcherPost(url, accessToken, datasend);
+    const data = await fetcherPost(url, accessToken, datasend);  // Fetcher for posting
     
     console.log(data)
     if(data!==null){
@@ -56,7 +64,9 @@ function AddCourse() {
       router.push("/authenticatedindex")
     }
   };
- 
+  
+   /*############################ LESSON CHANGES ##################################*/
+
   const handleLessonChange = (e, index) => {
     const { name, value } = e.target;
     const lessons = [...formData.lessons];
@@ -64,16 +74,21 @@ function AddCourse() {
     setFormData({ ...formData, lessons });
   };
 
+     /*############################ LESSON REMOVE ##################################*/
+
   const handleLessonRemove = (index) => {
     const lessons = [...formData.lessons];
     lessons.splice(index, 1);
     setFormData({ ...formData, lessons });
   };
 
+     /*############################## ADD LESSON  ###################################*/
+
   const handleAddLesson = () => {
     const lessons = [...formData.lessons, { title: '', content: '' }];
     setFormData({ ...formData, lessons });
   };
+  // ########################################## RETURN ##########################################
 
   return (
     <>

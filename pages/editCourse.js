@@ -1,7 +1,11 @@
 // Name: Edit Course
 // Author: Irune Guinea
 // This is the page to edit a course
-// Last update 23/03/2023 - V7
+// Last update 23/03/2023 - V8
+
+
+
+// ########################################## IMPORTS ##########################################
 
 import { useState, useEffect } from 'react';
 import { parseCookies } from 'nookies';
@@ -11,6 +15,9 @@ import styles from "../styles/styles.module.css";
 import fetcherPut from '../lib/fetcherPut';
 import { useRouter } from "next/router"
 import useSWR from 'swr';
+
+// ########################################## FUNCTION ##########################################
+
 function EditCourse() {
     const router = useRouter()
     const id = router.query.courseData ? router.query.courseData.replace(/"/g, '') : null;
@@ -31,13 +38,14 @@ function EditCourse() {
     }
   }, [course]);
 
- 
+ /*################################ CHANGES #####################################*/
 
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
     setFormData({ ...formData, [e.target.name]: value });
   };
 
+/*################################## SUBMIT ######################################*/
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -46,13 +54,15 @@ function EditCourse() {
     const url = `${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`;
     const datasend = JSON.stringify(formData)
     
-    const data = await fetcherPut(url, accessToken, datasend);
+    const data = await fetcherPut(url, accessToken, datasend);  // Fetcher for updating
     console.log(data)
     if(data!==null){
       alert(`The course ${formData.title} has been updated!`)
       router.push("/authenticatedindex")
     }
   };
+
+   /*############################ LESSON CHANGES ##################################*/
 
   const handleLessonChange = (e, index) => {
     const { name, value } = e.target;
@@ -61,12 +71,14 @@ function EditCourse() {
     setFormData({ ...formData, lessons });
   };
 
+     /*############################ LESSON REMOVE ##################################*/
+
   const handleLessonRemove = (index) => {
     const lessons = [...formData.lessons];
     lessons.splice(index, 1);
     setFormData({ ...formData, lessons });
   };
-
+     /*############################## ADD LESSON  ###################################*/
   const handleAddLesson = () => {
     const lessons = [...formData.lessons, { title: '', content: '' }];
     setFormData({ ...formData, lessons });
@@ -83,7 +95,8 @@ function EditCourse() {
     );
   }
 
-  
+    // ########################################## RETURN ##########################################
+
   return (
     <>
       <Format >

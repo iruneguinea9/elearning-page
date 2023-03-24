@@ -25,7 +25,6 @@ function AddCourse() {
     disabled: false,
   });
   const router = useRouter()
-
   useEffect(() => {
     const cookies = parseCookies();
     const accessToken = cookies.token;
@@ -45,12 +44,6 @@ function AddCourse() {
 /*################################## SUBMIT ######################################*/
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormData({
-      title: '',
-      description: '',
-      lessons: [],
-      disabled: false,
-    });
     const cookies = parseCookies();
     const accessToken = cookies.token;
     const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;

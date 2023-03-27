@@ -2,13 +2,14 @@
 // Author : Irune Guinea
 // With this page, each course has it's own page, it has the content of the course and
 // A side navigation bar that allows the user to access the lesson they want to 
-// Last update 23/03/2023 - V3
+// Last update 27/03/2023 - V4
 
 
 // ########################################## IMPORTS ##########################################
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import fetcher from '../../lib/fetcher';
+import fetcherDelete from '../../lib/fetcherDelete';
 import useSWR from 'swr';
 import { parseCookies } from 'nookies';
 import Format from '../../layout/format';
@@ -42,6 +43,14 @@ export default function CoursePage() {
       pathname: '/editCourse',
       query: { courseData: JSON.stringify(id) }
     });
+  };
+  const callDelete = async () => {
+    try {
+      await fetcherDelete(`${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`, cookies.token);
+      router.push('/authenticatedindex');
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   // this is for managing the buttons in the bottom-right corner
@@ -102,7 +111,7 @@ export default function CoursePage() {
                 <button className={styles2.innerButton1} onClick={() => callEdit()}>
                   <FontAwesomeIcon icon={faEdit} />
                 </button>
-                <button className={styles2.innerButton2}>
+                <button className={styles2.innerButton2} onClick={() => callDelete()}>
                   <FontAwesomeIcon icon={faTrashAlt} />
                 </button>
               </div>

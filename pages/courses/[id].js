@@ -73,8 +73,8 @@ export default function CoursePage() {
   return (
     <>
       <Format>
-        <div style={{ display: 'flex', alignItems: 'stretch' }}>
-          <div style={{ flex: '0 0 200px', display: showNav ? 'block' : 'none' }}>
+        <div style={{ position: 'relative' }}>
+          <div style={{ position: 'absolute', top: 0, left: 0, zIndex: '2', width: showNav ? '200px' : '0px', overflow: 'hidden' }}>
             <ul style={{ listStyleType: 'none', padding: 0 }}>
               {course.lessons.map((lesson) => (
                 <li key={lesson.title}>
@@ -92,33 +92,35 @@ export default function CoursePage() {
               ))}
             </ul>
           </div>
-          <div style={{ flex: '1', marginLeft: '20px', position: 'relative' }}>
-            <div style={{ position: 'absolute', top: 5, left: 0, cursor: 'pointer' }} onClick={() => setShowNav(!showNav)}>
-              <img src="/images/moreinfo.png" alt="Toggle navigation" />
-            </div>
-            <div style={{ position: 'absolute', top: 0, left: 100, cursor: 'pointer' }}>
-              <h1 style={{ fontSize: '3em' }}>{course.title}</h1>
-              <p>{course.description}</p>
-              {selectedLesson && (
-                <div key={selectedLesson.title} style={{ marginBottom: '40px', marginTop: '10px' }}>
-                  <h2 id={selectedLesson.title}>{selectedLesson.title}</h2>
-                  <p>{selectedLesson.content}</p>
+          <div style={{ position: 'absolute', top: 0, left: 0, zIndex: '1', width: '100%' }}>
+            <div style={{ marginLeft: showNav ? '200px' : '0px' }}>
+              <div style={{ position: 'absolute', top: 5, left: 0, cursor: 'pointer' }} onClick={() => setShowNav(!showNav)}>
+                <img src="/images/moreinfo.png" alt="Toggle navigation" />
+              </div>
+              <div style={{ marginTop: '10px' }}>
+                <h1 style={{ fontSize: '3em' }}>{course.title}</h1>
+                <p>{course.description}</p>
+                {selectedLesson && (
+                  <div key={selectedLesson.title} style={{ marginBottom: '40px', marginTop: '10px' }}>
+                    <h2 id={selectedLesson.title}>{selectedLesson.title}</h2>
+                    <p>{selectedLesson.content}</p>
+                  </div>
+                )}
+              </div>
+              {showButtons && (
+                <div className={`${styles2.buttonContainer} ${showButtons ? styles2.showButtons : ''}`}>
+                  <button className={styles2.innerButton1} onClick={() => callEdit()}>
+                    <FontAwesomeIcon icon={faEdit} />
+                  </button>
+                  <button className={styles2.innerButton2} onClick={() => callDelete()}>
+                    <FontAwesomeIcon icon={faTrashAlt} />
+                  </button>
                 </div>
               )}
+              <button className={styles2.addButton} onClick={() => setShowButtons(!showButtons)}>
+                <FontAwesomeIcon icon={faCog} />
+              </button>
             </div>
-            {showButtons && (
-              <div className={`${styles2.buttonContainer} ${showButtons ? styles2.showButtons : ''}`}>
-                <button className={styles2.innerButton1} onClick={() => callEdit()}>
-                  <FontAwesomeIcon icon={faEdit} />
-                </button>
-                <button className={styles2.innerButton2} onClick={() => callDelete()}>
-                  <FontAwesomeIcon icon={faTrashAlt} />
-                </button>
-              </div>
-            )}
-            <button className={styles2.addButton} onClick={() => setShowButtons(!showButtons)}>
-              <FontAwesomeIcon icon={faCog} />
-            </button>
           </div>
         </div>
       </Format>

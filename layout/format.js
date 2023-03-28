@@ -1,7 +1,7 @@
 // Name : Format
 // Author : Irune Guinea
 // This is aimed at maintaining a uniform format of all the pages
-// Last update 23/03/2023 - V4
+// Last update 28/03/2023 - V6
 
 // ########################################## IMPORTS ##########################################
 import Header from "../components/header";
@@ -16,7 +16,7 @@ export default function Format({ children}) {
         <title>eLearning</title>
       </Head>
       <Header/>
-      <main style={{ height: "90vh" }}>{children}</main>
+      <main style={{ minHeight: "90vh" }}>{children}</main>
       <Footer />
     </>
   );

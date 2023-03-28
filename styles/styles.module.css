@@ -155,8 +155,6 @@
   height: 400px;
   width: fit-content;
   padding: 20px;
-  align-self: center;
-  margin: auto;
-  border: 5px solid;
+  margin-left: 10px; 
   flex-grow: 1;
 }

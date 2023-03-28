@@ -73,8 +73,10 @@ export default function CoursePage() {
   return (
     <>
       <Format>
+       
         <div style={{ position: 'relative' }}>
-          <div style={{ position: 'absolute', top: 0, left: 0, zIndex: '2', width: showNav ? '200px' : '0px', overflow: 'hidden' }}>
+          
+          <div style={{ position: 'absolute', top: 0, left: 0, zIndex: '2', minHeight:'450px' ,width: showNav ? '200px' : '0px', overflow: 'hidden',backgroundColor:'grey' }}>
             <ul style={{ listStyleType: 'none', padding: 0 }}>
               {course.lessons.map((lesson) => (
                 <li key={lesson.title}>
@@ -93,7 +95,7 @@ export default function CoursePage() {
             </ul>
           </div>
           <div style={{ position: 'absolute', top: 0, left: 0, zIndex: '1', width: '100%' }}>
-            <div style={{ marginLeft: showNav ? '200px' : '0px' }}>
+            <div style={{ marginLeft: '200px' }}>
               <div style={{ position: 'absolute', top: 10, left: 5, cursor: 'pointer' }} onClick={() => setShowNav(!showNav)}>
                 <img src="/images/moreinfo.png" alt="Toggle navigation" />
               </div>

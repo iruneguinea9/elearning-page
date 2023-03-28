@@ -13,6 +13,7 @@ export default function Header() {
   const router = useRouter();
 
   const handleLogout = () => {
+    console.log('logout')
     destroyCookie(null, 'token');
     router.push('/');
   };

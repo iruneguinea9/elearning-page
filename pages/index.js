@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // This is the index page of the app, here in the future could be like an introduction of what the page is and then
 // the access to the login page
-// Last update 23/03/2023 - V3
+// Last update 28/03/2023 - V4
 
 
 // ########################################## IMPORTS ##########################################
@@ -26,9 +26,8 @@ export default function Home({}) {
     // ########################################## RETURN ##########################################
   return (
     <>
-      <header className="bg-blue-300">
-        <div className="xl:container xl:mx-auto flex flex-col items-center sm:justify-between text-center py-3">
-          <Link href="/">
+      <header className="bg-blue-300 relative">
+      <div className="xl:container xl:mx-auto flex flex-col items-center sm:justify-between text-center py-3">          <Link href="/">
             <h1 className="font-bold text-4xl">eLearning platform</h1>
           </Link>
         </div>
@@ -38,7 +37,7 @@ export default function Home({}) {
         </button>
       </div>
       </header>
-      <div className="flex justify-center items-center" style={{ minHeight: '450px' }}>
+      <div className="flex justify-center items-center" style={{ minHeight: '90vh' }}>
         <div>
 
           <h1> This will be a cool welcoming page with information about the platform!</h1>

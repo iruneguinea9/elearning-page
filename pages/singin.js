@@ -1,7 +1,7 @@
 // Name : Sign in
 // Author : Irune Guinea
 // This is where the credentials are set, it redirects to the authenticated index
-// Last update 16/03/2023 - V1
+// Last update 28/03/2023 - V2
 
 
 // ########################################## IMPORTS ##########################################
@@ -63,14 +63,14 @@ export default function SignIn() {
   // ########################################## RETURN ##########################################
   return (
     <>
-    <header className="bg-blue-300">
+      <header className="bg-blue-300 relative">
       <div className="xl:container xl:mx-auto flex flex-col items-center  sm:justify-between text-center py-3">
               <Link href={"/"}>
                   <h1 className="font-bold text-4xl">eLearning platform</h1>
               </Link>          
       </div>  
       </header>
-      <div className={styles.container} style={{ minHeight: "450px" }}>
+      <div className={styles.container} style={{ minHeight: "90vh" }}>
         <h1 className={styles.title}>Sign In</h1>
         <div className={styles.form} >
           <input className={styles.input} type="text" name="username" placeholder="username" value={state.username} onChange={handleChange} autoComplete="off" />

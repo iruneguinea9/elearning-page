@@ -150,3 +150,11 @@
 .showButtons {
   opacity: 1;
 }
+.bigContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid;
+  flex-grow: 1;
+}

@@ -94,10 +94,10 @@ export default function CoursePage() {
           </div>
           <div style={{ position: 'absolute', top: 0, left: 0, zIndex: '1', width: '100%' }}>
             <div style={{ marginLeft: showNav ? '200px' : '0px' }}>
-              <div style={{ position: 'absolute', top: 5, left: 0, cursor: 'pointer' }} onClick={() => setShowNav(!showNav)}>
+              <div style={{ position: 'absolute', top: 10, left: 5, cursor: 'pointer' }} onClick={() => setShowNav(!showNav)}>
                 <img src="/images/moreinfo.png" alt="Toggle navigation" />
               </div>
-              <div style={{ marginTop: '10px' }}>
+              <div className={styles2.bigContainer} style={{ marginTop: '10px'  }}> 
                 <h1 style={{ fontSize: '3em' }}>{course.title}</h1>
                 <p>{course.description}</p>
                 {selectedLesson && (

@@ -76,7 +76,7 @@ export default function CoursePage() {
        
         <div style={{ position: 'relative' }}>
           
-          <div style={{ position: 'absolute', top: 0, left: 0, zIndex: '2', minHeight:'450px' ,width: showNav ? '200px' : '0px', overflow: 'hidden',backgroundColor:'grey' }}>
+          <div className="bg-blue-400" style={{ position: 'absolute', top: 0, left: 0, zIndex: '2',height: "90vh" ,width: showNav ? '200px' : '0px', overflow: 'hidden'}}>
             <ul style={{ listStyleType: 'none', padding: 0 }}>
               {course.lessons.map((lesson) => (
                 <li key={lesson.title}>

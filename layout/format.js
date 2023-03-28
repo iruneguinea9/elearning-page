@@ -16,7 +16,7 @@ export default function Format({ children}) {
         <title>eLearning</title>
       </Head>
       <Header/>
-      <main style={{ minHeight: "450px" }}>{children}</main>
+      <main style={{ height: "90vh" }}>{children}</main>
       <Footer />
     </>
   );

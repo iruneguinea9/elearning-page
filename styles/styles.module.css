@@ -151,10 +151,12 @@
   opacity: 1;
 }
 .bigContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  height: 400px;
+  width: fit-content;
+  padding: 20px;
+  align-self: center;
+  margin: auto;
   border: 5px solid;
   flex-grow: 1;
 }

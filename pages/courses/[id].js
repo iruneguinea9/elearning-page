@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // With this page, each course has it's own page, it has the content of the course and
 // A side navigation bar that allows the user to access the lesson they want to 
-// Last update 29/03/2023 - V6
+// Last update 29/03/2023 - V7
 
 
 // ########################################## IMPORTS ##########################################
@@ -13,7 +13,7 @@ import fetcherDelete from '../../lib/fetcherDelete';
 import useSWR from 'swr';
 import { parseCookies } from 'nookies';
 import Format from '../../layout/format';
-import styles2 from '../../styles/styles.module.css';
+import styles from '../../styles/styles.module.css';
 import Login from '../../components/loginNeeded';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
@@ -96,27 +96,27 @@ export default function CoursePage() {
               <div style={{ position: 'absolute', top: 10, left: 5, cursor: 'pointer' }} onClick={() => setShowNav(!showNav)}>
                 <img src="/images/moreinfo.png" alt="Toggle navigation" />
               </div>
-              <div className={styles2.bigContainer} style={{ marginTop: '10px'  }}> 
-                <h1 style={{ fontSize: '3em' }}>{course.title}</h1>
+              <div className="relative h-400 w-fit-content p-20 ml-10 flex-grow-1 mt-10">
+                <h1 className="text-3xl font-bold mb-10">{course.title}</h1>
                 <p>{course.description}</p>
                 {selectedLesson && (
-                  <div key={selectedLesson.title} style={{ marginBottom: '40px', marginTop: '10px' }}>
+                  <div key={selectedLesson.title} className="mb-40 mt-10">
                     <h2 id={selectedLesson.title}>{selectedLesson.title}</h2>
                     <p>{selectedLesson.content}</p>
                   </div>
                 )}
               </div>
               {showButtons && (
-                <div className={`${styles2.buttonContainer} ${showButtons ? styles2.showButtons : ''}`}>
-                  <button className={styles2.innerButton1} onClick={() => callEdit()}>
+                <div className={`fixed top-10 right-20 flex flex-col transition-opacity duration-200 opacity-0} ${showButtons ? 'opacity-100' : ''}`}>
+                  <button className={"fixed bottom-16 right-20 bg-blue-500 hover:bg-blue-600 text-white  rounded-full cursor-pointer text-center inline-block transition-all duration-200 ease-in-out"} onClick={() => callEdit()}>
                     <FontAwesomeIcon icon={faEdit} />
                   </button>
-                  <button className={styles2.innerButton2} onClick={() => callDelete()}>
+                  <button className={"fixed bottom-28 right-5 bg-blue-500 hover:bg-blue-600 text-white  rounded-full cursor-pointer text-center inline-block transition-all duration-200 ease-in-out"} onClick={() => callDelete()}>
                     <FontAwesomeIcon icon={faTrashAlt} />
                   </button>
                 </div>
               )}
-              <button className={styles2.addButton} onClick={() => setShowButtons(!showButtons)}>
+              <button className={"fixed bottom-16 right-5 bg-blue-500 hover:bg-blue-600 text-white  rounded-full cursor-pointer text-center"} onClick={() => setShowButtons(!showButtons)}>
                 <FontAwesomeIcon icon={faCog} />
               </button>
             </div>

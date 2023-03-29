@@ -1,7 +1,7 @@
 // Name : Sign in
 // Author : Irune Guinea
 // This is where the credentials are set, it redirects to the authenticated index
-// Last update 28/03/2023 - V2
+// Last update 29/03/2023 - V3
 
 
 // ########################################## IMPORTS ##########################################
@@ -64,11 +64,13 @@ export default function SignIn() {
   return (
     <>
       <header className="bg-blue-300 relative">
-      <div className="xl:container xl:mx-auto flex flex-col items-center  sm:justify-between text-center py-3">
-              <Link href={"/"}>
-                  <h1 className="font-bold text-4xl">eLearning platform</h1>
-              </Link>          
-      </div>  
+      <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between text-center py-3 px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center mx-auto">
+            <Link href="/">
+              <h1 className="font-bold text-1xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center cursor-pointer">eLearning platform</h1>
+            </Link>
+          </div> 
+        </div>
       </header>
       <div className={styles.container} style={{ minHeight: "90vh" }}>
         <h1 className={styles.title}>Sign In</h1>

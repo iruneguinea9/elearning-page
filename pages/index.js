@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // This is the index page of the app, here in the future could be like an introduction of what the page is and then
 // the access to the login page
-// Last update 29/03/2023 - V5
+// Last update 29/03/2023 - V6
 
 
 // ########################################## IMPORTS ##########################################
@@ -28,16 +28,19 @@ export default function Home({}) {
     return (
       <>
         <header className="bg-blue-300 relative">
-          <div className="xl:container xl:mx-auto flex flex-col items-center sm:justify-between text-center py-3">
-            <Link href="/">
-              <h1 className="font-bold text-4xl">eLearning platform</h1>
-            </Link>
-          </div>
-          <div className="absolute top-0 right-0 py-3 pr-4">
-            <button className="text-white font-medium" onClick={handleLogin}>
+        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between text-center py-3 px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center mx-auto">
+              <Link href="/">
+                <h1 className="font-bold text-1xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center cursor-pointer">eLearning platform</h1>
+              </Link>
+             </div>
+          
+          <div className="flex items-center mt-4 sm:mt-0">
+            <button className="px-4 py-2 font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 transition duration-200 ease-in-out" onClick={handleLogin}>
               Log in
             </button>
           </div>
+        </div>
         </header>
         <div className="flex justify-center items-center min-h-screen">
           <div className="text-center">

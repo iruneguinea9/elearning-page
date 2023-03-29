@@ -1,7 +1,7 @@
 // Name : Authenticated index
 // Author : Irune Guinea
 // This is an index page but for the already authenticated users
-// Last update 28/03/2023 - V8
+// Last update 29/03/2023 - V9
 
 
 // ########################################## IMPORTS ##########################################
@@ -10,7 +10,6 @@ import utilStyles from '../styles/utils.module.css'
 import Format from '../layout/format';
 import Login from '../components/loginNeeded';
 import Courses from '../components/courses';
-import styles from "../styles/styles.module.css"
 
 export default function AuthenticatedIndex() {
   try {
@@ -37,15 +36,15 @@ export default function AuthenticatedIndex() {
     // ########################################## RETURN ##########################################
     return (
       <>
-        <Format>          
-          <div>
-            <div>
-              <a href="/addCourse" className={styles.addButton}>
+        <Format>
+          <div className="flex flex-col items-center relative">
+            <div className="fixed right-5 bottom-5">
+              <a href="/addCourse" className="text-2xl bg-blue-500 text-white py-1 px-3 rounded-full hover:bg-blue-600 transition duration-200 ease-in-out">
                 +
               </a>
             </div>
-            <div>
-              <h2 className={utilStyles.headingLg}>All the Courses</h2>
+            <div className="w-full px-4 py-6 max-w-screen-lg">
+              <h2 className="text-3xl font-bold mb-8">All the Courses</h2>
               <Courses/>
             </div>
           </div>

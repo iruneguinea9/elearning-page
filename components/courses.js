@@ -1,7 +1,7 @@
 // Name : Courses
 // Author : Irune Guinea
 // This component is to display each of the courses
-// Last update 23/03/2023 - V6
+// Last update 29/03/2023 - V7
 
 
 // ########################################## IMPORTS ##########################################
@@ -34,17 +34,16 @@ const CoursesPage = () => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="text-center py-8">Loading...</div>;
   }
-
   return (
-    <div key={courses.map(course => course._id).join(',')} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div key={courses.map(course => course._id).join(',')} className="flex flex-col items-center">
       {courses?.map((course, index) => (
-        <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-           <a href={`/courses/${course._id}`} style={{ fontSize: '1.2rem' }}>
-            <img src="/images/sample_pic.png" alt="Pic goes here" width="400" height="400" style={{ marginRight: '1rem' }} />
-            {course.title}
-          </a>       
+        <div key={index} className="flex items-center mb-4 w-auto border border-gray-300 hover:border-blue-500 hover:scale-105 transition-all duration-300 rounded-3xl">
+          <a href={`/courses/${course._id}`} className="items-center">
+            <img src="/images/sample_pic.png" alt="Pic goes here" className="mr-4 max-h-300 max-w-500 rounded-t-3xl" />
+            <h2 className="font-bold text-2xl text-center">{course.title}</h2>
+          </a>
         </div>
       ))}
     </div>

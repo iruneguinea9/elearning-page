@@ -2,14 +2,13 @@
 // Author: Irune Guinea
 // This is the page to add a new course, here the admin can add a course with the parameters needed
 // and also add as many lessons as they need to
-// Last update 24/03/2023 - V15
+// Last update 29/03/2023 - V16
 
 // ########################################## IMPORTS ##########################################
 
 import { useState, useEffect } from 'react';
 import Format from '../layout/format';
 import Login from '../components/loginNeeded';
-import styles from "../styles/styles.module.css";
 import fetcherPost from '../lib/fetcherPost';
 import { useRouter } from "next/router"
 import { parseCookies } from 'nookies';
@@ -86,31 +85,31 @@ function AddCourse() {
   return (
     <>
       <Format >
-        <div style={{ margin: '0 auto', maxWidth: '800px' }}>
-          <h1 className={styles.title}>Create a new course</h1>
+        <div className="m-20 auto max-w-800">
+          <h1 className="font-bold text-3xl text-center my-20">Create a new course</h1>
           <form onSubmit={handleSubmit}>
-            <div className={styles.form}>
-              <div className={styles.inputGroup}>
+            <div className="flex flex-col justify-between mx-auto">
+              <div className="flex flex-col mb-4">
               <label className="label">Course Name:</label>
                 <input
-                  className={styles.formInput}
+                  className="rounded-lg border-black border p-2 bg-blue-100" 
                   type="text"
                   name="title"
                   value={formData.title}
                   onChange={handleChange}
                 />
               </div>
-              <div className={styles.inputGroup}>
+              <div className="flex flex-col mb-4">
                 <label className="label">Description:</label>
                 <input
-                  className={styles.formInput}
+                  className="rounded-lg border-black border p-2 bg-blue-100" 
                   type="text"
                   name="description"
                   value={formData.description}
                   onChange={handleChange}
                 />
               </div>
-              <div className={styles.inputGroup}>
+              <div className="flex flex-col mb-4">
                 <label className="label">Disabled:</label>
                 <div>
                   <input
@@ -124,35 +123,35 @@ function AddCourse() {
               <h2 className="font-bold padding1px">Lessons:</h2>
               {formData.lessons.map((lesson, index) => (
                 <div key={index}>
-                  <div className={styles.inputGroup}>
+                  <div className="flex flex-col mb-4">
                     <label className="label">Title:</label>
                     <input
-                      className={styles.formInput}
+                      className="rounded-lg border-black border p-2 bg-blue-100" 
                       type="text"
                       name="title"
                       value={lesson.title}
                       onChange={(e) => handleLessonChange(e, index)}
                     />
                   </div>
-                  <div className={styles.inputGroup}>
+                  <div className="flex flex-col mb-4">
                     <label className="label">Content:</label>
                     <input
-                      className={styles.formInput}
+                      className="rounded-lg border-black border p-2 bg-blue-100" 
                       type="text"
                       name="content"
                       value={lesson.content}
                       onChange={(e) => handleLessonChange(e, index)}
                     />
                   </div>
-                  <div className={styles.inputGroup}>
-                    <button  className={styles.btn2} type="button" onClick={() => handleLessonRemove(index)}>Remove Lesson</button>
+                  <div className="flex flex-col mb-4">
+                    <button  className="w-48 py-2 my-5 mx-auto rounded-md bg-blue-400 text-white" type="button" onClick={() => handleLessonRemove(index)}>Remove Lesson</button>
                   </div>
                 </div>
               ))}
-              <div className={styles.addLessonButton}>
-                <button  className={styles.btn} type="button" onClick={handleAddLesson}>Add Lesson</button>
+              <div className="mt-5 flex justify-center">
+                <button  className="w-48 py-2 my-5 mx-auto rounded-md bg-blue-500 text-white" type="button" onClick={handleAddLesson}>Add Lesson</button>
               </div>
-              <button className={styles.btn} type="submit">Add Course</button>
+              <button className="w-64 py-2 my-5 mx-auto rounded-md bg-blue-500 text-white" type="submit">Add Course</button>
             </div>
           </form>
         </div>

@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // With this page, each course has it's own page, it has the content of the course and
 // A side navigation bar that allows the user to access the lesson they want to 
-// Last update 28/03/2023 - V5
+// Last update 29/03/2023 - V6
 
 
 // ########################################## IMPORTS ##########################################
@@ -13,7 +13,6 @@ import fetcherDelete from '../../lib/fetcherDelete';
 import useSWR from 'swr';
 import { parseCookies } from 'nookies';
 import Format from '../../layout/format';
-import styles from '../../styles/course.module.css';
 import styles2 from '../../styles/styles.module.css';
 import Login from '../../components/loginNeeded';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -71,29 +70,27 @@ export default function CoursePage() {
 
   // ########################################## RETURN ##########################################
   return (
-    <>
-      <Format>
-       
-        <div style={{ position: 'relative' }}>
-          
-          <div className="bg-blue-400" style={{ position: 'absolute', top: 0, left: 0, zIndex: '2',height: "90vh" ,width: showNav ? '200px' : '0px', overflow: 'hidden'}}>
-            <ul style={{ listStyleType: 'none', padding: 0 }}>
-              {course.lessons.map((lesson) => (
-                <li key={lesson.title}>
-                  <a
-                    className={styles.lessonButton}
-                    onClick={() => {
-                      setSelectedLesson(lesson);
-                      setShowNav(false);
-                      setShowButtons(false);
-                    }}
-                  >
-                    {lesson.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+   <>
+  <Format>
+    <div className="relative">
+      <div className="bg-blue-400 absolute top-0 left-0 z-10 h-90vh w-0 overflow-hidden" style={{ width: showNav ? '200px' : '0px' }}>
+        <ul className="list-none p-0">
+          {course.lessons.map((lesson) => (
+            <li key={lesson.title}>
+              <a
+                className="block w-full py-2 px-4 text-white text-center bg-gray-400 hover:bg-blue-300 cursor-pointer"
+                onClick={() => {
+                  setSelectedLesson(lesson);
+                  setShowNav(false);
+                  setShowButtons(false);
+                }}
+              >
+                {lesson.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
           <div style={{ position: 'absolute', top: 0, left: 0, zIndex: '1', width: '100%' }}>
             <div style={{ marginLeft: '200px' }}>
               <div style={{ position: 'absolute', top: 10, left: 5, cursor: 'pointer' }} onClick={() => setShowNav(!showNav)}>

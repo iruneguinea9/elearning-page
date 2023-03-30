@@ -74,12 +74,12 @@ export default function SignIn() {
       </header>
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-white p-10 rounded-lg shadow-lg">
-        <h1 className={styles.title}>Sign In</h1>
-        <div className={styles.form} >
-          <input className={styles.input} type="text" name="username" placeholder="username" value={state.username} onChange={handleChange} autoComplete="off" />
-          <input className={styles.input} type="password" name="password" placeholder="password" value={state.password} onChange={handleChange} />
-          <button className={styles.btn} onClick={handleSubmit}>Submit</button>
-        </div>
+        <h1 className="text-2xl font-bold text-center mb-5">Sign In</h1>
+          <div className="flex flex-col space-y-4" >
+            <input className="border border-gray-300 px-3 py-2 rounded-lg" type="text" name="username" placeholder="username" value={state.username} onChange={handleChange} autoComplete="off" />
+            <input className="border border-gray-300 px-3 py-2 rounded-lg"  type="password" name="password" placeholder="password" value={state.password} onChange={handleChange} />
+            <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg py-2 w-full" onClick={handleSubmit}>Submit</button>
+          </div>
         </div>
       </div>
       <Footer></Footer>

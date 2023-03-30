@@ -1,14 +1,13 @@
 // Name : Sign in
 // Author : Irune Guinea
 // This is where the credentials are set, it redirects to the authenticated index
-// Last update 29/03/2023 - V3
+// Last update 30/03/2023 - V4
 
 
 // ########################################## IMPORTS ##########################################
 import { useRouter } from "next/router"
 import { useState } from "react"
 import Footer from "../components/footer"
-import styles from "../styles/styles.module.css"
 import Link from 'next/link'
 import { setCookie } from "nookies"
 

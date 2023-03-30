@@ -1,7 +1,7 @@
 // Name : Authenticated index
 // Author : Irune Guinea
 // This is an index page but for the already authenticated users
-// Last update 29/03/2023 - V9
+// Last update 30/03/2023 - V10
 
 
 // ########################################## IMPORTS ##########################################
@@ -9,8 +9,12 @@ import { parseCookies,destroyCookie } from 'nookies';
 import Format from '../layout/format';
 import Login from '../components/loginNeeded';
 import Courses from '../components/courses';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus} from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'next/router';
 
 export default function AuthenticatedIndex() {
+  const router = useRouter();
   try {
     // I made this so it redirects to login when needed
 
@@ -19,7 +23,9 @@ export default function AuthenticatedIndex() {
     destroyCookie(null, 'token');
     router.push('/singin');
   }
-
+  const callAdd = () => {
+    router.push('/addCourse');
+  };
   /*
 
   // Here is the hydration problem, it tries to get the data from parseCookies and it fails
@@ -37,11 +43,8 @@ export default function AuthenticatedIndex() {
       <>
         <Format>
           <div className="flex flex-col items-center relative">
-            <div className="fixed right-5 bottom-5">
-              <a href="/addCourse" className="text-2xl bg-blue-500 text-white py-1 px-3 rounded-full hover:bg-blue-600 transition duration-200 ease-in-out">
-                +
-              </a>
-            </div>
+          <button className="fixed bottom-5 right-5 bg-blue-500 hover:bg-blue-600 text-white rounded-full cursor-pointer text-center inline-block transition-all duration-200 ease-in-out transform hover:scale-110" onClick={() => callAdd()}>              <FontAwesomeIcon icon={faPlus} />
+            </button>
             <div className="w-full px-4 py-6 max-w-screen-lg">
               <h2 className="text-3xl font-bold mb-8">All the Courses</h2>
               <Courses/>

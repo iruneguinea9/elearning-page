@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // This is the index page of the app, here in the future could be like an introduction of what the page is and then
 // the access to the login page
-// Last update 29/03/2023 - V6
+// Last update 30/03/2023 - V7
 
 
 // ########################################## IMPORTS ##########################################
@@ -30,9 +30,9 @@ export default function Home({}) {
         <header className="bg-blue-300 relative">
         <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between text-center py-3 px-4 sm:px-6 lg:px-8">
             <div className="flex items-center mx-auto">
-              <Link href="/">
-                <h1 className="font-bold text-1xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center cursor-pointer">eLearning platform</h1>
-              </Link>
+            <Link href="/">
+          <h1 className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center cursor-pointer hover:scale-105 transition duration-300">eLearning platform</h1>
+        </Link>
              </div>
           
           <div className="flex items-center mt-4 sm:mt-0">

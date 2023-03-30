@@ -1,7 +1,7 @@
 // Name : Header
 // Author : Irune Guinea
 // This component is to mantain a uniform format in all the pages
-// Last update 29/03/2023 - V8
+// Last update 30/03/2023 - V9
 
 // ########################################## IMPORTS ##########################################
 import React from 'react';
@@ -22,9 +22,9 @@ export default function Header() {
     <header className="bg-blue-300 relative py-4">
       <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between text-center py-3 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center mx-auto text-center">
-          <Link href="/authenticatedindex">
-            <h1 className="font-bold text-1xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center cursor-pointer">eLearning platform</h1>
-          </Link>
+        <Link href="/authenticatedindex">
+          <h1 className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center cursor-pointer hover:scale-105 transition duration-300">eLearning platform</h1>
+        </Link>
         </div>
       </div>
       <div className="absolute top-10 right-5 items-center mt-4 sm:mt-0">

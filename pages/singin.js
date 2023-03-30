@@ -72,12 +72,14 @@ export default function SignIn() {
           </div> 
         </div>
       </header>
-      <div className={styles.container} style={{ minHeight: "90vh" }}>
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="bg-white p-10 rounded-lg shadow-lg">
         <h1 className={styles.title}>Sign In</h1>
         <div className={styles.form} >
           <input className={styles.input} type="text" name="username" placeholder="username" value={state.username} onChange={handleChange} autoComplete="off" />
           <input className={styles.input} type="password" name="password" placeholder="password" value={state.password} onChange={handleChange} />
           <button className={styles.btn} onClick={handleSubmit}>Submit</button>
+        </div>
         </div>
       </div>
       <Footer></Footer>

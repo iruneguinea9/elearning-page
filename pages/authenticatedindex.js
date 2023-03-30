@@ -6,7 +6,6 @@
 
 // ########################################## IMPORTS ##########################################
 import { parseCookies,destroyCookie } from 'nookies';
-import utilStyles from '../styles/utils.module.css'
 import Format from '../layout/format';
 import Login from '../components/loginNeeded';
 import Courses from '../components/courses';

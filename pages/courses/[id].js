@@ -13,7 +13,6 @@ import fetcherDelete from '../../lib/fetcherDelete';
 import useSWR from 'swr';
 import { parseCookies } from 'nookies';
 import Format from '../../layout/format';
-import styles from '../../styles/styles.module.css';
 import Login from '../../components/loginNeeded';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';

@@ -65,8 +65,22 @@ export default function CoursePage() {
   if (error) return <div>Error loading course data.</div>;
   if (!course) return <div>Loading course data...</div>;
   if (!course.lessons) return <div>No lessons found for this course.</div>;
-  // test
+  
 
+
+  // ####################### FOR LATER USE -> VIDEOS ###########################################
+/*
+  <video controls>
+      <source src="https://s3-{region}.amazonaws.com/{bucket}/{object}" type="video/mp4" />
+  </video>
+
+  object wil be the name of the video file
+  bucket the name of the bucket
+  and the region is the one where the bucket is located
+
+  You can set attributes to the video such as
+  autoplay, loop, preload, and posters
+*/
   // ########################################## RETURN ##########################################
   return (
    <>

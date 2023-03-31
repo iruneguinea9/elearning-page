@@ -70,7 +70,7 @@ export default function CoursePage() {
 
   // ####################### FOR LATER USE -> VIDEOS ###########################################
 /*
-  <video controls>
+  <video class="w-full h-full object-cover rounded shadow focus:outline-none" controls>
       <source src="https://s3-{region}.amazonaws.com/{bucket}/{object}" type="video/mp4" />
   </video>
 

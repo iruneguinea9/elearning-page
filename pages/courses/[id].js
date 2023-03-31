@@ -70,6 +70,28 @@ export default function CoursePage() {
 
   // ####################### FOR LATER USE -> VIDEOS ###########################################
 /*
+  AWS Identity and Access Management (IAM) to set permissions 
+  To ensure that your video files are accessible to users
+  AWS SDK for JavaScript
+
+  import AWS from 'aws-sdk';
+
+  export default function VideoPage() {
+    // Initialize the AWS SDK with your credentials and region
+    AWS.config.update({
+      accessKeyId: 'your-access-key-id',
+      secretAccessKey: 'your-secret-access-key',
+      region: 'your-aws-region',
+    });
+
+    // Get the video file URL from your S3 bucket
+    const s3 = new AWS.S3();
+    const params = {
+      Bucket: 'your-s3-bucket-name',
+      Key: 'your-video-file-name.mp4',
+    };
+    const videoUrl = s3.getSignedUrl('getObject', params);
+    
   <video class="w-full h-full object-cover rounded shadow focus:outline-none" controls>
       <source src="https://s3-{region}.amazonaws.com/{bucket}/{object}" type="video/mp4" />
   </video>
@@ -80,6 +102,13 @@ export default function CoursePage() {
 
   You can set attributes to the video such as
   autoplay, loop, preload, and posters
+
+  With the link that is feched from the lesson content (I don't know how it looks yet)
+
+  <video className="w-full h-full object-cover rounded shadow focus:outline-none" controls>
+    <source src={`https://s3-{region}.amazonaws.com/{bucket}/${selectedLessons.content}`} type="video/mp4" />
+  </video>
+
 */
   // ########################################## RETURN ##########################################
   return (

@@ -109,6 +109,7 @@ export default function CoursePage() {
     <source src={`https://s3-{region}.amazonaws.com/{bucket}/${selectedLessons.content}`} type="video/mp4" />
   </video>
 
+  useful video https://www.youtube.com/watch?v=WP7Dpvrl8Ic
 */
   // ########################################## RETURN ##########################################
   return (

@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // With this page, each course has it's own page, it has the content of the course and
 // A side navigation bar that allows the user to access the lesson they want to 
-// Last update 03/04/2023 - V9
+// Last update 03/04/2023 - V10
 
 
 // ########################################## IMPORTS ##########################################

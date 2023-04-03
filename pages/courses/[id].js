@@ -62,7 +62,10 @@ export default function CoursePage() {
   if (cookies.token === undefined) {
     return <Login />;
   }
-  if (error) return <div>Error loading course data.</div>;
+  if (error) {
+    alert("Session has expired, log in again to continue")
+    destroyCookie(null, 'token');
+    router.push('/singin');}
   if (!course) return <div>Loading course data...</div>;
   if (!course.lessons) return <div>No lessons found for this course.</div>;
   
@@ -142,7 +145,7 @@ export default function CoursePage() {
                     <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" id="mainIconPathAttribute" fill="#ffffff"></path>
                   </svg>
                 </div>
-                <div style={{ position: 'absolute', top: 10, left: 10, cursor: 'pointer' }} className="relative h-400 w-fit-content p-20 ml-10 flex-grow-1 mt-10">
+                <div style={{ position: 'absolute', top: 0, left: 0, cursor: 'pointer' }} className="relative h-400 w-fit-content p-20 ml-10 flex-grow-1 mt-10">
                   <h1 className="text-3xl font-bold mb-10 text-white">{course.title}</h1>
                   <p className='text-white'>{course.description}</p>
                   {selectedLesson && (

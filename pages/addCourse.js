@@ -92,7 +92,7 @@ function AddCourse() {
               <div className="flex flex-col mb-4">
               <label className="label text-white text-2xl">Course Name:</label>
                 <input
-                  className="rounded-lg border-black border p-2 bg-green-100" 
+                  className="rounded-lg border-green-600 border-4 p-2 bg-green-100" 
                   type="text"
                   name="title"
                   value={formData.title}
@@ -102,7 +102,7 @@ function AddCourse() {
               <div className="flex flex-col mb-4">
                 <label className="label text-white text-2xl">Description:</label>
                 <input
-                  className="rounded-lg border-black border p-2 bg-green-100" 
+                  className="rounded-lg border-green-600 border-4 p-2 bg-green-100" 
                   type="text"
                   name="description"
                   value={formData.description}
@@ -126,7 +126,7 @@ function AddCourse() {
                   <div className="flex flex-col mb-4">
                     <label className="label text-white text-2xl">Title:</label>
                     <input
-                      className="rounded-lg border-black border p-2 bg-green-100" 
+                      className="rounded-lg border-green-600 border-4 p-2 bg-green-100" 
                       type="text"
                       name="title"
                       value={lesson.title}
@@ -136,7 +136,7 @@ function AddCourse() {
                   <div className="flex flex-col mb-4">
                     <label className="label text-white text-2xl">Content:</label>
                     <input
-                      className="rounded-lg border-black border p-2 bg-green-100" 
+                      className="rounded-lg border-green-600 border-4 p-2 bg-green-100" 
                       type="text"
                       name="content"
                       value={lesson.content}

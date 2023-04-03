@@ -19,19 +19,18 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-blue-300 relative py-4">
-      <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between text-center py-3 px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center mx-auto text-center">
-        <Link href="/authenticatedindex">
+    <header class="relative bg-gray-900 overflow-hidden">
+      <nav class="relative px-6 py-6 flex justify-between items-center">
+        <a class="text-white text-3xl font-bold leading-none" href="/authenticatedindex">
           <h1 className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center cursor-pointer hover:scale-105 transition duration-300">eLearning platform</h1>
-        </Link>
-        </div>
-      </div>
-      <div className="absolute top-10 right-5 items-center mt-4 sm:mt-0">
-          <button className="px-4 py-2 font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 transition duration-200 ease-in-out" onClick={handleLogout}>
-            Log out
+        </a>
+        <div class="lg:hidden">
+          <button class="navbar-burger flex items-center text-white p-3" onClick={handleLogout}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
           </button>
         </div>
+        <a class="hidden lg:inline-block py-2 px-6 bg-white hover:bg-gray-50 text-sm text-blue-600 font-bold rounded-l-xl rounded-t-xl transition duration-200"  onClick={handleLogout}>Log out</a>
+      </nav>
     </header>
   );
 }

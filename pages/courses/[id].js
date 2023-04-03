@@ -145,25 +145,19 @@ export default function CoursePage() {
                     <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" id="mainIconPathAttribute" fill="#ffffff"></path>
                   </svg>
                 </div>
-                <div className="flex" style={{ position: 'absolute', top: 0, left: 0, cursor: 'pointer', marginLeft: '200px' }}>
-            <div className=" h-400 p-20">
-              <h1 className="text-3xl font-bold mb-10 text-white">{course.title}</h1>
-              <p className='text-white'>{course.description}</p>
-              {selectedLesson && (
-                <div key={selectedLesson.title} className="mb-40 mt-10">
-                  <h2 className='text-white' id={selectedLesson.title}>{selectedLesson.title}</h2>
-                  <p className='text-white'>{selectedLesson.content}</p>
+                <div style={{ position: 'absolute', top: 0, left: 0, cursor: 'pointer' }} className="relative h-400 w-fit-content p-20 ml-10 flex-grow-1 mt-10">
+                  <h1 className="text-3xl font-bold mb-10 text-white">{course.title}</h1>
+                  <p className='text-white'>{course.description}</p>
+                  {selectedLesson && (
+                    <div key={selectedLesson.title} className="mb-40 mt-10">
+                      <h2 className='text-white' id={selectedLesson.title}>{selectedLesson.title}</h2>
+                      <p className='text-white'>{selectedLesson.content}</p>
+                      <video className="w-600 h-600 mb-40 mt-10 object-cover rounded-lg border-4 border-green-500 shadow-lg focus:outline-none" controls>
+                        <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4" />
+                      </video>
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-      {selectedLesson && (
-        <div className="w-600 h-400 ">
-          <video className="w-full h-full mb-40 mt-10 object-cover rounded-lg border-4 border-green-500 shadow-lg focus:outline-none" controls>
-            <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4" />
-          </video>
-        </div>
-      )}
-    </div>
               {showButtons && (
                 <div className={`fixed top-10 right-20 flex flex-col transition-opacity duration-200 opacity-0} ${showButtons ? 'opacity-100' : ''}`}>
                   <button className={"fixed bottom-16 right-20 bg-green-400 hover:bg-green-600 text-white  rounded-full cursor-pointer text-center inline-block transition-all duration-200 ease-in-out transform hover:scale-110"} onClick={() => callEdit()}>

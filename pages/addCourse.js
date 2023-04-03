@@ -86,13 +86,13 @@ function AddCourse() {
     <>
       <Format >
         <div className="m-20 auto max-w-800">
-          <h1 className="font-bold text-3xl text-center my-20">Create a new course</h1>
+          <h1 className="font-bold text-4xl text-center my-20  text-green-600 ">Create a new course</h1>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col justify-between mx-auto">
               <div className="flex flex-col mb-4">
-              <label className="label">Course Name:</label>
+              <label className="label text-white text-2xl">Course Name:</label>
                 <input
-                  className="rounded-lg border-black border p-2 bg-blue-100" 
+                  className="rounded-lg border-black border p-2 bg-green-100" 
                   type="text"
                   name="title"
                   value={formData.title}
@@ -100,9 +100,9 @@ function AddCourse() {
                 />
               </div>
               <div className="flex flex-col mb-4">
-                <label className="label">Description:</label>
+                <label className="label text-white text-2xl">Description:</label>
                 <input
-                  className="rounded-lg border-black border p-2 bg-blue-100" 
+                  className="rounded-lg border-black border p-2 bg-green-100" 
                   type="text"
                   name="description"
                   value={formData.description}
@@ -110,7 +110,7 @@ function AddCourse() {
                 />
               </div>
               <div className="flex flex-col mb-4">
-                <label className="label">Disabled:</label>
+                <label className="label text-white text-2xl">Disabled:</label>
                 <div>
                   <input
                     type="checkbox"
@@ -120,13 +120,13 @@ function AddCourse() {
                   />
                 </div>
               </div>
-              <h2 className="font-bold padding1px">Lessons:</h2>
+              <h2 className="font-bold padding2px mb-10 text-green-600 text-3xl">Lessons:</h2>
               {formData.lessons.map((lesson, index) => (
                 <div key={index}>
                   <div className="flex flex-col mb-4">
-                    <label className="label">Title:</label>
+                    <label className="label text-white text-2xl">Title:</label>
                     <input
-                      className="rounded-lg border-black border p-2 bg-blue-100" 
+                      className="rounded-lg border-black border p-2 bg-green-100" 
                       type="text"
                       name="title"
                       value={lesson.title}
@@ -134,9 +134,9 @@ function AddCourse() {
                     />
                   </div>
                   <div className="flex flex-col mb-4">
-                    <label className="label">Content:</label>
+                    <label className="label text-white text-2xl">Content:</label>
                     <input
-                      className="rounded-lg border-black border p-2 bg-blue-100" 
+                      className="rounded-lg border-black border p-2 bg-green-100" 
                       type="text"
                       name="content"
                       value={lesson.content}
@@ -144,14 +144,14 @@ function AddCourse() {
                     />
                   </div>
                   <div className="flex flex-col mb-4">
-                    <button  className="w-48 py-2 my-5 mx-auto rounded-md bg-blue-400 text-white" type="button" onClick={() => handleLessonRemove(index)}>Remove Lesson</button>
+                    <button  className="w-48 py-2 my-5 mx-auto rounded-md bg-green-400 text-white" type="button" onClick={() => handleLessonRemove(index)}>Remove Lesson</button>
                   </div>
                 </div>
               ))}
               <div className="mt-5 flex justify-center">
-                <button  className="w-48 py-2 my-5 mx-auto rounded-md bg-blue-500 text-white" type="button" onClick={handleAddLesson}>Add Lesson</button>
+                <button  className="w-48 py-2 my-5 mx-auto rounded-md bg-green-500 text-white" type="button" onClick={handleAddLesson}>Add Lesson</button>
               </div>
-              <button className="w-64 py-2 my-5 mx-auto rounded-md bg-blue-500 text-white" type="submit">Add Course</button>
+              <button className="w-64 py-2 my-5 mx-auto rounded-md bg-green-500 text-white" type="submit">Add Course</button>
             </div>
           </form>
         </div>

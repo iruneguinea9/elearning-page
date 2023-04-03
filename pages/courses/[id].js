@@ -66,8 +66,8 @@ export default function CoursePage() {
     alert("Session has expired, log in again to continue")
     destroyCookie(null, 'token');
     router.push('/singin');}
-  if (!course) return <div>Loading course data...</div>;
-  if (!course.lessons) return <div>No lessons found for this course.</div>;
+  if (!course) return <div className="text-center py-8  bg-gray-900 text-green-600" >Loading course data...</div>;
+  if (!course.lessons) return <div className="text-center py-8  bg-gray-900 text-green-600" >No lessons found for this course.</div>;
   
 
 

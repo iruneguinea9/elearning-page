@@ -2,7 +2,7 @@
 // Author: Irune Guinea
 // This is the page to add a new course, here the admin can add a course with the parameters needed
 // and also add as many lessons as they need to
-// Last update 29/03/2023 - V16
+// Last update 03/04/2023 - V16
 
 // ########################################## IMPORTS ##########################################
 
@@ -86,7 +86,7 @@ function AddCourse() {
     <>
       <Format >
         <div className="m-20 auto max-w-800">
-          <h1 className="font-bold text-4xl text-center my-20  text-green-600 ">Create a new course</h1>
+          <h1 className="font-bold text-4xl text-center my-20  text-green-600">Create a new course</h1>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col justify-between mx-auto">
               <div className="flex flex-col mb-4">

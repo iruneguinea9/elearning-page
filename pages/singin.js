@@ -1,7 +1,7 @@
 // Name : Sign in
 // Author : Irune Guinea
 // This is where the credentials are set, it redirects to the authenticated index
-// Last update 30/03/2023 - V5
+// Last update 03/04/2023 - V6
 
 
 // ########################################## IMPORTS ##########################################
@@ -61,27 +61,25 @@ export default function SignIn() {
   }
   // ########################################## RETURN ##########################################
   return (
-    <>
-      <header className="bg-blue-300 relative">
-      <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between text-center py-3 px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center mx-auto">
-          <Link href="/">
-          <h1 className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center cursor-pointer hover:scale-105 transition duration-300">eLearning platform</h1>
-        </Link>
-          </div> 
-        </div>
-      </header>
-      <div className="min-h-screen flex items-center justify-center">
+    <div class="relative bg-gray-900 overflow-hidden">
+      <header>
+          <nav class="relative px-6 py-6 flex justify-between items-center">
+            <a class="text-white text-3xl font-bold leading-none" href="/">
+              <h1 className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center cursor-pointer hover:scale-105 transition duration-300">eLearning platform</h1>
+            </a>            
+          </nav>
+        </header>
+      <div className="min-h-screen flex items-center justify-center p-6 lg:p-12 mb-6 bg-gray-800 shadow-md rounded">
         <div className="bg-white p-10 rounded-lg shadow-lg">
         <h1 className="text-2xl font-bold text-center mb-5">Sign In</h1>
           <div className="flex flex-col space-y-4" >
             <input className="border border-gray-300 px-3 py-2 rounded-lg" type="text" name="username" placeholder="username" value={state.username} onChange={handleChange} autoComplete="off" />
             <input className="border border-gray-300 px-3 py-2 rounded-lg"  type="password" name="password" placeholder="password" value={state.password} onChange={handleChange} />
-            <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg py-2 w-full" onClick={handleSubmit}>Submit</button>
+            <button className="bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg py-2 w-full" onClick={handleSubmit}>Submit</button>
           </div>
         </div>
       </div>
-      <Footer></Footer>
-    </>
+      <Footer/>
+    </div>
   )
 }

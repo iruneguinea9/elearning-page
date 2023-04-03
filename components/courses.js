@@ -37,12 +37,12 @@ const CoursesPage = () => {
     return <div className="text-center py-8">Loading...</div>;
   }
   return (
-    <div key={courses.map(course => course._id).join(',')} className="flex flex-col items-center">
+    <div key={courses.map(course => course._id).join(',')} className="flex flex-col items-center ">
       {courses?.map((course, index) => (
-        <div key={index} className="flex items-center mb-4 w-auto border border-gray-300 hover:border-blue-500 hover:scale-105 transition-all duration-300 rounded-3xl">
+        <div key={index} className="flex items-center mb-4 w-auto border bg-green-500 border-green-300 hover:border-green-500 hover:scale-105 transition-all duration-300 rounded-3xl">
           <a href={`/courses/${course._id}`} className="items-center">
             <img src="/images/sample_pic.png" alt="Pic goes here" className="mr-4 max-h-300 max-w-500 rounded-t-3xl" />
-            <h2 className="font-bold text-2xl text-center">{course.title}</h2>
+            <h2 className="font-bold text-2xl text-white text-center">{course.title}</h2>
           </a>
         </div>
       ))}

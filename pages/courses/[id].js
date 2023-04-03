@@ -157,15 +157,15 @@ export default function CoursePage() {
                 </div>
               {showButtons && (
                 <div className={`fixed top-10 right-20 flex flex-col transition-opacity duration-200 opacity-0} ${showButtons ? 'opacity-100' : ''}`}>
-                  <button className={"fixed bottom-16 right-20 bg-green-500 hover:bg-green-600 text-white  rounded-full cursor-pointer text-center inline-block transition-all duration-200 ease-in-out transform hover:scale-110"} onClick={() => callEdit()}>
+                  <button className={"fixed bottom-16 right-20 bg-green-400 hover:bg-green-600 text-white  rounded-full cursor-pointer text-center inline-block transition-all duration-200 ease-in-out transform hover:scale-110"} onClick={() => callEdit()}>
                     <FontAwesomeIcon icon={faEdit} />
                   </button>
-                  <button className={"fixed bottom-28 right-5 bg-green-500 hover:bg-green-600 text-white  rounded-full cursor-pointer text-center inline-block transition-all duration-200 ease-in-out transform hover:scale-110"} onClick={() => callDelete()}>
+                  <button className={"fixed bottom-28 right-5 bg-green-400 hover:bg-green-600 text-white  rounded-full cursor-pointer text-center inline-block transition-all duration-200 ease-in-out transform hover:scale-110"} onClick={() => callDelete()}>
                     <FontAwesomeIcon icon={faTrashAlt} />
                   </button>
                 </div>
               )}
-              <button className={"fixed bottom-16 right-5 bg-green-500 hover:bg-green-600 text-white  rounded-full cursor-pointer text-center transition-all duration-200 ease-in-out transform hover:scale-110"} onClick={() => setShowButtons(!showButtons)}>
+              <button className={"fixed bottom-16 right-5 bg-green-400 hover:bg-green-600 text-white  rounded-full cursor-pointer text-center transition-all duration-200 ease-in-out transform hover:scale-110"} onClick={() => setShowButtons(!showButtons)}>
                 <FontAwesomeIcon icon={faCog} />
               </button>
             </div>

@@ -1,7 +1,7 @@
 // Name : Courses
 // Author : Irune Guinea
 // This component is to display each of the courses
-// Last update 03/04/2023 - V8
+// Last update 03/04/2023 - V9
 
 
 // ########################################## IMPORTS ##########################################
@@ -24,7 +24,6 @@ const CoursesPage = () => {
         setCourses(coursesData);
         setIsLoading(false);
       } catch (error) {
-        console.error(error);
         setIsLoading(false);
         alert("Session has expired, log in again to continue")
         destroyCookie(null, 'token');

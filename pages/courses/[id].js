@@ -116,7 +116,7 @@ export default function CoursePage() {
     <>
       <Format>
         <div className="relative">
-          <div className="bg-green-400 absolute top-0 left-0 z-10 h-90vh w-0 overflow-hidden" style={{ width: showNav ? '200px' : '0px' }}>
+          <div className="bg-green-400 absolute top-0 left-0 z-10 h-90vh w-0 overflow-hidden transition-all duration-500 ease-in-out" style={{ width: showNav ? '200px' : '0px' }}>
             <ul className="list-none p-0">
               {course.lessons.map((lesson) => (
                 <li key={lesson.title}>
@@ -137,12 +137,12 @@ export default function CoursePage() {
           <div className="ml-0 md:ml-200px">
             <div style={{ position: 'absolute', top: 0, left: 0, zIndex: '1', width: '100%' }}>
               <div style={{ marginLeft: '200px' }}>
-                <div style={{ position: 'absolute', top: 10, left: 5, cursor: 'pointer' }} onClick={() => setShowNav(!showNav)}>
+                <div style={{ position: 'absolute', top: 10, left: 10, cursor: 'pointer' }} onClick={() => setShowNav(!showNav)}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" id="IconChangeColor">
                     <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" id="mainIconPathAttribute" fill="#ffffff"></path>
                   </svg>
                 </div>
-                <div className="relative h-400 w-fit-content p-20 ml-10 flex-grow-1 mt-10">
+                <div style={{ position: 'absolute', top: 10, left: 10, cursor: 'pointer' }} className="relative h-400 w-fit-content p-20 ml-10 flex-grow-1 mt-10">
                   <h1 className="text-3xl font-bold mb-10 text-white">{course.title}</h1>
                   <p className='text-white'>{course.description}</p>
                   {selectedLesson && (

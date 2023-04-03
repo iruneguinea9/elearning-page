@@ -18,7 +18,7 @@ export default function Header() {
   };
 
   return (
-    <header class="relative bg-gray-900 overflow-hidden">
+    <header class="relative bg-gray-900 overflow-hidden shadow-lg ">
       <nav class="relative px-6 py-6 flex justify-between items-center">
         <a class="text-white text-3xl font-bold leading-none" href="/authenticatedindex">
           <h1 className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center cursor-pointer hover:scale-105 transition duration-300">eLearning platform</h1>

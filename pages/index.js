@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // This is the index page of the app, here in the future could be like an introduction of what the page is and then
 // the access to the login page
-// Last update 30/03/2023 - V7
+// Last update 03/04/2023 - V8
 
 
 // ########################################## IMPORTS ##########################################
@@ -48,7 +48,7 @@ export default function Home({}) {
                 <div class="w-full text-center lg:text-left">
                   <div class="max-w-md mx-auto lg:mx-10">
                     <h2 class="mb-3 text-4xl lg:text-5xl text-white font-bold">
-                      <span>Welcome to our</span>
+                      <span>Welcome to our </span>
                       <span class="text-green-600">eLearning platform</span>
                     </h2>
                   </div>
@@ -69,6 +69,7 @@ export default function Home({}) {
           </div>
         </div>
       </section>
+      <Footer/>
       </>
     );
   }

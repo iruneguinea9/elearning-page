@@ -117,7 +117,7 @@ export default function CoursePage() {
   // ########################################## RETURN ##########################################
   return (
     <>
-       <Format>
+<Format>
     <div className="relative">
       <div className="bg-green-400 absolute top-0 left-0 z-10 h-90vh w-0 overflow-hidden transition-all duration-500 ease-in-out" style={{ width: showNav ? '200px' : '0px' }}>
         <ul className="list-none p-0">
@@ -146,7 +146,7 @@ export default function CoursePage() {
               </svg>
             </div>
             <div className="flex flex-col md:flex-row">
-              <div className="md:w-2/4 md:px-10 md:py-20">
+              <div className="md:w-2/4 md:px-10 md:py-20 mt-20 md:mt-0 md:mt-20">
                 <h1 className="text-3xl font-bold mb-10 text-white">{course.title}</h1>
                 <p className="text-white">{course.description}</p>
                 {selectedLesson && (

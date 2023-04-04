@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // With this component I redirect to the sign in page to a user that is not logged in and 
 // is trying to access a protected area
-// Last update 30/03/2023 - V2
+// Last update 04/04/2023 - V3
 
 // ########################################## IMPORTS ##########################################
 import Format from '../layout/format';
@@ -24,7 +24,7 @@ return (
         <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight my-4">Courses</h2>
       </div>
       <p className="mb-28">You need to be logged in to have access to the courses</p>
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
         onClick={() => router.push('/signin')}>
         Sign in
       </button>

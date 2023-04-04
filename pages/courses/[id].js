@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import fetcher from '../../lib/fetcher';
 import fetcherDelete from '../../lib/fetcherDelete';
 import useSWR from 'swr';
-import { parseCookies } from 'nookies';
+import { parseCookies, destroyCookie } from 'nookies';
 import Format from '../../layout/format';
 import Login from '../../components/loginNeeded';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

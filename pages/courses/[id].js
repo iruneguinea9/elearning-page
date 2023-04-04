@@ -152,7 +152,10 @@ export default function CoursePage() {
                     <div key={selectedLesson.title} className="mb-40 mt-10" style={{ width: 'calc(100% - 10px)' }}>
                     <h2 className='text-white' id={selectedLesson.title}>{selectedLesson.title}</h2>
                     <p className='text-white'>{selectedLesson.content}</p>
-                    <video className="w-600 h-600 mb-40 mt-10 object-cover rounded-lg border-4 border-green-500 shadow-lg focus:outline-none float-right" controls>
+                    <video
+                      className="w-auto h-auto mb-40 mt-10 object-cover rounded-lg border-4 border-green-500 shadow-lg focus:outline-none float-right"
+                      controls
+                    >
                       <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4" />
                     </video>
                   </div>

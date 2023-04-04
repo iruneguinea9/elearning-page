@@ -145,20 +145,26 @@ export default function CoursePage() {
                     <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" id="mainIconPathAttribute" fill="#ffffff"></path>
                   </svg>
                 </div>
-                <div style={{ position: 'absolute', top: 0, left: 0, cursor: 'pointer' }} className="relative h-400 w-fit-content p-20 ml-10 flex-grow-1 mt-10">
-                  <h1 className="text-3xl font-bold mb-10 text-white">{course.title}</h1>
-                  <p className='text-white'>{course.description}</p>
-                  {selectedLesson && (
-                    <div key={selectedLesson.title} className="mb-40 mt-10" style={{ width: 'calc(100% - 10px)' }}>
-                    <h2 className='text-white' id={selectedLesson.title}>{selectedLesson.title}</h2>
-                    <p className='text-white'>{selectedLesson.content}</p>
-                    <video
-                      className="w-auto h-auto mb-40 mt-10 object-cover rounded-lg border-4 border-green-500 shadow-lg focus:outline-none float-right"
-                      controls
-                    >
-                      <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4" />
-                    </video>
+                <div className="flex flex-row">
+                  <div className="w-2/4 px-10 py-10">
+                    <h1 className="text-3xl font-bold mb-10 text-white">{course.title}</h1>
+                    <p className="text-white">{course.description}</p>
+                    {selectedLesson && (
+                      <div key={selectedLesson.title} className="mb-40 mt-10">
+                        <h2 className="text-white" id={selectedLesson.title}>{selectedLesson.title}</h2>
+                        <p className="text-white">{selectedLesson.content}</p>
+                      </div>
+                    )}
                   </div>
+                  {selectedLesson && (
+                    <div className="w-2/4">
+                      <video
+                        className="w-full h-auto mb-40 mt-10 object-cover rounded-lg border-4 border-green-500 shadow-lg focus:outline-none"
+                        controls
+                      >
+                        <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4" />
+                      </video>
+                    </div>
                   )}
                 </div>
               {showButtons && (

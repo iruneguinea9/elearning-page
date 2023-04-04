@@ -149,7 +149,7 @@ export default function CoursePage() {
                   <h1 className="text-3xl font-bold mb-10 text-white">{course.title}</h1>
                   <p className='text-white'>{course.description}</p>
                   {selectedLesson && (
-                    <div key={selectedLesson.title} className="mb-40 mt-10">
+                    <div key={selectedLesson.title} className="mb-40 mt-10" style={{ width: 'calc(100% - 10px)' }}>
                     <h2 className='text-white' id={selectedLesson.title}>{selectedLesson.title}</h2>
                     <p className='text-white'>{selectedLesson.content}</p>
                     <video className="w-600 h-600 mb-40 mt-10 object-cover rounded-lg border-4 border-green-500 shadow-lg focus:outline-none float-right" controls>

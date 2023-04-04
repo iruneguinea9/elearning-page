@@ -146,7 +146,7 @@ export default function CoursePage() {
               </svg>
             </div>
             <div className="flex flex-col md:flex-row">
-              <div className="md:w-2/4 md:px-10 md:py-10">
+              <div className="md:w-2/4 md:px-10 md:py-20">
                 <h1 className="text-3xl font-bold mb-10 text-white">{course.title}</h1>
                 <p className="text-white">{course.description}</p>
                 {selectedLesson && (

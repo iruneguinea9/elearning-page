@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // With this page, each course has it's own page, it has the content of the course and
 // A side navigation bar that allows the user to access the lesson they want to 
-// Last update 03/04/2023 - V10
+// Last update 05/04/2023 - V11
 
 
 // ########################################## IMPORTS ##########################################
@@ -117,73 +117,73 @@ export default function CoursePage() {
   // ########################################## RETURN ##########################################
   return (
     <>
-<Format>
-    <div className="relative">
-      <div className="bg-green-400 absolute top-0 left-0 z-10 h-90vh w-0 overflow-hidden transition-all duration-500 ease-in-out" style={{ width: showNav ? '200px' : '0px' }}>
-        <ul className="list-none p-0">
-          {course.lessons.map((lesson) => (
-            <li key={lesson.title}>
-              <a
-                className="block w-full py-2 px-4 text-white text-center bg-gray-800 hover:bg-green-300 cursor-pointer"
-                onClick={() => {
-                  setSelectedLesson(lesson);
-                  setShowNav(false);
-                  setShowButtons(false);
-                }}
-              >
-                {lesson.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="ml-0 md:ml-200px">
-        <div style={{ position: 'absolute', top: 0, left: 0, zIndex: '1', width: '100%' }}>
-          <div class="mx-auto md:ml-56 lg:mr-96">
-            <div style={{ position: 'absolute', top: 10, left: 10, cursor: 'pointer' }} onClick={() => setShowNav(!showNav)}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" id="IconChangeColor">
-                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" id="mainIconPathAttribute" fill="#ffffff"></path>
-              </svg>
-            </div>
-            <div className="flex flex-col md:flex-row">
-              <div className="md:w-2/4 md:px-10 md:py-20 mt-20 md:mt-0 ">
-                <h1 className="text-3xl font-bold mb-10 text-white">{course.title}</h1>
-                <p className="text-white">{course.description}</p>
-                {selectedLesson && (
-                  <div key={selectedLesson.title} className="mb-40 mt-10">
-                    <h2 className="text-white" id={selectedLesson.title}>{selectedLesson.title}</h2>
-                    <p className="text-white">{selectedLesson.content}</p>
-                  </div>
-                )}
-              </div>
-              {selectedLesson && (
-                <div className="md:w-2/4 md:mt-10">
-                  <video
-                    className="w-full h-auto mb-10 object-cover rounded-lg border-4 border-green-500 shadow-lg focus:outline-none"
-                    controls
+      <Format>
+        <div className="relative">
+          <div className="bg-green-400 absolute top-0 left-0 z-10 h-90vh w-0 overflow-hidden transition-all duration-500 ease-in-out" style={{ width: showNav ? '200px' : '0px' }}>
+            <ul className="list-none p-0">
+              {course.lessons.map((lesson) => (
+                <li key={lesson.title}>
+                  <a
+                    className="block w-full py-2 px-4 text-white text-center bg-gray-800 hover:bg-green-300 cursor-pointer"
+                    onClick={() => {
+                      setSelectedLesson(lesson);
+                      setShowNav(false);
+                      setShowButtons(false);
+                    }}
                   >
-                    <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4" />
-                  </video>
+                    {lesson.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="ml-0 md:ml-200px">
+            <div style={{ position: 'absolute', top: 0, left: 0, zIndex: '1', width: '100%' }}>
+              <div class="mx-auto md:ml-56 lg:mr-96">
+                <div style={{ position: 'absolute', top: 10, left: 10, cursor: 'pointer' }} onClick={() => setShowNav(!showNav)}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" id="IconChangeColor">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" id="mainIconPathAttribute" fill="#ffffff"></path>
+                  </svg>
                 </div>
-              )}
-            </div>
-              {showButtons && (
-                <div className={`fixed top-10 right-20 flex flex-col transition-opacity duration-200 opacity-0} ${showButtons ? 'opacity-100' : ''}`}>
-                  <button className={"fixed bottom-16 right-20 bg-green-400 hover:bg-green-600 text-white  rounded-full cursor-pointer text-center inline-block transition-all duration-200 ease-in-out transform hover:scale-110"} onClick={() => callEdit()}>
-                    <FontAwesomeIcon icon={faEdit} />
-                  </button>
-                  <button className={"fixed bottom-28 right-5 bg-green-400 hover:bg-green-600 text-white  rounded-full cursor-pointer text-center inline-block transition-all duration-200 ease-in-out transform hover:scale-110"} onClick={() => callDelete()}>
-                    <FontAwesomeIcon icon={faTrashAlt} />
+                <div className="flex flex-col md:flex-row">
+                  <div className="md:w-2/4 md:px-10 md:py-20 mt-20 md:mt-0 ">
+                    <h1 className="text-3xl font-bold mb-10 text-white">{course.title}</h1>
+                    <p className="text-white">{course.description}</p>
+                    {selectedLesson && (
+                      <div key={selectedLesson.title} className="mb-40 mt-10">
+                        <h2 className="text-white" id={selectedLesson.title}>{selectedLesson.title}</h2>
+                        <p className="text-white">{selectedLesson.content}</p>
+                      </div>
+                    )}
+                  </div>
+                  {selectedLesson && (
+                    <div className="md:w-2/4 md:mt-10">
+                      <video
+                        className="w-full h-auto mb-10 object-cover rounded-lg border-4 border-green-500 shadow-lg focus:outline-none"
+                        controls
+                      >
+                        <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4" />
+                      </video>
+                    </div>
+                  )}
+                </div>
+                  {showButtons && (
+                    <div className={`fixed top-10 right-20 flex flex-col transition-opacity duration-200 opacity-0} ${showButtons ? 'opacity-100' : ''}`}>
+                      <button className={"fixed bottom-16 right-20 bg-green-400 hover:bg-green-600 text-white  rounded-full cursor-pointer text-center inline-block transition-all duration-200 ease-in-out transform hover:scale-110"} onClick={() => callEdit()}>
+                        <FontAwesomeIcon icon={faEdit} />
+                      </button>
+                      <button className={"fixed bottom-28 right-5 bg-green-400 hover:bg-green-600 text-white  rounded-full cursor-pointer text-center inline-block transition-all duration-200 ease-in-out transform hover:scale-110"} onClick={() => callDelete()}>
+                        <FontAwesomeIcon icon={faTrashAlt} />
+                      </button>
+                    </div>
+                  )}
+                  <button className={"fixed bottom-16 right-5 bg-green-400 hover:bg-green-600 text-white  rounded-full cursor-pointer text-center transition-all duration-200 ease-in-out transform hover:scale-110"} onClick={() => setShowButtons(!showButtons)}>
+                    <FontAwesomeIcon icon={faCog} />
                   </button>
                 </div>
-              )}
-              <button className={"fixed bottom-16 right-5 bg-green-400 hover:bg-green-600 text-white  rounded-full cursor-pointer text-center transition-all duration-200 ease-in-out transform hover:scale-110"} onClick={() => setShowButtons(!showButtons)}>
-                <FontAwesomeIcon icon={faCog} />
-              </button>
+              </div>
             </div>
           </div>
-        </div>
-        </div>
       </Format>
     </>
   );

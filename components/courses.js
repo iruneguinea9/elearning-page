@@ -1,7 +1,7 @@
 // Name : Courses
 // Author : Irune Guinea
 // This component is to display each of the courses
-// Last update 03/04/2023 - V9
+// Last update 05/04/2023 - V10
 
 
 // ########################################## IMPORTS ##########################################
@@ -42,7 +42,7 @@ const CoursesPage = () => {
   return (
     <div key={courses.map(course => course._id).join(',')} className="flex flex-col items-center ">
       {courses?.map((course, index) => (
-        <div key={index} className="flex items-center mb-4 w-auto border bg-green-500 border-green-300 hover:border-green-500 hover:scale-105 transition-all duration-300 rounded-3xl">
+        <div key={index} className="flex items-center mb-4 w-3/4 border bg-green-500 border-green-300 hover:border-green-500 hover:scale-105 transition-all duration-300 rounded-3xl">
           <a href={`/courses/${course._id}`} className="items-center">
             <img src="/images/sample_pic.jpg" alt="Pic goes here" className="mr-4 max-h-250 max-w-500 rounded-t-3xl" />
             <h2 className="font-bold text-2xl text-white text-center py-4">{course.title}</h2>

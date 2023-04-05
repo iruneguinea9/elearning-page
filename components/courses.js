@@ -37,7 +37,7 @@ const CoursesPage = () => {
   }, []);
 
   if (isLoading) {
-    return <div className="text-center py-8  bg-gray-900 text-green-600" >Loading...</div>;
+    return <div className="text-center py-8  bg-gray-900 text-green-600 min-h-screen" >Loading...</div>;
   }
   return (
     <div key={courses.map(course => course._id).join(',')} className="flex flex-col items-center ">

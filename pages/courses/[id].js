@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // With this page, each course has it's own page, it has the content of the course and
 // A side navigation bar that allows the user to access the lesson they want to 
-// Last update 05/04/2023 - V11
+// Last update 05/04/2023 - V12
 
 
 // ########################################## IMPORTS ##########################################
@@ -35,7 +35,7 @@ export default function CoursePage() {
   const [selectedLesson, setSelectedLesson] = useState(null);
   const [showNav, setShowNav] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
-
+// ############################### USE OF THE BUTTONS ########################################
   const callEdit = () => {
     router.push({
       pathname: '/editCourse',

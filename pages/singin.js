@@ -1,14 +1,13 @@
 // Name : Sign in
 // Author : Irune Guinea
 // This is where the credentials are set, it redirects to the authenticated index
-// Last update 03/04/2023 - V6
+// Last update 05/04/2023 - V7
 
 
 // ########################################## IMPORTS ##########################################
 import { useRouter } from "next/router"
 import { useState } from "react"
 import Footer from "../components/footer"
-import Link from 'next/link'
 import { setCookie } from "nookies"
 
 export default function SignIn() {
@@ -22,7 +21,7 @@ export default function SignIn() {
         client_id: "",
         client_secret: ""
   })
-
+// ########################################## HANDLING ##########################################
   function handleChange(e) {
     const copy = { ...state }
     copy[e.target.name] = e.target.value

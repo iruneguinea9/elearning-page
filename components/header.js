@@ -1,7 +1,7 @@
 // Name : Header
 // Author : Irune Guinea
 // This component is to mantain a uniform format in all the pages
-// Last update 03/04/2023 - V10
+// Last update 05/04/2023 - V11
 
 // ########################################## IMPORTS ##########################################
 import React from 'react';
@@ -10,13 +10,13 @@ import { useRouter } from 'next/router';
 
 export default function Header() {
   const router = useRouter();
-
+// ############################## HANDLER FOR THE LOG OUT ######################################
   const handleLogout = () => {
     console.log('logout')
     destroyCookie(null, 'token');
     router.push('/');
   };
-
+// ########################################## RETURN ##########################################
   return (
     <header class="relative bg-gray-900 overflow-hidden shadow-lg ">
       <nav class="relative px-6 py-6 flex justify-between items-center">

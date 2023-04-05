@@ -2,11 +2,10 @@
 // Author : Irune Guinea
 // This is the index page of the app, here in the future could be like an introduction of what the page is and then
 // the access to the login page
-// Last update 03/04/2023 - V8
+// Last update 05/04/2023 - V9
 
 
 // ########################################## IMPORTS ##########################################
-import Link from 'next/link';
 import Footer from '../components/footer';
 import { useRouter } from 'next/router';
 import { parseCookies } from 'nookies';

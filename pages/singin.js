@@ -1,7 +1,7 @@
 // Name : Sign in
 // Author : Irune Guinea
 // This is where the credentials are set, it redirects to the authenticated index
-// Last update 05/04/2023 - V7
+// Last update 06/04/2023 - V8
 
 
 // ########################################## IMPORTS ##########################################
@@ -60,10 +60,10 @@ export default function SignIn() {
   }
   // ########################################## RETURN ##########################################
   return (
-    <div class="relative bg-gray-900 overflow-hidden">
-      <header class="shadow-lg">
-          <nav class="relative px-6 py-6 flex justify-between items-center">
-            <a class="text-white text-3xl font-bold leading-none" href="/">
+    <div className="relative bg-gray-900 overflow-hidden">
+      <header className="shadow-lg">
+          <nav className="relative px-6 py-6 flex justify-between items-center">
+            <a className="text-white text-3xl font-bold leading-none" href="/">
               <h1 className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center cursor-pointer hover:scale-105 transition duration-300">eLearning platform</h1>
             </a>            
           </nav>

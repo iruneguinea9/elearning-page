@@ -38,6 +38,16 @@ function EditCourse() {
     }
   }, [course]);
 
+  /*########################### TROUBLESHOOTING ################################# */
+  try {
+    // If there is an error, it logs out
+
+  } catch (error) {
+    alert("Session has expired, log in again to continue")
+    destroyCookie(null, 'token');
+    router.push('/singin');
+  }
+
  /*################################ CHANGES #####################################*/
 
   const handleChange = (e) => {

@@ -11,7 +11,7 @@ import Format from '../layout/format';
 import Login from '../components/loginNeeded';
 import fetcherPost from '../lib/fetcherPost';
 import { useRouter } from "next/router"
-import { parseCookies } from 'nookies';
+import { parseCookies , destroyCookie} from 'nookies';
 
 // ########################################## FUNCTION ##########################################
 
@@ -33,6 +33,17 @@ function AddCourse() {
       return;
     }
   }, [router]);
+  
+  /*########################### TROUBLESHOOTING ################################# */
+
+  try {
+    // If there is an error, it logs out
+
+  } catch (error) {
+    alert("Session has expired, log in again to continue")
+    destroyCookie(null, 'token');
+    router.push('/singin');
+  }
   /*################################ CHANGES #####################################*/
 
   const handleChange = (e) => {

@@ -27,7 +27,7 @@ const CoursesPage = () => {
         setIsLoading(false);
         alert("Session has expired, log in again to continue")
         destroyCookie(null, 'token');
-        router.push('/');
+        router.push('/singin');
       }
     };
 

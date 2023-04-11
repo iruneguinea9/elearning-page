@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // With this page, each course has it's own page, it has the content of the course and
 // A side navigation bar that allows the user to access the lesson they want to 
-// Last update 11/04/2023 - V14
+// Last update 11/04/2023 - V15
 
 
 // ########################################## IMPORTS ##########################################
@@ -66,8 +66,8 @@ export default function CoursePage() {
     alert("Session has expired, log in again to continue")
     destroyCookie(null, 'token');
     router.push('/singin');}
-  if (!course) return <div className="text-center py-96  bg-gray-900 text-green-600" >Loading course data...</div>;
-  if (!course.lessons) return <div className="text-center py-96  bg-gray-900 text-green-600" >No lessons found for this course.</div>;
+  if (!course) return <div className="text-center py-96 w-full bg-gray-900 text-green-600" >Loading course data...</div>;
+  if (!course.lessons) return <div className="text-center py-96 w-full  bg-gray-900 text-green-600" >No lessons found for this course.</div>;
   
 
 

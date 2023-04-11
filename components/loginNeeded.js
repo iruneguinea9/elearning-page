@@ -24,7 +24,7 @@ return (
         <h2 className="text-2xl md:text-4xl text-white font-extrabold tracking-tight my-4">Courses</h2>
       </div>
       <p className="mb-28">You need to be logged in to have access to the courses</p>
-      <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+      <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-4 px-4 rounded"
         onClick={() => router.push('/signin')}>
         Sign in
       </button>

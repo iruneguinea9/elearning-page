@@ -1,7 +1,7 @@
 // Name : Sign in
 // Author : Irune Guinea
 // This is where the credentials are set, it redirects to the authenticated index
-// Last update 06/04/2023 - V8
+// Last update 11/04/2023 - V9
 
 
 // ########################################## IMPORTS ##########################################
@@ -68,13 +68,13 @@ export default function SignIn() {
             </a>            
           </nav>
         </header>
-      <div className="min-h-screen flex items-center justify-center p-6 lg:p-12 mb-6 shadow-md rounded">
-        <div className="bg-white p-10 rounded-lg shadow-lg">
+      <div className="min-h-screen flex items-center justify-center p-6 lg:p-12 mb-6 shadow-md rounded-2xl">
+        <div className="bg-white p-10 rounded-2xl shadow-2xl">
         <h1 className="text-2xl font-bold text-center mb-5">Sign In</h1>
           <div className="flex flex-col space-y-4" >
             <input className="border border-gray-300 px-3 py-2 rounded-lg" type="text" name="username" placeholder="username" value={state.username} onChange={handleChange} autoComplete="off" />
             <input className="border border-gray-300 px-3 py-2 rounded-lg"  type="password" name="password" placeholder="password" value={state.password} onChange={handleChange} />
-            <button className="bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg py-2 w-full" onClick={handleSubmit}>Submit</button>
+            <button className="bg-green-500 hover:bg-green-600 text-white font-bold mt-0.5 rounded-lg py-2 w-full" onClick={handleSubmit}>Submit</button>
           </div>
         </div>
       </div>

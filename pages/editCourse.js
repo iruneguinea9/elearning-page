@@ -2,7 +2,7 @@
 // Author: Irune Guinea
 // This is the page to edit a course it fills the form with the current information of the course, so
 // that the admin can edit whatever they want and update the course
-// Last update 03/04/2023 - V11
+// Last update 11/04/2023 - V12
 
 
 
@@ -159,14 +159,14 @@ function EditCourse() {
                     />
                   </div>
                   <div className="flex flex-col mb-4">
-                    <button  className="w-48 py-2 my-5 mx-auto rounded-md bg-green-400 text-white" type="button" onClick={() => handleLessonRemove(index)}>Remove Lesson</button>
+                    <button  className="w-48 py-2 my-5 mx-auto rounded-md bg-green-400 hover:bg-green-500 text-white" type="button" onClick={() => handleLessonRemove(index)}>Remove Lesson</button>
                   </div>
                 </div>
               ))}
               <div className="mt-5 flex justify-center">
-                <button  className="w-48 py-2 my-5 mx-auto rounded-md bg-green-500 text-white" type="button" onClick={handleAddLesson}>Add Lesson</button>
+                <button  className="w-48 py-2 my-5 mx-auto rounded-md bg-green-500 hover:bg-green-600 text-white" type="button" onClick={handleAddLesson}>Add Lesson</button>
               </div>
-              <button className="w-64 py-2 my-5 mx-auto rounded-md bg-green-500 text-white" type="submit">Update Course</button>
+              <button className="w-64 py-2 my-5 mx-auto rounded-md bg-green-500 hover:bg-green-700 text-white" type="submit">Update Course</button>
             </div>
           </form>
         </div>

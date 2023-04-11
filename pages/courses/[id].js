@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // With this page, each course has it's own page, it has the content of the course and
 // A side navigation bar that allows the user to access the lesson they want to 
-// Last update 11/04/2023 - V15
+// Last update 11/04/2023 - V16
 
 
 // ########################################## IMPORTS ##########################################
@@ -157,7 +157,7 @@ export default function CoursePage() {
                     )}
                   </div>
                   {selectedLesson && (
-                    <div className="md:w-2/4 md:mt-10">
+                    <div className="py-16 md:w-2/4 md:mt-10">
                       <video
                         className="w-full h-auto mb-10 object-cover rounded-lg border-4 border-green-500 shadow-lg focus:outline-none"
                         controls

@@ -14,7 +14,7 @@ export default function Home({}) {
   const cookies = parseCookies();
   const accessToken = cookies.token;
   const router = useRouter();
-  // ################################## REDIRECT IF LOGGED IN ####################################
+// ################################## REDIRECT IF LOGGED IN ####################################
   if(accessToken!==undefined){
     router.push('/authenticatedindex')
 
@@ -22,7 +22,7 @@ export default function Home({}) {
   const handleLogin = () => {
     router.push('/singin');
   };
-    // ########################################## RETURN ##########################################
+// ########################################## RETURN ##########################################
 
     return (
       <>

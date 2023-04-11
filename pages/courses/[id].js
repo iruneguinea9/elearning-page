@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // With this page, each course has it's own page, it has the content of the course and
 // A side navigation bar that allows the user to access the lesson they want to 
-// Last update 06/04/2023 - V13
+// Last update 11/04/2023 - V14
 
 
 // ########################################## IMPORTS ##########################################
@@ -66,8 +66,8 @@ export default function CoursePage() {
     alert("Session has expired, log in again to continue")
     destroyCookie(null, 'token');
     router.push('/singin');}
-  if (!course) return <div className="text-center py-8  bg-gray-900 text-green-600" >Loading course data...</div>;
-  if (!course.lessons) return <div className="text-center py-8  bg-gray-900 text-green-600" >No lessons found for this course.</div>;
+  if (!course) return <div className="text-center py-96  bg-gray-900 text-green-600" >Loading course data...</div>;
+  if (!course.lessons) return <div className="text-center py-96  bg-gray-900 text-green-600" >No lessons found for this course.</div>;
   
 
 
@@ -138,9 +138,9 @@ export default function CoursePage() {
             </ul>
           </div>
           <div className="ml-0 md:ml-200px">
-            <div style={{ position: 'absolute', top: 0, left: 0, zIndex: '1', width: '100%' }}>
+            <div className=" absolute top-0 left-0 z-1 w-full" >
               <div className="mx-auto md:ml-56 lg:mr-96">
-                <div style={{ position: 'absolute', top: 10, left: 10, cursor: 'pointer' }} onClick={() => setShowNav(!showNav)}>
+                <div className="absolute top-2 left-2 cursor-pointer" onClick={() => setShowNav(!showNav)}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="bi bi-play-fill" viewBox="0 0 16 16" id="IconChangeColor">
                     <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" id="mainIconPathAttribute" fill="#ffffff"></path>
                   </svg>

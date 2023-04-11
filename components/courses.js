@@ -1,7 +1,7 @@
 // Name : Courses
 // Author : Irune Guinea
 // This component is to display each of the courses
-// Last update 05/04/2023 - V11
+// Last update 11/04/2023 - V12
 
 
 // ########################################## IMPORTS ##########################################
@@ -37,7 +37,7 @@ const CoursesPage = () => {
   }, []);
 // ########################################## LOADING ##########################################
   if (isLoading) {
-    return <div className="text-center py-8  bg-gray-900 text-green-600 min-h-screen" >Loading...</div>;
+    return <div className="text-center py-92  bg-gray-900 text-green-600 min-h-screen" >Loading...</div>;
   }
 
   // ########################################## RETURN ##########################################

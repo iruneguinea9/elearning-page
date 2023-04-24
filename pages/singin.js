@@ -52,6 +52,8 @@ export default function SignIn() {
       setCookie(null, "token", json.access_token, {
         maxAge: json.expires_in,
         path: "/",
+        sameSite: "none",
+        secure: true
       })
       router.push("/authenticatedindex")
     } else {

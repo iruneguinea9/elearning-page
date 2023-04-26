@@ -59,7 +59,7 @@ function AddCourse() {
     const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
     const datasend = JSON.stringify(formData)
     console.log("DATASEND ####",datasend)
-    const data = await fetcherPost(url, accessToken, formData);  // Fetcher for posting
+    const data = await fetcherPost(url, accessToken, datasend);  // Fetcher for posting
     
     console.log(data)
     if(data!==null){

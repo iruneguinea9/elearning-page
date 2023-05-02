@@ -10,8 +10,6 @@
 
 import { useState, useEffect } from 'react';
 import { parseCookies } from 'nookies';
-import Format from '../layout/format';
-import Login from '../components/loginNeeded';
 import fetcherPut from '../lib/fetcherPut';
 import { useRouter } from "next/router"
 import useSWR from 'swr';
@@ -97,19 +95,11 @@ function EditCourse() {
   const cookies = parseCookies();
   const accessToken = cookies.token;
 
-  if (accessToken === undefined) {
-    return (
-      <>
-        <Login />
-      </>
-    );
-  }
 
     // ########################################## RETURN ##########################################
 
   return (
     <>
-      <Format >
         <div className="m-20 auto max-w-800">
           <h1 className="font-bold text-4xl text-center my-20  text-green-600">Edit the course</h1>
           <form onSubmit={handleSubmit}>
@@ -180,7 +170,6 @@ function EditCourse() {
             </div>
           </form>
         </div>
-      </Format>
     </>
   );
 }

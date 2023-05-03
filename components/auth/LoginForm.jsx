@@ -17,7 +17,7 @@ function LoginForm() {
             return;
         }
         try {
-            const response = await fetch('/api/auth/get-token', {
+            const response = await fetch('/auth/get-token', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

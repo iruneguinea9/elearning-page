@@ -14,7 +14,7 @@ function ForgotPasswordForm() {
             return;
         }
         try {
-            const response = await fetch('/api/auth/request-password-reset', {
+            const response = await fetch('/auth/request-password-reset', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

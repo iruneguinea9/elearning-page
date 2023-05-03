@@ -7,8 +7,6 @@
 // ########################################## IMPORTS ##########################################
 
 import { useState, useEffect } from 'react';
-import Format from '../layout/format';
-import Login from '../components/loginNeeded';
 import fetcherPost from '../lib/fetcherPost';
 import { useRouter } from "next/router"
 import { parseCookies , destroyCookie} from 'nookies';
@@ -95,7 +93,6 @@ function AddCourse() {
 
   return (
     <>
-      <Format >
         <div className="m-20 auto max-w-800">
           <h1 className="font-bold text-4xl text-center my-20  text-green-600">Create a new course</h1>
           <form onSubmit={handleSubmit}>
@@ -166,7 +163,6 @@ function AddCourse() {
             </div>
           </form>
         </div>
-      </Format>
     </>
   );
 }

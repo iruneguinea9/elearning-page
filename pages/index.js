@@ -6,40 +6,38 @@
 
 
 // ########################################## IMPORTS ##########################################
-import Footer from '../components/footer';
 import { useRouter } from 'next/router';
 import { parseCookies } from 'nookies';
+import { DataContext } from "@/src/DataContext";
+import { useState, useEffect, useContext } from 'react';
 
 export default function Home({}) {
+  const { token, logout } = useContext(DataContext);
   const cookies = parseCookies();
   const accessToken = cookies.token;
   const router = useRouter();
-// ################################## REDIRECT IF LOGGED IN ####################################
-  if(accessToken!==undefined){
-    router.push('/authenticatedindex')
 
-  }
+
+
   const handleLogin = () => {
     router.push('/singin');
   };
+
+// ################################## REDIRECT IF LOGGED IN ####################################
+  useEffect(() => {
+    if (token) {
+      console.log("Token");
+      router.push('/authenticatedindex');
+    } else {
+      // This function will run when the component is mounted
+      console.log('Page loaded');
+    }
+  }, [token]);
 // ########################################## RETURN ##########################################
 
     return (
       <>
       <section className="relative bg-gray-900 overflow-hidden">
-        <header>
-          <nav className="relative px-6 py-6 flex justify-between items-center">
-            <a className="text-white text-3xl font-bold leading-none" href="/">
-              <h1 className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center cursor-pointer hover:scale-105 transition duration-300">eLearning platform</h1>
-            </a>
-            <div className="lg:hidden">
-              <button className="navbar-burger flex items-center text-white p-3" onClick={handleLogin}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-              </button>
-            </div>
-            <a className="hidden lg:inline-block py-2 px-6 bg-green-600 hover:bg-green-700 text-white font-bold rounded-l-xl rounded-t-xl transition duration-200"  onClick={handleLogin}>Log in</a>
-          </nav>
-        </header>
         <div className="relative pt-20 pb-20">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap -mx-4">
@@ -56,7 +54,7 @@ export default function Home({}) {
 
                       Please log in to access the courses.</p>
                     <div>
-                      <a className="inline-block mb-3 lg:mb-0 lg:mr-3 w-full lg:w-auto py-2 px-6 leading-loose bg-green-600 hover:bg-green-700 text-white font-semibold rounded-l-xl rounded-t-xl transition duration-200" href="/singin">Log in</a>
+                      <a className="inline-block mb-3 lg:mb-0 lg:mr-3 w-full lg:w-auto py-2 px-6 leading-loose bg-green-600 hover:bg-green-700 text-white font-semibold rounded-l-xl rounded-t-xl transition duration-200" href="/auth/login">Log in</a>
                     </div>
                   </div>
                 </div>
@@ -68,7 +66,6 @@ export default function Home({}) {
           </div>
         </div>
       </section>
-      <Footer/>
       </>
     );
   }

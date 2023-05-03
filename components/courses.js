@@ -5,29 +5,32 @@
 
 
 // ########################################## IMPORTS ##########################################
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import fetcher from '../lib/fetcher';
 import { parseCookies ,destroyCookie} from 'nookies';
 import { useRouter } from 'next/router';
+import { DataContext } from "@/src/DataContext";
 
 const CoursesPage = () => {
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+  const { token } = useContext(DataContext);
+
   useEffect(() => {
     const getCourses = async () => {
       try {
         const cookies = parseCookies();
-        const accessToken = cookies.token;
         const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
-        const coursesData = await fetcher(url, accessToken);
+        const coursesData = await fetcher(url, token);
         setCourses(coursesData);
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
+        //TODO Create error messages in DOM, do not use alerts outside development
         alert("Session has expired, log in again to continue")
         destroyCookie(null, 'token');
-        router.push('/singin');
+        router.push('/auth/login');
       }
     };
 

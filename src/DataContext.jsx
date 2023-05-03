@@ -16,7 +16,7 @@ export const UserDataProvider = ({ children }) => {
 
   async function logout() {
     try {
-      const response = await fetch('/auth/logout', {
+      const response = await fetch('/api/auth/logout', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ export const UserDataProvider = ({ children }) => {
   useEffect(() => {
     async function getCookieToken() {
       try {
-        const response = await fetch('/auth/token', {
+        const response = await fetch('/api/auth/login', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ export const UserDataProvider = ({ children }) => {
     getCookieToken();
 
     async function getUserData(token) {
-      const response = await fetch('/auth/user', {
+      const response = await fetch('/api/auth/user', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

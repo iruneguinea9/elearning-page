@@ -20,7 +20,6 @@ const CoursesPage = () => {
   useEffect(() => {
     const getCourses = async () => {
       try {
-        const cookies = parseCookies();
         const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
         const coursesData = await fetcher(url, token);
         setCourses(coursesData);

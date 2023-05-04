@@ -3,7 +3,7 @@ export default async function get_token(req, res) {
 
   const { username, password } = req.body
   const API_URL = process.env.API_URL
-  const CLIENT_ID = process.env.API_CLIENT_ID
+  const CLIENT_ID = process.env.AUTH_CLIENT_ID
 
   const credentials = {
     grant_type: "password",

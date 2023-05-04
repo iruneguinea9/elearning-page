@@ -28,7 +28,7 @@ export default function CoursePage() {
 
   // ########################################## FETCHING ##########################################
   const { data: course, error } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`,
+    `${process.env.API_URL}/courses/${id}`,
     (url) => fetcher(url, cookies.token)
   );
 
@@ -44,7 +44,7 @@ export default function CoursePage() {
   };
   const callDelete = async () => {
     try {
-      await fetcherDelete(`${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`, cookies.token);
+      await fetcherDelete(`${process.env.API_URL}/courses/${id}`, cookies.token);
       router.push('/authenticatedindex');
     } catch (error) {
       console.error(error);

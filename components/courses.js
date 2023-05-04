@@ -20,7 +20,7 @@ const CoursesPage = () => {
   useEffect(() => {
     const getCourses = async () => {
       try {
-        const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
+        const url = `${process.env.API_URL}/courses`;
         const coursesData = await fetcher(url, token);
         setCourses(coursesData);
         setIsLoading(false);

@@ -25,7 +25,7 @@ export default function AuthenticatedIndex() {
   useEffect(() => {
     if (!token) {
       console.log("no token");
-      router.push('/auth/login');
+      router.push('/api/auth/login');
     } else {
       // This function will run when the component is mounted
       console.log('Page loaded');

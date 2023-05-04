@@ -20,7 +20,7 @@ export default function Home({}) {
 
 
   const handleLogin = () => {
-    router.push('/singin');
+    router.push('/api/auth/login');
   };
 
 // ################################## REDIRECT IF LOGGED IN ####################################

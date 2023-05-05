@@ -16,20 +16,24 @@ const CoursesPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   const { token } = useContext(DataContext);
-
+  const API_URL = process.env.API_URL;
+  console.log("API_URL -> ",API_URL);
+  const url = `${API_URL}/courses`;
   useEffect(() => {
     const getCourses = async () => {
       try {
-        const url = `${process.env.API_URL}/courses`;
+        
         const coursesData = await fetcher(url, token);
         setCourses(coursesData);
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
         //TODO Create error messages in DOM, do not use alerts outside development
-        alert("Session has expired, log in again to continue")
+        alert("Session has expired, log in again to continue HERE")
         destroyCookie(null, 'token');
+        console.log(error);
         router.push('/auth/login');
+        
       }
     };
 

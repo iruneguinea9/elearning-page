@@ -1,7 +1,7 @@
 export default async function reset_password(req, res) {
 
     const { password, token } = req.body
-    const API_URL = process.env.API_URL
+    const API_URL = process.env.NEXT_PUBLIC_API_URL
 
     console.log(password, token)
     try {

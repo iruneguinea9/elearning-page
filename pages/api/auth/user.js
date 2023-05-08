@@ -3,7 +3,7 @@ import fetch from 'isomorphic-unfetch'
 export default async (req, res) => {
   // const { id } = req.query
   const { token } = req.headers
-  const API_URL = process.env.API_URL
+  const API_URL = process.env.NEXT_PUBLIC_API_URL
 
   // console.log(token);
   try {

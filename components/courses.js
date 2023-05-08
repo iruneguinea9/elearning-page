@@ -6,17 +6,18 @@
 
 // ########################################## IMPORTS ##########################################
 import { useState, useEffect, useContext } from 'react';
-import fetcher from '../lib/fetcher';
+import fetcher from '../pages/api/fetcher';
 import { parseCookies ,destroyCookie} from 'nookies';
 import { useRouter } from 'next/router';
 import { DataContext } from "@/src/DataContext";
+
 
 const CoursesPage = () => {
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   const { token } = useContext(DataContext);
-  const API_URL = process.env.API_URL;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   console.log("API_URL -> ",API_URL);
   const url = `${API_URL}/courses`;
   useEffect(() => {

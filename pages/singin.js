@@ -39,7 +39,7 @@ export default function SignIn() {
       };
       const formData = new URLSearchParams(credentials);
       // ########################################## FETCHING ##########################################
-    const res = await fetch(`${process.env.API_URL}/auth/token`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/token`, {
       method: "POST",
       body: formData,
       headers: {

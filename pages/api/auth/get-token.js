@@ -2,16 +2,17 @@
 export default async function get_token(req, res) {
 
   const { username, password } = req.body
-  const API_URL = process.env.API_URL
+  const API_URL = process.env.NEXT_PUBLIC_API_URL
   const CLIENT_ID = process.env.AUTH_CLIENT_ID
+  const CLIENT_SECRET = process.env.AUTH_SECRET_KEY
 
   const credentials = {
     grant_type: "password",
     username: username,
     password: password,
-    scope: "me user",
+    scope: "me user admin",
     client_id: CLIENT_ID,
-    client_secret: ""
+    client_secret:CLIENT_SECRET
   };
   const formData = new URLSearchParams(credentials);
   // console.log(formData)
@@ -27,6 +28,7 @@ export default async function get_token(req, res) {
 
     if (!response.ok) {
       res.status(response.status).json({ message: await response.json() })
+      
     }
      else {
       const data = await response.json();

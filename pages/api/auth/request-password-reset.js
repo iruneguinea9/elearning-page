@@ -1,7 +1,7 @@
 export default async function request_pasword_reset(req, res) {
 
     const { email } = req.body
-    const API_URL = process.env.API_URL
+    const API_URL = process.env.NEXT_PUBLIC_API_URL
     
     // console.log(formData)
     try {

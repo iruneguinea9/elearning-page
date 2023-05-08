@@ -29,8 +29,6 @@ const CoursesPage = () => {
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
-        //TODO Create error messages in DOM, do not use alerts outside development
-        alert("Session has expired, log in again to continue HERE")
         destroyCookie(null, 'token');
         console.log(error);
         router.push('/auth/login');

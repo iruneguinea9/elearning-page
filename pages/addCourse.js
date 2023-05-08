@@ -7,7 +7,7 @@
 // ########################################## IMPORTS ##########################################
 
 import { useState, useEffect } from 'react';
-import fetcherPost from '../lib/fetcherPost';
+import fetcherPost from './api/fetcherPost';
 import { useRouter } from "next/router"
 import { parseCookies , destroyCookie} from 'nookies';
 
@@ -54,7 +54,7 @@ function AddCourse() {
     e.preventDefault();
     const cookies = parseCookies();
     const accessToken = cookies.token;
-    const url = `${process.env.API_URL}/courses`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
     const datasend = JSON.stringify(formData)
     console.log("DATASEND ####",datasend)
     const data = await fetcherPost(url, accessToken, datasend);  // Fetcher for posting

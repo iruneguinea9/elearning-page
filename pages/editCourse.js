@@ -10,7 +10,7 @@
 
 import { useState, useEffect } from 'react';
 import { parseCookies } from 'nookies';
-import fetcherPut from '../lib/fetcherPut';
+import fetcherPut from './api/fetcherPut';
 import { useRouter } from "next/router"
 import useSWR from 'swr';
 
@@ -20,7 +20,7 @@ function EditCourse() {
     const router = useRouter()
     const id = router.query.courseData ? router.query.courseData.replace(/"/g, '') : null;
     const { data: course, error } = useSWR(
-        `${process.env.API_URL}/courses/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`,
         (url) => fetcher(url, cookies.token)
       );
       console.log(id)
@@ -59,7 +59,7 @@ function EditCourse() {
     
     const cookies = parseCookies();
     const accessToken = cookies.token;
-    const url = `${process.env.API_URL}/courses/${id}`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`;
     const datasend = JSON.stringify(formData)
     
     const data = await fetcherPut(url, accessToken, datasend);  // Fetcher for updating

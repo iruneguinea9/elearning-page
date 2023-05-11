@@ -5,13 +5,11 @@ export default async function get_token(req, res) {
   const API_URL = process.env.NEXT_PUBLIC_API_URL
   const CLIENT_ID = process.env.AUTH_CLIENT_ID
   const CLIENT_SECRET = process.env.AUTH_SECRET_KEY
-  const SCOPE = username === "johndoe" ? "me user admin" : "me user"; 
 
   const credentials = {
     grant_type: "password",
     username: username,
     password: password,
-    scope: SCOPE,
     client_id: CLIENT_ID,
     client_secret:CLIENT_SECRET
   };

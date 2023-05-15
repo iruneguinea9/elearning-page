@@ -6,20 +6,22 @@
 
 
 // ########################################## IMPORTS ##########################################
-import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import fetcher from '../api/fetcher';
 import fetcherDelete from '../api/fetcherDelete';
 import useSWR from 'swr';
 import { parseCookies, destroyCookie } from 'nookies';
-import Format from '../../layout/format';
 import Login from '../../components/loginNeeded';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { useState, useEffect, useContext } from 'react';
+import { DataContext } from "@/src/DataContext";
+
 
 export default function CoursePage() {
   const router = useRouter();
   const { id } = router.query;
+  const { token } = useContext(DataContext);
   const [cookies, setCookies] = useState({});
 
   useEffect(() => {
@@ -29,7 +31,7 @@ export default function CoursePage() {
   // ########################################## FETCHING ##########################################
   const { data: course, error } = useSWR(
     `${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`,
-    (url) => fetcher(url, cookies.token)
+    (url) => fetcher(url, token)
   );
 
   const [selectedLesson, setSelectedLesson] = useState(null);
@@ -59,9 +61,7 @@ export default function CoursePage() {
   };
 
   // #################################### OTHER POSSIBLE RETURNS ################################
-  if (cookies.token === undefined) {
-    return <Login />;
-  }
+
   if (error) {
     alert("Session has expired, log in again to continue")
     destroyCookie(null, 'token');
@@ -117,7 +117,6 @@ export default function CoursePage() {
   // ########################################## RETURN ##########################################
   return (
     <>
-      <Format>
         <div className="relative">
           <div className="bg-green-400 absolute top-0 left-0 z-10 h-90vh w-0 overflow-hidden transition-all duration-500 ease-in-out" style={{ width: showNav ? '200px' : '0px' }}>
             <ul className="list-none p-0">
@@ -184,7 +183,7 @@ export default function CoursePage() {
               </div>
             </div>
           </div>
-      </Format>
+
     </>
   );
 }

@@ -5,7 +5,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="bg-gray-900 pb-16">{children}</main>
       <Footer />
     </>
   )

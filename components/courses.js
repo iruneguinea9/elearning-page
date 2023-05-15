@@ -19,12 +19,19 @@ const CoursesPage = () => {
   const { token } = useContext(DataContext);
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
   console.log("API_URL -> ",API_URL);
-  const url = `${API_URL}/courses`;
+  const url = `${API_URL}/users/me`;
+  
   useEffect(() => {
     const getCourses = async () => {
       try {
-        
-        const coursesData = await fetcher(url, token);
+         // Fetch user information
+         const userData = await fetcher(url, token);
+         const user_id = userData._id;
+ 
+         // Fetch courses using the user_id
+         const coursesUrl = `${API_URL}/users/${user_id}/courses`;
+         const coursesData = await fetcher(coursesUrl, token);
+
         setCourses(coursesData);
         setIsLoading(false);
       } catch (error) {

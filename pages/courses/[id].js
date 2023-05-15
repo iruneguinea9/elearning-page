@@ -117,7 +117,7 @@ export default function CoursePage() {
   // ########################################## RETURN ##########################################
   return (
     <>
-        <div className="relative">
+        <div className="relative min-h-screen">
           <div className="bg-green-400 absolute top-0 left-0 z-10 h-90vh w-0 overflow-hidden transition-all duration-500 ease-in-out" style={{ width: showNav ? '200px' : '0px' }}>
             <ul className="list-none p-0">
               {course.lessons.map((lesson) => (

@@ -1,7 +1,7 @@
 // Name : Authenticated index
 // Author : Irune Guinea
 // This is an index page but for the already authenticated users
-// Last update 30/03/2023 - V12
+// Last update 15/05/2023 - V13
 
 
 // ########################################## IMPORTS ##########################################
@@ -31,7 +31,6 @@ export default function AuthenticatedIndex() {
       console.log("no token");
       router.push('/auth/login');
     } else {
-      // This function will run when the component is mounted
       const fetchUser = async () => {
         try {
           const userData = await fetcher(`${API_URL}/users/me`, token);
@@ -39,7 +38,6 @@ export default function AuthenticatedIndex() {
           console.log(userData);
         } catch (error) {
           console.error(error);
-          // Handle error and redirect if needed
         }
       };
 

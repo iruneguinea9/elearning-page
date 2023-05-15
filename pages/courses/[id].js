@@ -2,7 +2,7 @@
 // Author : Irune Guinea
 // With this page, each course has it's own page, it has the content of the course and
 // A side navigation bar that allows the user to access the lesson they want to 
-// Last update 11/04/2023 - V16
+// Last update 15/05/2023 - V17
 
 
 // ########################################## IMPORTS ##########################################
@@ -23,8 +23,21 @@ export default function CoursePage() {
   const { id } = router.query;
   const { token } = useContext(DataContext);
   const [cookies, setCookies] = useState({});
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const userData = await fetcher(`${API_URL}/users/me`, token);
+        setUser(userData);
+        console.log(userData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchUser();
     setCookies(parseCookies());
   }, []);
 
@@ -176,9 +189,10 @@ export default function CoursePage() {
                       </button>
                     </div>
                   )}
+                  {user && user.type === 'admin' && (
                   <button className={"fixed bottom-16 right-5 bg-green-400 hover:bg-green-600 text-white  rounded-full cursor-pointer text-center transition-all duration-200 ease-in-out transform hover:scale-110"} onClick={() => setShowButtons(!showButtons)}>
                     <FontAwesomeIcon icon={faCog} />
-                  </button>
+                  </button>)}
                 </div>
               </div>
             </div>

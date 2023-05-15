@@ -1,7 +1,7 @@
 // Name : Courses
 // Author : Irune Guinea
 // This component is to display each of the courses
-// Last update 24/04/2023 - V13
+// Last update 15/05/2023 - V14
 
 
 // ########################################## IMPORTS ##########################################

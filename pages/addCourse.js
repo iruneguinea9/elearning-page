@@ -6,11 +6,11 @@
 
 // ########################################## IMPORTS ##########################################
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import fetcherPost from './api/fetcherPost';
 import { useRouter } from "next/router"
 import { parseCookies , destroyCookie} from 'nookies';
-
+import { DataContext } from "@/src/DataContext";
 // ########################################## FUNCTION ##########################################
 
 
@@ -22,15 +22,6 @@ function AddCourse() {
     disabled: false,
   });
   const router = useRouter()
-  useEffect(() => {
-    const cookies = parseCookies();
-    const accessToken = cookies.token;
-
-    if (accessToken === undefined) {
-      router.push("/");
-      return;
-    }
-  }, [router]);
   
   /*########################### TROUBLESHOOTING ################################# */
 
@@ -52,12 +43,11 @@ function AddCourse() {
 /*################################## SUBMIT ######################################*/
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const cookies = parseCookies();
-    const accessToken = cookies.token;
+
     const url = `${process.env.NEXT_PUBLIC_API_URL}/courses`;
     const datasend = JSON.stringify(formData)
     console.log("DATASEND ####",datasend)
-    const data = await fetcherPost(url, accessToken, datasend);  // Fetcher for posting
+    const data = await fetcherPost(url, token, datasend);  // Fetcher for posting
     
     console.log(data)
     if(data!==null){
@@ -93,7 +83,7 @@ function AddCourse() {
 
   return (
     <>
-        <div className="m-20 auto max-w-800">
+        <div className="m-20 auto max-w-screen-2xl">
           <h1 className="font-bold text-4xl text-center my-20  text-green-600">Create a new course</h1>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col justify-between mx-auto">

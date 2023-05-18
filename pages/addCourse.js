@@ -22,12 +22,11 @@ function AddCourse() {
     disabled: false,
   });
   const router = useRouter()
-  
+  const { token } = useContext(DataContext);
   /*########################### TROUBLESHOOTING ################################# */
 
   try {
     // If there is an error, it logs out
-
   } catch (error) {
     alert("Session has expired, log in again to continue")
     destroyCookie(null, 'token');
@@ -82,9 +81,8 @@ function AddCourse() {
   // ########################################## RETURN ##########################################
 
   return (
-    <>
-        <div className="m-20 auto max-w-screen-2xl">
-          <h1 className="font-bold text-4xl text-center my-20  text-green-600">Create a new course</h1>
+    <> <h1 className="font-bold text-4xl text-center text-green-600">Create a new course</h1>
+        <div className="m-20 auto max-w-screen-2xl">          
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col justify-between mx-auto">
               <div className="flex flex-col mb-4">

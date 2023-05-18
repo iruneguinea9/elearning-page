@@ -8,20 +8,22 @@
 
 // ########################################## IMPORTS ##########################################
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { parseCookies } from 'nookies';
 import fetcherPut from './api/fetcherPut';
 import { useRouter } from "next/router"
 import useSWR from 'swr';
+import { DataContext } from "@/src/DataContext";
 
 // ########################################## FUNCTION ##########################################
 
 function EditCourse() {
     const router = useRouter()
+    const { token } = useContext(DataContext);
     const id = router.query.courseData ? router.query.courseData.replace(/"/g, '') : null;
     const { data: course, error } = useSWR(
         `${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`,
-        (url) => fetcher(url, cookies.token)
+        (url) => fetcher(url, token)
       );
       console.log(id)
   const [formData, setFormData] = useState({
@@ -56,13 +58,10 @@ function EditCourse() {
 /*################################## SUBMIT ######################################*/
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    const cookies = parseCookies();
-    const accessToken = cookies.token;
     const url = `${process.env.NEXT_PUBLIC_API_URL}/courses/${id}`;
     const datasend = JSON.stringify(formData)
     
-    const data = await fetcherPut(url, accessToken, datasend);  // Fetcher for updating
+    const data = await fetcherPut(url, token, datasend);  // Fetcher for updating
     console.log(data)
     if(data!==null){
       alert(`The course ${formData.title} has been updated!`)
@@ -92,16 +91,13 @@ function EditCourse() {
     setFormData({ ...formData, lessons });
   };
 
-  const cookies = parseCookies();
-  const accessToken = cookies.token;
 
 
     // ########################################## RETURN ##########################################
 
   return (
-    <>
-        <div className="m-20 auto max-w-800">
-          <h1 className="font-bold text-4xl text-center my-20  text-green-600">Edit the course</h1>
+    <>  <h1 className="font-bold text-4xl text-center my-20  text-green-600">Edit the course</h1>
+        <div className="m-20 auto max-w-800">          
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col justify-between mx-auto">
               <div className="flex flex-col mb-4">
